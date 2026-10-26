@@ -70,14 +70,11 @@
         <p class="hero__lede">The best ones were accidents.<br><span class="red">Ours are on purpose.</span></p>
       </div>
       <div class="cg hero__cg" data-mouse>
-        <div class="pc" style="--x:46%;--y:6%;--w:54%;--r:3deg" data-speed=".04" data-depth="10" aria-hidden="true"><img class="snip" style="--clip:polygon(0 0,100% 0,100% 86%,70% 99%,0 90%)" src="img/hero-guy.webp" width="900" height="1082" alt=""></div>
-        <!-- the speech bubble comes out of his mouth: the tail's tip lands near (62%, 47%) of the collage -->
-        <button type="button" class="pc bubble" id="play" style="--x:0%;--y:6%;--w:62%" data-depth="-8" aria-label="Play the gaffe story">
-          <span class="bubble__in">
-            <svg class="bubble__shape" viewBox="0 0 220 170" aria-hidden="true"><path d="M100 6C153 6 196 35 196 72c0 22-15 41-38 53l60 25-82-14c-11 3-23 4-36 4C47 140 4 111 4 72S47 6 100 6z"/></svg>
-            <span class="bubble__tri" aria-hidden="true"></span>
-          </span>
+        <button type="button" class="pc play" id="play" style="--x:0%;--y:8%;--w:66%" data-depth="-8" aria-label="Play the gaffe story">
+          <span class="shape burst spin" style="--c:var(--yellow)"></span>
+          <span class="play__tri" aria-hidden="true"></span>
         </button>
+        <div class="pc" style="--x:46%;--y:6%;--w:54%;--r:3deg" data-speed=".04" data-depth="10" aria-hidden="true"><img class="snip" style="--clip:polygon(0 0,100% 0,100% 86%,70% 99%,0 90%)" src="img/hero-guy.webp" width="900" height="1082" alt=""></div>
         <div class="pc" style="--x:2%;--y:78%;--r:-5deg;font-size:5.4cqw" data-speed=".1" data-depth="18" aria-hidden="true"><b class="strip pop" style="--r:0deg">press play</b></div>
         <div class="pc" style="--x:50%;--y:90%;--r:4deg;font-size:4.6cqw" data-speed=".12" data-depth="14" aria-hidden="true"><b class="strip strip--red">Keep it interesting.</b></div>
       </div>
@@ -126,7 +123,7 @@
 </main>
 
 
-<!-- ================= PAGE: THE GAFFE STORY (opens from the speech bubble) ================= -->
+<!-- ================= PAGE: THE GAFFE STORY (opens from the play button) ================= -->
 <article class="case story" id="story" hidden>
   <!-- ================= THE GAFFE STORY, SIDEWAYS (pinned: scrolling down walks it along) ================= -->
   <section class="side" id="idea" aria-label="The gaffe idea, told sideways">

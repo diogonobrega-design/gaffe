@@ -350,7 +350,7 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
   .cl__txt,.cl__txt i,.cl__arr{transition:none}
 }
 
-/* ============ v9: speech-bubble play, animated nav, case previews, contact form ============ */
+/* ============ v9: animated nav, case previews, contact form ============ */
 .skip{position:absolute;left:-999px;top:12px;z-index:100;background:var(--ink);color:var(--paper);padding:.6em 1em;font-weight:700}
 .skip:focus{left:12px}
 
@@ -377,16 +377,12 @@ ul,ol,dl,dd{margin:0;padding:0;list-style:none}
 .burger[aria-expanded="true"] .burger__lines::before{transform:rotate(45deg)}
 .burger[aria-expanded="true"] .burger__lines::after{transform:rotate(-45deg)}
 
-/* ---------- hero: the play button is his speech bubble ---------- */
-.bubble{display:block;background:none;border:0;padding:0;cursor:pointer;color:inherit;z-index:2}
-.bubble__in{display:block;position:relative;transform-origin:96% 86%;animation:talk 2.6s ease-in-out infinite}
-@keyframes talk{0%,100%{transform:rotate(0) scale(1)}40%{transform:rotate(-2deg) scale(1.035)}60%{transform:rotate(1deg) scale(.99)}}
-.bubble__shape{width:100%;height:auto;overflow:visible;fill:var(--yellow);stroke:var(--ink);stroke-width:4;stroke-linejoin:round;transition:fill .2s}
-.bubble__tri{position:absolute;left:45.5%;top:42%;width:21%;aspect-ratio:1;background:var(--ink);clip-path:polygon(16% 4%,98% 50%,16% 96%);transform:translate(-42%,-50%);transition:transform .3s cubic-bezier(.3,1.6,.5,1),background .2s}
-.bubble:hover .bubble__shape,.bubble:focus-visible .bubble__shape{fill:var(--red)}
-.bubble:hover .bubble__tri,.bubble:focus-visible .bubble__tri{transform:translate(-42%,-50%) scale(1.25);background:var(--paper)}
-.bubble:focus-visible{outline:none}
-.bubble:focus-visible .bubble__shape{stroke:var(--blue)}
+/* ---------- hero: the play button, a spinning star ---------- */
+.play{display:block;background:none;border:0;padding:0;cursor:pointer;color:inherit;border-radius:50%}
+.play .shape{display:block}
+.play__tri{position:absolute;left:50%;top:50%;width:25%;aspect-ratio:1;background:var(--ink);clip-path:polygon(16% 4%,98% 50%,16% 96%);transform:translate(-42%,-50%);transition:transform .3s cubic-bezier(.3,1.6,.5,1),background .2s}
+.play:hover .play__tri,.play:focus-visible .play__tri{transform:translate(-42%,-50%) scale(1.22);background:var(--red)}
+.play:hover .shape{animation-duration:9s}
 
 /* ---------- the walkers follow the red line ---------- */
 #idea{scroll-margin-top:var(--top)}
@@ -462,8 +458,8 @@ a.reach__line:hover{background:var(--red)}
   .form__row{grid-template-columns:minmax(0,1fr)}
 }
 @media (prefers-reduced-motion:reduce){
-  .top__logo,.nav a,.burger,.bubble__in,.fab__dot{animation:none}
-  .bubble__tri,.cl__pv,.fab,.nav,.nav a{transition:none}
+  .top__logo,.nav a,.burger,.fab__dot{animation:none}
+  .play__tri,.cl__pv,.fab,.nav,.nav a{transition:none}
 }
 
 /* ---------- about: cut-outs popping out of a spinning star ---------- */

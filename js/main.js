@@ -7,7 +7,7 @@
   function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
   function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
 
-  /* ---------- the side-scroller: its own page, opened from the speech bubble ---------- */
+  /* ---------- the side-scroller: its own page, opened from the play button ---------- */
   var story = cases.story;
   var side = document.getElementById('idea');
   var stick = side.querySelector('.side__sticky');
@@ -89,7 +89,7 @@
     if (sideways) { window.scrollBy({ top: (tx - x) / RATIO * 1.6, behavior: 'instant' }); tx = x; ty = y; }
   }, { passive: true });
 
-  /* ---------- play: the speech bubble walks the story on its own, any input takes over ---------- */
+  /* ---------- play: the button walks the story on its own, any input takes over ---------- */
   var playing = 0;
   var takeover = ['wheel', 'touchstart', 'keydown', 'pointerdown'];
   function stopPlay() {
