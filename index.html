@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>gaffe · Keep it interesting</title>
+<meta name="description" content="gaffe is the creative studio that crosses out the obvious answer. Strategy, copy, design, image and digital.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Jost:ital,wght@0,400;0,500;0,700;0,900;1,500;1,700;1,800;1,900&family=Tiro+Devanagari+Sanskrit&display=swap">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="img/favicon-512.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#ffffff">
+<!-- link previews (WhatsApp, LinkedIn, iMessage…): switch the URLs to the real domain once it's live -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="gaffe">
+<meta property="og:title" content="gaffe · Keep it interesting">
+<meta property="og:description" content="The creative studio that crosses out the obvious answer. Strategy, copy, design, image and digital.">
+<meta property="og:url" content="https://diogonobrega-design.github.io/gaffe-site/">
+<meta property="og:image" content="https://diogonobrega-design.github.io/gaffe-site/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- one wheel, used on the ARA project and in its case study -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="wheel" viewBox="0 0 400 400">
+    <g fill="none" stroke="currentColor" stroke-width="5">
+      <line x1="200" y1="200" x2="200" y2="22"></line>
+      <line x1="200" y1="200" x2="200" y2="22" transform="rotate(60 200 200)"></line>
+      <line x1="200" y1="200" x2="200" y2="22" transform="rotate(90 200 200)"></line>
+      <line x1="200" y1="200" x2="200" y2="22" transform="rotate(120 200 200)"></line>
+      <line x1="200" y1="200" x2="200" y2="22" transform="rotate(150 200 200)"></line>
+      <line x1="200" y1="200" x2="200" y2="22" transform="rotate(180 200 200)"></line>
+      <line x1="200" y1="200" x2="200" y2="22" transform="rotate(210 200 200)"></line>
+      <line x1="200" y1="200" x2="200" y2="22" transform="rotate(240 200 200)"></line>
+      <line x1="200" y1="200" x2="200" y2="22" transform="rotate(270 200 200)"></line>
+      <line x1="200" y1="200" x2="200" y2="22" transform="rotate(300 200 200)"></line>
+      <line x1="200" y1="200" x2="200" y2="22" transform="rotate(330 200 200)"></line>
+      <circle cx="200" cy="200" r="180" stroke-width="14"></circle>
+      <line x1="200" y1="200" x2="200" y2="27" stroke-width="14" transform="rotate(30 200 200)" style="stroke:var(--red)"></line>
+    </g>
+    <circle cx="200" cy="200" r="30" fill="currentColor"></circle>
+  </symbol>
+</svg>
+
+
+<a class="skip" href="#home">Skip to content</a>
+
+<header class="top">
+  <a class="top__logo" href="#top" data-go="home" aria-label="gaffe, home"><img src="img/logo.png" width="900" height="367" alt="gaffe"></a>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="#work" data-go="work" data-spy="work" style="--i:0"><span>Work</span></a>
+    <a href="#services" data-go="services" data-spy="services" style="--i:1"><span>What we make</span></a>
+    <a href="#about" data-go="about" data-spy="about" style="--i:2"><span>About</span></a>
+    <a class="nav__cta" href="#contact" data-go="contact" data-spy="contact" style="--i:3"><span>Contact</span></a>
+  </nav>
+  <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="nav"><span class="burger__lines" aria-hidden="true"></span><span class="vh">Menu</span></button>
+</header>
+
+<main id="home">
+
+  <section class="sec hero" id="top" data-in>
+    <div class="wrap hero__grid">
+      <div class="hero__txt">
+        <p class="lbl soft">Creative studio / keep it interesting</p>
+        <h1 class="d">How many stories<br>started <br class="br-m">with a<br><s class="x">mistake</s> <br class="br-m"><span class="gaffe pop">gaffe?</span></h1>
+        <p class="hero__lede">The best ones were accidents.<br><span class="red">Ours are on purpose.</span></p>
+      </div>
+      <div class="cg hero__cg" data-mouse>
+        <div class="pc" style="--x:46%;--y:6%;--w:54%;--r:3deg" data-speed=".04" data-depth="10" aria-hidden="true"><img class="snip" style="--clip:polygon(0 0,100% 0,100% 86%,70% 99%,0 90%)" src="img/hero-guy.webp" width="900" height="1082" alt=""></div>
+        <!-- the speech bubble comes out of his mouth: the tail's tip lands near (62%, 47%) of the collage -->
+        <button type="button" class="pc bubble" id="play" style="--x:0%;--y:6%;--w:62%" data-depth="-8" aria-label="Play the gaffe story">
+          <span class="bubble__in">
+            <svg class="bubble__shape" viewBox="0 0 220 170" aria-hidden="true"><path d="M100 6C153 6 196 35 196 72c0 22-15 41-38 53l60 25-82-14c-11 3-23 4-36 4C47 140 4 111 4 72S47 6 100 6z"/></svg>
+            <span class="bubble__tri" aria-hidden="true"></span>
+          </span>
+        </button>
+        <div class="pc" style="--x:2%;--y:78%;--r:-5deg;font-size:5.4cqw" data-speed=".1" data-depth="18" aria-hidden="true"><b class="strip pop" style="--r:0deg">press play</b></div>
+        <div class="pc" style="--x:50%;--y:90%;--r:4deg;font-size:4.6cqw" data-speed=".12" data-depth="14" aria-hidden="true"><b class="strip strip--red">Keep it interesting.</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WORK ================= -->
+  <section class="sec" id="work" aria-labelledby="work-h" data-in>
+    <div class="wrap">
+      <div class="work__top">
+        <h2 class="sub" id="work-h">our work<span class="red">.</span></h2>
+        <p class="lbl soft">4 projects</p>
+      </div>
+      <ul class="cl">
+        <li><a class="cl__row" href="#ara" data-go="ara">
+          <span class="cl__n lbl">01</span>
+          <span class="cl__txt"><b>ARA.</b> <i>The spoke of a wheel.</i></span>
+          <span class="cl__tag lbl soft">Healthcare / Brand concept</span>
+          <span class="cl__arr" aria-hidden="true">→</span>
+          <span class="cl__pv" style="--c:var(--yellow)" aria-hidden="true"><svg class="wheel spin" viewBox="0 0 400 400"><use href="#wheel"></use></svg></span>
+        </a></li>
+        <li><a class="cl__row" href="#sanjo" data-go="sanjo">
+          <span class="cl__n lbl">02</span>
+          <span class="cl__txt"><b>SANJO.</b> <i>Tradition is worn on your feet.</i></span>
+          <span class="cl__tag lbl soft">Footwear / Campaign</span>
+          <span class="cl__arr" aria-hidden="true">→</span>
+          <span class="cl__pv cl__pv--img" aria-hidden="true"><img src="img/sanjo-kv.webp" width="1800" height="808" alt="" loading="lazy"></span>
+        </a></li>
+        <li><a class="cl__row" href="#aquainn" data-go="aquainn">
+          <span class="cl__n lbl">03</span>
+          <span class="cl__txt"><b>AQUAINN.</b> <i>The best 5 minutes of your life.</i></span>
+          <span class="cl__tag lbl soft">Hospitality / Strategy &amp; activation</span>
+          <span class="cl__arr" aria-hidden="true">→</span>
+          <span class="cl__pv cl__pv--logo" style="--c:var(--blue)" aria-hidden="true"><img src="img/aquainn-logo-2.png" width="1000" height="283" alt="" loading="lazy"></span>
+        </a></li>
+        <li><div class="cl__row cl__row--soon">
+          <span class="cl__n lbl">04</span>
+          <span class="cl__txt"><b>RUA.</b> <i>Coming down the street.</i></span>
+          <span class="cl__tag lbl soft">In the works</span>
+          <span class="cl__soon strip strip--red">soon</span>
+          <span class="cl__pv cl__pv--soon" style="--c:var(--red)" aria-hidden="true"><b class="strip">soon!</b></span>
+        </div></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+
+<!-- ================= PAGE: THE GAFFE STORY (opens from the speech bubble) ================= -->
+<article class="case story" id="story" hidden>
+  <!-- ================= THE GAFFE STORY, SIDEWAYS (pinned: scrolling down walks it along) ================= -->
+  <section class="side" id="idea" aria-label="The gaffe idea, told sideways">
+    <div class="side__sticky">
+      <div class="side__view" tabindex="0">
+        <div class="side__track">
+
+          <div class="scene s-acc">
+            <p class="lbl">Three things nobody meant to invent</p>
+            <div class="acc__row">
+              <article class="acc">
+                <div class="cg" aria-hidden="true">
+                  <div class="pc" style="--x:44%;--y:-4%;--w:56%" data-hspeed=".02"><div class="shape burst spin" style="--c:var(--red)"></div></div>
+                  <div class="pc" style="--x:12%;--y:20%;--w:72%;--r:-3deg" data-hspeed=".04"><img class="lift" src="img/acc-microwave.webp" width="900" height="675" alt=""></div>
+                </div>
+                <h2>microwave<sup>*</sup></h2>
+                <p><b class="red">*</b> A chocolate bar melted in an engineer's pocket.</p>
+              </article>
+              <article class="acc">
+                <div class="cg" aria-hidden="true">
+                  <div class="pc" style="--x:13%;--y:0%;--w:74%" data-hspeed=".05"><div class="shape dot" style="--c:var(--yellow)"></div></div>
+                  <div class="pc mul" style="--x:16%;--y:22%;--w:68%;--r:4deg" data-hspeed=".05"><img class="lift" src="img/acc-cornflakes.webp" width="612" height="459" alt=""></div>
+                </div>
+                <h2>corn flakes<sup>*</sup></h2>
+                <p><b class="red">*</b> Cooked wheat, left out until it went stale.</p>
+              </article>
+              <article class="acc">
+                <div class="cg" aria-hidden="true">
+                  <div class="pc" style="--x:8%;--y:4%;--w:62%" data-hspeed="-.06"><div class="shape burst spin spin--back" style="--c:var(--yellow)"></div></div>
+                  <div class="pc" style="--x:40%;--y:22%;--w:40%" data-hspeed=".07"><div class="pill lift"></div></div>
+                </div>
+                <h2>viagra<sup>*</sup></h2>
+                <p><b class="red">*</b> Meant for angina. The side effect won.</p>
+              </article>
+            </div>
+          </div>
+          <div class="scene" data-in>
+            <p class="g g--stack"><span>Mistakes?</span><span class="hollow" aria-hidden="true">Mistakes?</span><span aria-hidden="true">Mistakes?</span><span class="hollow" aria-hidden="true">Mistakes?</span></p>
+          </div>
+          <div class="scene cg" style="--cw:.84;--ar:1/.92" role="img" aria-label="No! No! No!" data-in>
+            <div class="pc" style="--x:2%;--y:6%;--w:70%" data-hspeed="-.05"><div class="shape burst spin" style="--c:var(--yellow)"></div></div>
+            <div class="pc" style="--x:44%;--y:0%;--w:56%;--r:2deg" data-hspeed=".04"><img class="snip" style="--clip:polygon(0 0,100% 0,94% 100%,16% 96%,0 86%)" src="img/no-guy.webp" width="900" height="1346" alt=""></div>
+            <div class="pc" style="--x:30%;--y:14%;--r:-8deg;font-size:9cqw" data-hspeed=".1"><b class="strip pop" style="--r:0deg">NO!</b></div>
+            <div class="pc" style="--x:10%;--y:34%;--r:5deg;font-size:15cqw" data-hspeed=".16"><b class="strip pop" style="--r:0deg">NO!</b></div>
+            <div class="pc" style="--x:-4%;--y:60%;--r:-4deg;font-size:23cqw" data-hspeed=".24"><b class="strip pop" style="--r:0deg">NO!</b></div>
+          </div>
+          <div class="scene" data-in>
+            <h2 class="g">Those were<br>accidents.<br><span class="red">Ours are<br>on purpose.</span></h2>
+          </div>
+          <div class="scene cg" style="--cw:.44;--ar:1/1.5" aria-hidden="true" data-in>
+            <div class="pc" style="--x:8%;--y:14%;--w:86%" data-hspeed="-.08"><div class="shape dot" style="--c:var(--yellow)"></div></div>
+            <div class="pc" style="--x:10%;--y:0%;--w:80%" data-hspeed=".06"><img src="img/new-ways.webp" width="700" height="1092" alt=""></div>
+            <div class="pc" style="--x:-8%;--y:86%;--r:-5deg;font-size:15cqw" data-hspeed=".14"><b class="strip pop" style="--r:0deg">new ways</b></div>
+          </div>
+
+          <div class="scene s-end" id="how" data-in>
+            <div class="end__txt">
+              <h2 class="g g--b">how we do it<span class="red">?</span></h2>
+              <ol class="beats">
+                <li><span>01</span><span>You bring the question</span></li>
+                <li><span>02</span><span>We write down the obvious answer</span></li>
+                <li><span>03</span><span>We cross it out</span></li>
+                <li><span>04</span><span>We build the gaffe in its place</span></li>
+              </ol>
+              <a class="btn" href="#work" data-go="work">See what we did <span class="arr" aria-hidden="true">↓</span></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="side__ground" aria-hidden="true"></div>
+      <div class="side__bar" aria-hidden="true"></div>
+      <div class="side__walk" aria-hidden="true"><img src="img/walker.webp" width="900" height="1106" alt=""></div>
+      <div class="side__ui">
+        <span class="lbl hint">Scroll to walk →</span>
+        <a class="lbl" href="#work" data-go="work">Skip to our work ↓</a>
+        <div class="side__nav">
+          <button type="button" id="side-prev" aria-label="Back">←</button>
+          <button type="button" id="side-next" aria-label="Forward">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec on-yellow next">
+    <div><p class="lbl" style="margin-bottom:8px">Next</p><a class="d" href="#work" data-go="work">Our work →</a></div>
+    <a class="btn" href="#top" data-go="home">Home</a>
+  </section>
+</article>
+
+<!-- ================= PAGE: WHAT WE MAKE ================= -->
+<article class="case" id="services" hidden>
+  <header class="sec case__head" data-in>
+    <div class="wrap">
+      <a class="lbl case__back" href="#top" data-go="home">← Home</a>
+      <h1 class="big"><small>Five things</small>what we<br>make<span class="red">.</span></h1>
+    </div>
+  </header>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <ul class="svc__list">
+        <li class="svc__row" style="--hl:var(--yellow)">
+          <h3><span class="hl">strategy <b class="plus">+</b> soul of the brand.</span></h3>
+          <p>What only you can say, and a plan for saying it everywhere: positioning, identity, rebrands and content plans.</p>
+        </li>
+        <li class="svc__row" style="--hl:var(--red)">
+          <h3><span class="hl">irresistible copy.</span></h3>
+          <p>Scripts, websites, campaigns, articles and press written to be read to the end. Search engines enjoy them too.</p>
+        </li>
+        <li class="svc__row" style="--hl:var(--yellow)">
+          <h3><span class="hl">presence</span><small>with striking design.</small></h3>
+          <p>Identities, brand guides, websites and motion, from bold minimalism to bursts of colour. Recognisable before anyone reads the name.</p>
+        </li>
+        <li class="svc__row" style="--hl:var(--red)">
+          <h3><span class="hl">a thousand words.</span></h3>
+          <p>Photography and film made for your story: brand shoots, event coverage and video.</p>
+        </li>
+        <li class="svc__row" style="--hl:var(--yellow)">
+          <h3><span class="hl">digital</span><small>and ideal.</small></h3>
+          <p>Social media, SEO and 360 plans built around one idea, so every channel says the same thing in its own way.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec on-yellow next">
+    <div><p class="lbl" style="margin-bottom:8px">Next</p><a class="d" href="#about" data-go="about">About us →</a></div>
+    <a class="btn" href="#top" data-go="home">Home</a>
+  </section>
+</article>
+
+<!-- ================= PAGE: ABOUT US ================= -->
+<article class="case" id="about" hidden>
+  <header class="sec case__head about" data-in>
+    <div class="wrap">
+      <a class="lbl case__back" href="#top" data-go="home">← Home</a>
+      <div class="about__grid">
+        <div class="about__txt">
+          <h1 class="big" id="about-h"><small>Who holds the broom</small>about<br>us<span class="red">.</span></h1>
+          <p class="d about__line">We'll clean your <span class="mark" style="--c:var(--yellow)">creative</span> problems.</p>
+          <p>Every brief arrives with some mess. We sweep out the obvious and leave the idea worth keeping.</p>
+        </div>
+        <div class="cg about__cg">
+          <!-- each of them pops out of a spinning star: below --line the photo only shows inside the star -->
+          <div class="pc" style="--x:0%;--y:12%;--w:49%;--r:-3deg" data-speed=".04"><figure class="popout" style="--st:20%;--ar:1.401;--line:60%;--keepX:68%;--keepB:90%;--c:var(--red)"><span class="popout__star" aria-hidden="true"><span class="popout__counter"><img src="img/about-dustpan-cut.webp" width="790" height="1107" alt=""></span></span><img class="popout__top" src="img/about-dustpan-cut.webp" width="790" height="1107" alt="A member of the gaffe team in sunglasses, smiling and holding a metal dustpan"></figure></div>
+          <div class="pc" style="--x:53%;--y:26%;--w:45%;--r:3deg" data-speed=".09"><figure class="popout" style="--st:16%;--ar:1.34;--line:58%;--dx:8%;--dy:-5%;--c:var(--yellow);--dir:reverse;--cdir:normal;--spd:70s"><span class="popout__star" aria-hidden="true"><span class="popout__counter"><img src="img/about-mop-cut.webp" width="709" height="950" alt=""></span></span><img class="popout__top" src="img/about-mop-cut.webp" width="709" height="950" alt="A member of the gaffe team in sunglasses, smiling and holding a blue mop"></figure></div>
+          <div class="pc" style="--x:41%;--y:10%;--w:15%" data-speed=".18" aria-hidden="true"><div class="shape burst spin spin--back" style="--c:var(--blue)"></div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="sec on-yellow next">
+    <div><p class="lbl" style="margin-bottom:8px">Next</p><a class="d" href="#work" data-go="work">The work →</a></div>
+    <a class="btn" href="#top" data-go="home">Home</a>
+  </section>
+</article>
+
+<!-- ================= AQUAINN ================= -->
+<article class="case" id="aquainn" hidden>
+  <header class="sec case__head" data-in>
+    <div class="wrap">
+      <a class="lbl case__back" href="#work" data-go="work">← All clients</a>
+      <div class="case__title">
+        <div>
+          <h1><img src="img/aquainn-logo.png" width="1000" height="283" alt="AQUAINN. Empowering people, one drop at a time."></h1>
+          <p>A system that monitors water use in hotels and rewards the guests who use less of it.</p>
+        </div>
+        <div class="case__cg"><div class="cg card__cg" aria-hidden="true">
+          <div class="pc" style="--x:4%;--y:2%;--w:76%" data-speed="-.05"><div class="shape dot" style="--c:var(--blue)"></div></div>
+          <div class="pc" style="--x:12%;--y:24%;--w:56%;--r:-7deg" data-speed=".03"><img src="img/aquainn-logo-2.png" width="1000" height="283" alt=""></div>
+          <div class="pc" style="--x:46%;--y:40%;--w:50%" data-speed=".09"><div class="timer lift"><span class="lbl">Shower</span><b data-timer>5:00</b><span class="lbl">= 50 litres</span></div></div>
+          <div class="pc" style="--x:2%;--y:76%;--r:-5deg;font-size:6cqw" data-speed=".14"><b class="strip pop" style="--r:0deg">one drop at a time</b></div>
+        </div></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Client</dt><dd>AQUAINN</dd></div>
+        <div><dt>Sector</dt><dd>Hospitality, water efficiency</dd></div>
+        <div><dt>What we did</dt><dd>Communication strategy, creative concept, copy, activations, video script</dd></div>
+        <div><dt>Format</dt><dd>Creative proposal, including Web Summit activations</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="wrap beat">
+      <h2 class="bigb">the<br>question?</h2>
+      <div class="beat__body">
+        <p class="quote">How do you get hotel guests to use less water without telling them off?</p>
+        <p>Hotels have to cut water in a drought. Guests use the most of it, and nobody on holiday wants a lecture.</p>
+        <div class="facts">
+          <p><b>800 L</b>Estimated water use per hotel guest, per day</p>
+          <p><b>4 audiences</b>Guests, managers, staff and the hotel's local partners</p>
+          <p><b>7.5 L</b>Lost every minute a tap is left running</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec turn" data-in>
+    <div class="wrap beat">
+      <h2 class="bigb">the<br>obvious<br>answer<span class="red">.</span></h2>
+      <p class="obvious"><span class="xl">Tell people what they should or shouldn't do.</span></p>
+    </div>
+    <div class="wrap beat">
+      <h2 class="bigb red">the<br>gaffe.</h2>
+      <p class="d t-mega">The best <span class="mark" style="--c:var(--yellow)">5 minutes</span> of your life?</p>
+    </div>
+  </section>
+
+  <section class="sec on-blue">
+    <div class="wrap beat">
+      <h2 class="bigb">the<br>insight<span class="red">.</span></h2>
+      <div class="beat__body">
+        <p class="t-l d">What's the most impactful thing you could do in under five minutes?</p>
+        <ul class="listy">
+          <li class="hollow">Bungee jumping.</li>
+          <li class="hollow">A wedding proposal.</li>
+          <li class="hollow">Skydiving.</li>
+          <li>Or maybe a 5 minute shower.</li>
+        </ul>
+        <p>Not all great experiences take long. So the campaign stops asking for a sacrifice and offers an upgrade: a short shower unlocks perks for the stay.</p>
+        <div class="shower">
+          <label class="lbl" for="shower-min">Try it: shower length</label>
+          <input type="range" id="shower-min" min="1" max="30" step="1" value="5">
+          <output id="shower-out" for="shower-min">5 min = 50 L</output>
+          <p class="shower__note" id="shower-note">The best five minutes of your life.</p>
+          <small>Based on the proposal's figures: 5 minutes uses 50 litres, 30 minutes uses 300.</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap beat">
+      <h2 class="bigb">what it<br>became<span class="red">.</span></h2>
+      <div class="beat__body">
+        <p class="t-l d">One idea, said differently to everyone in the building.</p>
+        <div>
+          <div class="tabs" role="tablist" aria-label="Audience">
+            <button role="tab" id="tab-guests" aria-controls="tp-guests" aria-selected="true">Guests</button>
+            <button role="tab" id="tab-managers" aria-controls="tp-managers" aria-selected="false" tabindex="-1">Managers</button>
+            <button role="tab" id="tab-staff" aria-controls="tp-staff" aria-selected="false" tabindex="-1">Staff</button>
+            <button role="tab" id="tab-partners" aria-controls="tp-partners" aria-selected="false" tabindex="-1">Partner network</button>
+            <button role="tab" id="tab-websummit" aria-controls="tp-websummit" aria-selected="false" tabindex="-1">Web Summit</button>
+          </div>
+
+          <div class="tabpanel" style="--c:var(--yellow)" role="tabpanel" id="tp-guests" aria-labelledby="tab-guests">
+            <p class="lbl">What do we tell guests when they walk into their room?</p>
+            <div class="pieces">
+              <div class="piece"><span class="lbl">On the toothbrush glass</span><h4>“Time to brush off old ideas!”</h4><p>A complimentary toothbrush with a message about the tap. Left running, it wastes around 7.5 litres a minute.</p></div>
+              <div class="piece"><span class="lbl">At check-in</span><h4>“Put on a different kind of thinking cap!”</h4><p>A shower cap nobody expects, carrying the numbers: 50 litres for five minutes, 300 for thirty.</p></div>
+              <div class="piece"><span class="lbl">On the room tablet</span><h4>“The best 5 minutes of your life?”</h4><p>A short shower is all it takes for a greener stay with extra perks.</p></div>
+              <div class="piece"><span class="lbl">Shower playlist</span><h4>AquaSoundscapes</h4><p>A Spotify playlist where every song runs under five minutes. When the track ends, so does the shower.</p></div>
+            </div>
+          </div>
+
+          <div class="tabpanel" style="--c:var(--red)" role="tabpanel" id="tp-managers" aria-labelledby="tab-managers" hidden>
+            <p class="lbl">What do we tell managers so they partner with us?</p>
+            <div class="pieces">
+              <div class="piece"><span class="lbl">Headline</span><h4>“Help us, help you, help them!”</h4><p>The pitch in one breath: the hotel, the guest and the planet all come out ahead.</p></div>
+              <div class="piece"><span class="lbl">Headline</span><h4>“Savings beyond the water cycle!”</h4><p>Less hot water also means a smaller energy bill.</p></div>
+              <div class="piece"><span class="lbl">The promise</span><h4>Up to 30% less water. Up to 20% less heating.</h4><p>The potential savings AQUAINN puts in front of every hotel.</p></div>
+            </div>
+          </div>
+
+          <div class="tabpanel" style="--c:var(--blue)" role="tabpanel" id="tp-staff" aria-labelledby="tab-staff" hidden>
+            <p class="lbl">What do we tell staff so they help us?</p>
+            <div class="pieces">
+              <div class="piece"><span class="lbl">Training programme</span><h4>HydroSustain</h4><p>An internal education programme that shows hotel teams how much water runs through their everyday work, and how to manage it.</p></div>
+              <div class="piece"><span class="lbl">Restaurant menu</span><h4>AquaArtistry</h4><p>A menu built with the hotel's kitchen around water-saving practices, so the idea reaches the table too.</p></div>
+            </div>
+          </div>
+
+          <div class="tabpanel" style="--c:var(--teal)" role="tabpanel" id="tp-partners" aria-labelledby="tab-partners" hidden>
+            <p class="lbl">What do we tell local partners so they join the network?</p>
+            <div class="pieces">
+              <div class="piece"><span class="lbl">Partner network seal</span><h4>The AQUAINN seal of excellence in water usage</h4><p>Awarded to the restaurants, spas, wineries, local producers and outdoor operators that meet water standards and become the rewards guests unlock.</p></div>
+              <div class="piece"><span class="lbl">Why they join</span><h4>Guests arrive. So does business.</h4><p>The network sends the hotel's guests to local businesses, so the region grows with the idea.</p></div>
+            </div>
+            <div class="seals"><img src="img/aquainn-seals.webp" width="1500" height="694" alt="Three versions of the AQUAINN seal: the main seal, a friendlier alternative and a children's version"></div>
+          </div>
+
+          <div class="tabpanel" style="--c:var(--ink)" role="tabpanel" id="tp-websummit" aria-labelledby="tab-websummit" hidden>
+            <p class="lbl">What do we tell Web Summit visitors so they want to know AQUAINN?</p>
+            <div class="pieces">
+              <div class="piece"><span class="lbl">Activation</span><h4>The Thinking Cap</h4><p>Promoters in bathrobes and slippers hand out shower caps. One side carries the line, the other the 30% and 20% pitch.</p></div>
+              <div class="piece"><span class="lbl">Promo video, 20 seconds</span><h4>“Water is life. And life is worth saving!”</h4><p>The logo turns into a cap and lands on a head. The app does the rest.</p></div>
+              <div class="piece"><span class="lbl">Activation</span><h4>Sustainable Unlock</h4><p>A concierge walks the venue handing out keys on keychains: “Unlock a new way to manage water!”</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec on-yellow next">
+    <div><p class="lbl" style="margin-bottom:8px">Next client</p><a class="d" href="#ara" data-go="ara">ARA →</a></div>
+    <a class="btn" href="#work" data-go="work">All clients</a>
+  </section>
+</article>
+
+<!-- ================= ARA ================= -->
+<article class="case" id="ara" hidden>
+  <header class="sec case__head" data-in>
+    <div class="wrap">
+      <a class="lbl case__back" href="#work" data-go="work">← All clients</a>
+      <div class="case__title">
+        <div>
+          <h1 class="d">ARA</h1>
+          <p>A conceptual foundation for Comprehensive Ayurveda Healthcare. India, France, Portugal.</p>
+        </div>
+        <div class="case__cg"><div class="cg card__cg" aria-hidden="true">
+          <div class="pc" style="--x:12%;--y:0%;--w:84%" data-speed="-.05"><div class="shape dot" style="--c:var(--yellow)"></div></div>
+          <div class="pc" style="--x:22%;--y:10%;--w:64%" data-speed=".03"><svg class="wheel spin" viewBox="0 0 400 400"><use href="#wheel"></use></svg></div>
+          <div class="pc deva" style="--x:0%;--y:48%;font-size:30cqw" data-speed=".12" lang="sa">अर</div>
+          <div class="pc" style="--x:36%;--y:82%;--r:4deg;font-size:5.2cqw" data-speed=".15"><b class="strip strip--red pop" style="--r:0deg">the spoke of a wheel</b></div>
+        </div></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Client</dt><dd>Comprehensive Ayurveda Healthcare</dd></div>
+        <div><dt>Sector</dt><dd>Healthcare, Ayurveda</dd></div>
+        <div><dt>What we did</dt><dd>Brand concept, naming, brand architecture, roadmap</dd></div>
+        <div><dt>Format</dt><dd>Creative proposal. <a href="https://ayurvedacenter-creativeproposal.framer.website" target="_blank" rel="noopener">See it live ↗</a></dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="wrap beat">
+      <h2 class="bigb">the<br>question?</h2>
+      <div class="beat__body">
+        <p class="quote">Build the conceptual foundation for an Ayurveda centre in Portugal, as part of an existing system across India and France.</p>
+        <p>In India, Ayurveda is a way of understanding life. In the West it was repackaged as wellness: spa treatments with pleasure and no depth. This project lives in that gap.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec turn" data-in>
+    <div class="wrap beat">
+      <h2 class="bigb">the<br>obvious<br>answer<span class="red">.</span></h2>
+      <p class="obvious"><span class="xl">A wellness brand. A spa concept. A collection of services.</span></p>
+    </div>
+    <div class="wrap beat">
+      <h2 class="bigb red">the<br>gaffe.</h2>
+      <p class="d t-mega">ARA. The <span class="mark" style="--c:var(--yellow)">spoke</span> of a wheel.</p>
+    </div>
+  </section>
+
+  <section class="sec on-yellow">
+    <div class="wrap beat">
+      <h2 class="bigb">the<br>insight<span class="red">.</span></h2>
+      <div class="beat__body">
+        <p class="t-l d">If health is relational, the brand must be structural.</p>
+        <p>A name applied on top would not hold. The brand had to work the way Ayurveda does: in relationships, never in parts.</p>
+        <div class="spoke">
+          <svg class="wheel spin" viewBox="0 0 400 400" role="img" aria-label="A wheel with one spoke marked in red"><use href="#wheel"></use></svg>
+          <div>
+            <p class="deva" lang="sa">अर</p>
+            <p class="t-l d" style="margin-bottom:12px">The spoke of a wheel.</p>
+            <p class="measure">The element that holds tension and creates connection. Not the centre. Not the edge. The connection between both, and the part that lets the system work as one.</p>
+          </div>
+        </div>
+        <p class="t-l d">We do not scale the person. We structure the system around her.</p>
+        <p>Kavitha Abzeena trained from childhood in Kerala. Her practice is never standardised, so the challenge is continuity: keeping that quality as it grows.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap beat">
+      <h2 class="bigb">what it<br>became<span class="red">.</span></h2>
+      <div class="beat__body">
+        <p class="t-l d">The KA · VI · THA system.</p>
+        <p>From the syllables of Kavitha's name, the ARA brand unfolds into four pillars, each with its own function and its own sub-brand.</p>
+        <div class="pillars">
+          <div class="pillar"><span class="lbl">The Center</span><div><h4>ARA <i>· KA</i></h4><p>The point of diagnosis</p></div></div>
+          <div class="pillar"><span class="lbl">The Medicine</span><div><h4>ARA <i>· VI</i></h4><p>The point of formulation</p></div></div>
+          <div class="pillar"><span class="lbl">The Experience</span><div><h4>ARA <i>· THA</i></h4><p>The point of experience</p></div></div>
+          <div class="pillar"><span class="lbl">The Institute</span><div><h4>ARA <i>· KAVITHA</i></h4><p>The point of transmission</p></div></div>
+        </div>
+        <p class="t-l d" style="margin-top:clamp(12px,2.4vw,32px)">Then a three-step road to opening day.</p>
+        <ol class="steps">
+          <li><h4>Brand foundation</h4><p>Identity, positioning, audiences, tone of voice and the visual system for the centres.</p><p class="lbl">4 months / Brand ID document</p></li>
+          <li><h4>Brand deployment</h4><p>Website, social, press and internal materials, plus a toolkit for every partner who carries ARA forward.</p><p class="lbl">6 months / Launch-ready presence</p></li>
+          <li><h4>Brand activation</h4><p>The full communication strategy, then the first campaign to bring the right people through the doors.</p><p class="lbl">6 months / Plan + first campaign</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <p class="quote"><span class="hollow">The knowledge exists. The practice exists. The people exist.</span> <span class="red">ARA</span> is the structure that lets them become one.</p>
+    </div>
+  </section>
+
+  <section class="sec on-yellow next">
+    <div><p class="lbl" style="margin-bottom:8px">Next client</p><a class="d" href="#sanjo" data-go="sanjo">Sanjo →</a></div>
+    <a class="btn" href="#work" data-go="work">All clients</a>
+  </section>
+</article>
+
+<!-- ================= SANJO ================= -->
+<article class="case" id="sanjo" hidden>
+  <header class="sec case__head" data-in>
+    <div class="wrap">
+      <a class="lbl case__back" href="#work" data-go="work">← All clients</a>
+      <div class="case__title">
+        <div>
+          <h1 class="d">Sanjo</h1>
+          <p lang="pt">É um passo da tua história. <span class="gloss" lang="en" style="display:block;font-style:normal;font-weight:400;margin-top:6px">A step in your story.</span></p>
+        </div>
+        <div class="case__cg"><div class="cg card__cg" aria-hidden="true">
+          <div class="pc" style="--x:58%;--y:34%;--w:40%" data-speed="-.06"><div class="shape burst spin" style="--c:var(--yellow)"></div></div>
+          <div class="pc" style="--x:0%;--y:4%;--w:96%;--r:-3deg" data-speed=".03"><img class="snip" style="--clip:polygon(0 6%,100% 0,97% 100%,3% 92%)" src="img/sanjo-kv.webp" width="1800" height="808" alt=""></div>
+          <div class="pc" style="--x:48%;--y:50%;--w:46%;--r:5deg" data-speed=".11"><img class="lift lift--b" src="img/sanjo-sneaker.webp" width="900" height="917" alt=""></div>
+          <div class="pc" style="--x:0%;--y:60%;--r:-6deg;font-size:5.6cqw" data-speed=".15"><b class="strip pop" style="--r:0deg" lang="pt">é um passo da tua história</b></div>
+        </div></div>
+      </div>
+      <dl class="meta">
+        <div><dt>Client</dt><dd>Sanjo</dd></div>
+        <div><dt>Sector</dt><dd>Footwear</dd></div>
+        <div><dt>What we did</dt><dd>Campaign concept, copy, packaging, film scripts, podcast, outdoor, retail and events</dd></div>
+        <div><dt>Format</dt><dd>Campaign proposal, with [in]sight studio</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="wrap beat">
+      <h2 class="bigb">the<br>question?</h2>
+      <div class="beat__body">
+        <p class="quote">How does a brand that is almost a century old talk to people who never lived its history?</p>
+        <p>The brand of the old days reinvented itself. So did its buyers: they shop online and meet brands there first.</p>
+        <div class="gens">
+          <div><h4>Boomers &amp; Gen X</h4><p>Know the legacy and keep it alive. They also hold the buying power.</p></div>
+          <div><h4>Millennials, Gen Z &amp; Alpha</h4><p>Nostalgic for things they never had.</p></div>
+          <div><h4>The next generation</h4><p>Ready to go past tradition altogether.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec turn" data-in>
+    <div class="wrap beat">
+      <h2 class="bigb">the<br>obvious<br>answer<span class="red">.</span></h2>
+      <p class="obvious"><span class="xl">Tradition is passed from hand to hand.</span></p>
+    </div>
+    <div class="wrap beat">
+      <h2 class="bigb red">the<br>gaffe.</h2>
+      <div>
+        <p class="d t-mega">Tradition is worn <span class="mark" style="--c:var(--yellow)">on your feet.</span></p>
+        <p class="gloss" lang="pt" style="margin-top:16px">A tradição é uma herança passada entre mãos, mas que se calça nos pés.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="sec kv"><div class="wrap"><img src="img/sanjo-kv.webp" width="1800" height="808" alt="Campaign key visual: Sanjo sneakers floating among bright geometric shapes, with the line É um passo da tua história"></div></div>
+
+  <section class="sec">
+    <div class="wrap beat">
+      <h2 class="bigb">the<br>insight<span class="red">.</span></h2>
+      <div class="beat__body">
+        <p class="t-l d" lang="pt">Tudo pode mudar. Mas há coisas que caminham sempre connosco.</p>
+        <p class="gloss" style="margin-top:-8px">Everything can change. Some things always walk with us.</p>
+        <p>The young reach Sanjo through parents and grandparents. The legacy is real, but you wear it, and it takes you somewhere new.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec__head"><h2 class="bigb">what it<br>became<span class="red">.</span></h2><p class="lbl soft">Online and off</p></div>
+      <div class="halves">
+        <div>
+          <div class="half__head"><h3 lang="pt">A um passo do online</h3><p class="lbl soft">One step from online</p></div>
+          <div class="shots">
+            <figure class="shot s-7 r-a"><img src="img/sanjo-tins.webp" width="1600" height="640" alt="Rows of pastel-coloured Sanjo tins embossed with the logo"><figcaption>The exclusive box</figcaption></figure>
+            <figure class="shot s-5"><img src="img/sanjo-tin-open.webp" width="1000" height="1019" alt="An open pink Sanjo tin with a pair of sneakers inside"><figcaption>Sneakers inside</figcaption></figure>
+          </div>
+          <div class="words">
+            <div class="piece"><span class="lbl">Packaging for online orders</span><h4>A biscuit tin, with sneakers in it</h4><p>The shoebox borrows from another piece of Portuguese memory: the blue metal biscuit tin that came from a grandparent's hands. Nostalgia is a card few brands can play. A brand this old can.</p></div>
+            <div class="piece"><span class="lbl">Two film spots</span><h4 lang="pt">Herança &amp; O Amanhã</h4><p>A young woman scrolls through family photos and finds the same shoes in every decade. Then a black-and-white victory, and a sneaker thrown so high it keeps going.</p></div>
+            <div class="piece"><span class="lbl">Podcast</span><h4 lang="pt">Um Par de Histórias</h4><p>Real stories that began with a pair of shoes, told with special guests. Plus social formats, the brand site and retailer pages.</p></div>
+          </div>
+        </div>
+        <div>
+          <div class="half__head"><h3 lang="pt">Com um pé no offline</h3><p class="lbl soft">One foot in offline</p></div>
+          <div class="shots">
+            <figure class="shot s-8 r-b"><img src="img/sanjo-stairs.webp" width="1600" height="730" alt="A staircase in a station covered step by step with the campaign artwork"><figcaption>Outdoor, one step at a time</figcaption></figure>
+            <figure class="shot s-4"><img src="img/sanjo-retail.webp" width="800" height="1099" alt="A retail display built from pastel geometric blocks holding Sanjo shoes"><figcaption>Retail displays</figcaption></figure>
+            <figure class="shot s-6 r-b"><img src="img/sanjo-billboard.webp" width="1600" height="748" alt="A large digital billboard on a stone wall showing the campaign"><figcaption>Digital outdoor</figcaption></figure>
+            <figure class="shot s-6 r-b"><img src="img/sanjo-store.webp" width="1600" height="637" alt="A store interior wrapped in the campaign's colours and shapes"><figcaption>Stores</figcaption></figure>
+            <figure class="shot s-12 r-c"><img src="img/sanjo-event.webp" width="1600" height="848" alt="A lilac event stand shaped like a Sanjo shoebox, with a clothes rail and a counter in front"><figcaption>Fashion events</figcaption></figure>
+          </div>
+          <div class="words">
+            <div class="piece"><span class="lbl">Fashion events</span><h4>A photo studio shaped like a shoebox</h4><p>Visitors pick an outfit outside, step into the box and leave with a professional portrait in Sanjo. The pictures go out on their own feeds.</p></div>
+            <div class="piece"><span class="lbl">Outdoor, radio, stores, retail</span><h4>The same step, everywhere you walk</h4><p>Online sales keep growing. The street still gives a brand what a screen cannot: something to stand in front of.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <p class="quote" lang="pt"><span class="hollow">Não é um passo em falso. Não é um passo maior que a perna.</span> É o próximo passo.</p>
+      <p class="gloss" style="margin-top:16px">Not a false step. Not a step too far. The next step.</p>
+    </div>
+  </section>
+
+  <section class="sec on-yellow next">
+    <div><p class="lbl" style="margin-bottom:8px">Next client</p><a class="d" href="#aquainn" data-go="aquainn">AQUAINN →</a></div>
+    <a class="btn" href="#work" data-go="work">All clients</a>
+  </section>
+</article>
+
+
+<!-- ================= CONTACT + FOOTER (shared) ================= -->
+<section class="sec contact" id="contact" aria-labelledby="contact-h" data-in>
+  <div class="wrap contact__grid">
+    <div>
+      <h2 class="d" id="contact-h"><u>Cut the mistakes.</u><br><u>Go for gaffe(s)!</u></h2>
+      <p class="t-m soft measure" style="margin-bottom:clamp(20px,2.6vw,32px)">Send the brief. We'll come back with the answer you weren't expecting.</p>
+
+      <!-- Sent through FormSubmit to the address in data-endpoint. The very first message asks info@gaffe.pt to confirm, once. -->
+      <form class="form" id="brief" action="https://formsubmit.co/info@gaffe.pt" method="POST" data-endpoint="https://formsubmit.co/ajax/info@gaffe.pt">
+        <input type="hidden" name="_subject" value="New brief from gaffe.pt">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" class="vh" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form__row">
+          <label class="field"><span class="lbl">Your name</span><input type="text" name="name" autocomplete="name" required></label>
+          <label class="field"><span class="lbl">Your email</span><input type="email" name="email" autocomplete="email" required></label>
+        </div>
+        <label class="field"><span class="lbl">The question you're bringing</span><textarea name="message" rows="4" required></textarea></label>
+        <div class="form__end">
+          <button class="btn" type="submit">Send the brief <span class="arr" aria-hidden="true">→</span></button>
+          <p class="lbl form__state" id="form-state" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <div class="reach">
+        <span class="lbl soft">or write to</span>
+        <a class="reach__line reach__line--b" id="mail" href="mailto:info@gaffe.pt">info@gaffe.pt</a>
+        <button class="lbl reach__copy" type="button" id="copy-mail">Copy</button>
+        <span class="lbl" id="copy-state" role="status" aria-live="polite"></span>
+      </div>
+    </div>
+    <div class="cg contact__cg" aria-hidden="true">
+      <div class="pc" style="--x:4%;--y:6%;--w:78%" data-speed="-.05"><div class="shape burst spin" style="--c:var(--yellow)"></div></div>
+      <div class="pc" style="--x:38%;--y:0%;--w:62%;--r:2deg" data-speed=".04"><img class="snip" style="--clip:polygon(0 0,100% 0,94% 100%,16% 96%,0 86%)" src="img/no-guy.webp" width="900" height="1346" alt="" loading="lazy"></div>
+      <div class="pc" style="--x:8%;--y:30%;--r:-4deg;font-size:4.4cqw" data-speed=".08"><b class="strip strip--red">(and thank you!)</b></div>
+      <div class="pc" style="--x:0%;--y:42%;--r:-6deg;font-size:10cqw" data-speed=".12"><b class="strip strip--paper"><s class="x">goodbye</s></b></div>
+      <div class="pc" style="--x:6%;--y:60%;--r:3deg;font-size:13cqw" data-speed=".17"><b class="strip pop" style="--r:0deg">talk soon!</b></div>
+    </div>
+  </div>
+</section>
+
+<footer class="sec on-ink" style="padding-block:clamp(28px,4vw,48px)">
+  <div class="wrap foot">
+    <img src="img/footer-logo.png" width="1200" height="573" alt="gaffe. Keep it interesting" loading="lazy">
+    <p class="lbl soft"><a href="https://www.gaffe.pt">www.gaffe.pt</a><br><a href="mailto:info@gaffe.pt">info@gaffe.pt</a></p>
+  </div>
+</footer>
+
+<!-- contact details stay one tap away; hidden while the contact section is on screen -->
+<a class="fab" href="#contact" data-go="contact"><span class="fab__dot" aria-hidden="true"></span><span class="fab__txt">Talk to us</span><span class="fab__mail lbl">info@gaffe.pt</span></a>
+
+
+<script src="js/main.js" defer></script>
+
+</body>
+</html>
