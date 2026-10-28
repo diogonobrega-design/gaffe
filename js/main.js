@@ -89,46 +89,51 @@
     if (sideways) { window.scrollBy({ top: (tx - x) / RATIO * 1.6, behavior: 'instant' }); tx = x; ty = y; }
   }, { passive: true });
 
-  /* ---------- play: the button walks the story on its own, any input takes over ---------- */
-  var playing = 0;
-  var takeover = ['wheel', 'touchstart', 'keydown', 'pointerdown'];
+  /* ---------- the story walks itself: after IDLE ms with no input it scrolls on slowly, from wherever
+     the reader is; any input takes over and restarts the wait ---------- */
+  var playing = 0, idleT = 0, IDLE = 5000, SPEED = .1;  // SPEED: px of page scroll per ms (x RATIO sideways)
   function stopPlay() {
-    if (!playing) { return; }
-    cancelAnimationFrame(playing); playing = 0;
-    takeover.forEach(function (t) { window.removeEventListener(t, stopPlay, true); });
+    if (playing) { cancelAnimationFrame(playing); playing = 0; }
   }
-  function play() {
-    stopPlay();
-    if (story.hidden) {
-      go('story', true);
-      if (!reduce) { side.classList.add('is-opening'); setTimeout(function () { side.classList.remove('is-opening'); }, 900); }
-    }
-    var start = side.getBoundingClientRect().top + window.pageYOffset - topBar.offsetHeight;
-    if (!pinned) {
-      window.scrollTo({ top: start, behavior: reduce ? 'auto' : 'smooth' });
-      if (!reduce) { view.scrollTo({ left: 0 }); setTimeout(function () { view.scrollTo({ left: dist, behavior: 'smooth' }); }, 700); }
-      return;
-    }
-    var end = start + (side.offsetHeight - stick.offsetHeight);
-    var from = window.pageYOffset, t0 = 0;
-    var lead = Math.min(900, Math.abs(start - from) * .8);  // glide down to the story first
-    var walkMs = (end - start) / .22;                          // then about 0.22px per ms along it
-    function step(t) {
-      if (!t0) { t0 = t; }
-      var e = t - t0, y;
-      if (e < lead) { var k = e / lead; y = from + (start - from) * (k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2); }
-      else { y = start + (end - start) * Math.min(1, (e - lead) / walkMs); }
-      // 'instant', or the page's smooth scroll-behavior restarts an animation every frame and stalls
-      window.scrollTo({ top: y, behavior: 'instant' });
-      if (e < lead + walkMs) { playing = requestAnimationFrame(step); } else { stopPlay(); }
+  function armAuto() {
+    clearTimeout(idleT);
+    if (!story.hidden && !reduce) { idleT = setTimeout(autoWalk, IDLE); }
+  }
+  function autoWalk() {
+    if (story.hidden) { return; }
+    var t0 = 0, step;
+    if (pinned) {
+      var start = side.getBoundingClientRect().top + window.pageYOffset - topBar.offsetHeight;
+      var end = start + side.offsetHeight - stick.offsetHeight;
+      var y0 = Math.max(window.pageYOffset, start);
+      if (y0 >= end - 1) { return; }
+      step = function (t) {
+        if (!t0) { t0 = t; }
+        var y = Math.min(end, y0 + (t - t0) * SPEED);
+        // 'instant', or the page's smooth scroll-behavior restarts an animation every frame and stalls
+        window.scrollTo({ top: y, behavior: 'instant' });
+        playing = y < end ? requestAnimationFrame(step) : 0;
+      };
+    } else {
+      var x0 = view.scrollLeft;
+      if (x0 >= dist - 1) { return; }
+      step = function (t) {
+        if (!t0) { t0 = t; }
+        var x = Math.min(dist, x0 + (t - t0) * SPEED * RATIO);
+        view.scrollLeft = x;
+        playing = x < dist ? requestAnimationFrame(step) : 0;
+      };
     }
     playing = requestAnimationFrame(step);
-    // let the click that started it finish before listening for a takeover
-    setTimeout(function () {
-      if (playing) { takeover.forEach(function (t) { window.addEventListener(t, stopPlay, true); }); }
-    }, 0);
   }
-  document.getElementById('play').addEventListener('click', play);
+  ['wheel', 'touchstart', 'keydown', 'pointerdown'].forEach(function (t) {
+    window.addEventListener(t, function () { stopPlay(); armAuto(); }, true);
+  });
+  // the play button opens the story page; the walk starts once the reader has been still for a moment
+  document.getElementById('play').addEventListener('click', function () {
+    go('story', true);
+    if (!reduce) { side.classList.add('is-opening'); setTimeout(function () { side.classList.remove('is-opening'); }, 900); }
+  });
 
   /* ---------- mobile menu ---------- */
   var burger = document.getElementById('burger');
@@ -147,7 +152,9 @@
     var isCase = Object.prototype.hasOwnProperty.call(cases, name);
     home.hidden = isCase;
     Object.keys(cases).forEach(function (k) { cases[k].hidden = k !== name; });
+    stopPlay();
     if (name === 'story') { measure(); }
+    armAuto();
     requestAnimationFrame(move);
     return isCase;
   }
