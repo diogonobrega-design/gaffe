@@ -1,13 +1,15 @@
 {
+  "intro": {
+    "titulo": "THE RIGHT PLACE TO MAKE YOUR BUSINESS WORTH TALKING ABOUT.",
+    "porque": "WHY?"
+  },
   "hero": {
-    "etiqueta": "Creative studio / keep it interesting",
     "titulo_1": "How many stories",
     "titulo_2": "started",
     "titulo_3": "with a",
     "titulo_riscado": "mistake",
     "titulo_destaque": "gaffe?",
-    "frase_1": "The best ones were accidents.",
-    "frase_2": "Ours are on purpose.",
+    "subtitulo": "Many success stories start with gaffes.",
     "autocolante_play": "press play",
     "autocolante": "Keep it interesting."
   },

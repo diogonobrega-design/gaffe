@@ -167,7 +167,16 @@ ${blocks}
   }).join('\n\n');
 }
 
+// the third object in the story: the uploaded Viagra photo, or the blue pill until there is one
+function viagra() {
+  const img = content.historia.objetos?.viagra_imagem;
+  return img
+    ? `<div class="pc" style="--x:16%;--y:14%;--w:70%;--r:-4deg" data-hspeed=".07"><img class="lift" src="${src(img)}" alt="" loading="lazy"></div>`
+    : '<div class="pc" style="--x:40%;--y:22%;--w:40%" data-hspeed=".07"><div class="pill lift"></div></div>';
+}
+
 const PARTS = {
+  viagra,
   contagem_projetos: () => projects.length + ' ' + esc(content.home.trabalho.contagem),
   lista_projetos: projectList,
   lista_servicos: serviceList,

@@ -50,7 +50,10 @@
 <a class="skip" href="#home">{{geral.acessibilidade.saltar}}</a>
 
 <header class="top">
-  <a class="top__logo" href="#top" data-go="home" aria-label="gaffe, home"><img src="img/logo.png" width="900" height="367" alt="gaffe"></a>
+  <div class="top__brand">
+    <a class="top__logo" href="#top" data-go="home" aria-label="gaffe, home"><img src="img/logo.png" width="900" height="367" alt="gaffe"></a>
+    <span class="top__tag">{{geral.marca.descricao}}</span>
+  </div>
   <nav class="nav" id="nav" aria-label="Main">
     <a href="#work" data-go="work" data-spy="work" style="--i:0"><span>{{geral.menu.trabalho}}</span></a>
     <a href="#services" data-go="services" data-spy="services" style="--i:1"><span>{{geral.menu.o_que_fazemos}}</span></a>
@@ -62,12 +65,20 @@
 
 <main id="home">
 
-  <section class="sec hero" id="top" data-in>
+  <!-- block 1: the statement; WHY? leads into block 2 -->
+  <section class="sec intro" id="top" data-in>
+    <div class="wrap">
+      <h1 class="intro__h">{{home.intro.titulo}}</h1>
+      <a class="intro__why" href="#gaffe" data-go="gaffe"><span class="strip strip--red pop">{{home.intro.porque}}</span><span class="intro__arr" aria-hidden="true">↓</span></a>
+    </div>
+  </section>
+
+  <!-- block 2: the gaffe question and the play button -->
+  <section class="sec hero" id="gaffe" data-in>
     <div class="wrap hero__grid">
       <div class="hero__txt">
-        <p class="lbl soft">{{home.hero.etiqueta}}</p>
-        <h1 class="d">{{home.hero.titulo_1}}<br>{{home.hero.titulo_2}} <br class="br-m">{{home.hero.titulo_3}}<br><s class="x">{{home.hero.titulo_riscado}}</s> <br class="br-m"><span class="gaffe pop">{{home.hero.titulo_destaque}}</span></h1>
-        <p class="hero__lede">{{home.hero.frase_1}}<br><span class="red">{{home.hero.frase_2}}</span></p>
+        <h2 class="d">{{home.hero.titulo_1}}<br>{{home.hero.titulo_2}} <br class="br-m">{{home.hero.titulo_3}}<br><s class="x">{{home.hero.titulo_riscado}}</s> <br class="br-m"><span class="gaffe pop">{{home.hero.titulo_destaque}}</span></h2>
+        <p class="hero__lede">{{home.hero.subtitulo}}</p>
       </div>
       <div class="cg hero__cg" data-mouse>
         <button type="button" class="pc play" id="play" style="--x:0%;--y:8%;--w:66%" data-depth="-8" aria-label="Play the gaffe story">
@@ -118,7 +129,7 @@
               <article class="acc">
                 <div class="cg" aria-hidden="true">
                   <div class="pc" style="--x:13%;--y:0%;--w:74%" data-hspeed=".05"><div class="shape dot" style="--c:var(--yellow)"></div></div>
-                  <div class="pc mul" style="--x:16%;--y:22%;--w:68%;--r:4deg" data-hspeed=".05"><img class="lift" src="img/acc-cornflakes.webp" width="612" height="459" alt=""></div>
+                  <div class="pc" style="--x:14%;--y:18%;--w:72%;--r:4deg" data-hspeed=".05"><img class="lift" src="img/acc-cornflakes-cut.webp" width="485" height="326" alt=""></div>
                 </div>
                 <h2>{{historia.s01.t04}}<sup>*</sup></h2>
                 <p><b class="red">*</b> {{historia.s01.t05}}</p>
@@ -126,7 +137,7 @@
               <article class="acc">
                 <div class="cg" aria-hidden="true">
                   <div class="pc" style="--x:8%;--y:4%;--w:62%" data-hspeed="-.06"><div class="shape burst spin spin--back" style="--c:var(--yellow)"></div></div>
-                  <div class="pc" style="--x:40%;--y:22%;--w:40%" data-hspeed=".07"><div class="pill lift"></div></div>
+                  {{> viagra}}
                 </div>
                 <h2>{{historia.s01.t06}}<sup>*</sup></h2>
                 <p><b class="red">*</b> {{historia.s01.t07}}</p>
@@ -608,15 +619,26 @@
       <p class="t-m soft measure" style="margin-bottom:clamp(20px,2.6vw,32px)">{{contacto.titulo.texto}}</p>
 
       <!-- Sent through FormSubmit to the address in data-endpoint. The very first message asks that address to confirm, once. -->
-      <form class="form" id="brief" action="https://formsubmit.co/{{=geral.contactos.email}}" method="POST" data-endpoint="https://formsubmit.co/ajax/{{=geral.contactos.email}}" data-msg-sending="{{=contacto.formulario.a_enviar}}" data-msg-ok="{{=contacto.formulario.enviado}}" data-msg-fail="{{=contacto.formulario.falhou}}" data-msg-fail-link="{{=contacto.formulario.falhou_link}}">
+      <form class="form" id="brief" action="https://formsubmit.co/{{=geral.contactos.email}}" method="POST" enctype="multipart/form-data" data-endpoint="https://formsubmit.co/ajax/{{=geral.contactos.email}}" data-msg-sending="{{=contacto.formulario.a_enviar}}" data-msg-ok="{{=contacto.formulario.enviado}}" data-msg-fail="{{=contacto.formulario.falhou}}" data-msg-fail-link="{{=contacto.formulario.falhou_link}}" data-msg-too-big="{{=contacto.formulario.ficheiro_grande}}">
         <input type="hidden" name="_subject" value="New brief from gaffe.pt">
         <input type="hidden" name="_template" value="table">
         <input type="text" name="_honey" class="vh" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <!-- a form with a file is posted normally (FormSubmit takes files only that way) and comes back here -->
+        <input type="hidden" name="_next" value="">
         <div class="form__row">
           <label class="field"><span class="lbl">{{contacto.formulario.nome}}</span><input type="text" name="name" autocomplete="name" required></label>
           <label class="field"><span class="lbl">{{contacto.formulario.email}}</span><input type="email" name="email" autocomplete="email" required></label>
         </div>
-        <label class="field"><span class="lbl">{{contacto.formulario.mensagem}}</span><textarea name="message" rows="4" required></textarea></label>
+        <label class="field"><span class="lbl">{{contacto.formulario.mensagem}}</span><textarea name="message" rows="3" required></textarea></label>
+        <div class="field">
+          <label class="lbl" for="brief-text">{{contacto.formulario.brief}}</label>
+          <textarea id="brief-text" name="brief" rows="4"></textarea>
+          <label class="file">
+            <input type="file" name="attachment" accept=".pdf,.doc,.docx,.ppt,.pptx,.key,.pages,.txt,.rtf,.jpg,.jpeg,.png,.zip">
+            <span class="file__btn lbl">{{contacto.formulario.ficheiro}}</span>
+            <span class="file__name lbl soft" data-empty="{{=contacto.formulario.ficheiro_dica}}">{{contacto.formulario.ficheiro_dica}}</span>
+          </label>
+        </div>
         <div class="form__end">
           <button class="btn" type="submit">{{contacto.formulario.botao}} <span class="arr" aria-hidden="true">→</span></button>
           <p class="lbl form__state" id="form-state" role="status" aria-live="polite"></p>
@@ -629,13 +651,6 @@
         <button class="lbl reach__copy" type="button" id="copy-mail">{{contacto.email_direto.copiar}}</button>
         <span class="lbl" id="copy-state" role="status" aria-live="polite"></span>
       </div>
-    </div>
-    <div class="cg contact__cg" aria-hidden="true">
-      <div class="pc" style="--x:4%;--y:6%;--w:78%" data-speed="-.05"><div class="shape burst spin" style="--c:var(--yellow)"></div></div>
-      <div class="pc" style="--x:38%;--y:0%;--w:62%;--r:2deg" data-speed=".04"><img class="snip" style="--clip:polygon(0 0,100% 0,94% 100%,16% 96%,0 86%)" src="img/no-guy.webp" width="900" height="1346" alt="" loading="lazy"></div>
-      <div class="pc" style="--x:8%;--y:30%;--r:-4deg;font-size:4.4cqw" data-speed=".08"><b class="strip strip--red">{{contacto.colagem.obrigado}}</b></div>
-      <div class="pc" style="--x:0%;--y:42%;--r:-6deg;font-size:10cqw" data-speed=".12"><b class="strip strip--paper"><s class="x">{{contacto.colagem.adeus}}</s></b></div>
-      <div class="pc" style="--x:6%;--y:60%;--r:3deg;font-size:13cqw" data-speed=".17"><b class="strip pop" style="--r:0deg">{{contacto.colagem.ate_breve}}</b></div>
     </div>
   </div>
 </section>

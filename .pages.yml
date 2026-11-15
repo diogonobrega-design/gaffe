@@ -207,13 +207,21 @@ content:
     path: content/home.json
     format: json
     fields:
-      - name: hero
-        label: Topo (título grande)
+      - name: intro
+        label: Bloco 1 – frase de abertura
         type: object
         fields:
-          - name: etiqueta
-            label: Etiqueta pequena por cima
+          - name: titulo
+            label: Frase grande
+            type: text
+            description: Aparece em maiúsculas. Dá para usar ==palavra== para sublinhar a amarelo.
+          - name: porque
+            label: 'Etiqueta vermelha que leva ao bloco 2 (ex.: WHY?)'
             type: string
+      - name: hero
+        label: Bloco 2 – pergunta e botão de play
+        type: object
+        fields:
           - name: titulo_1
             label: Título – linha 1
             type: string
@@ -229,11 +237,8 @@ content:
           - name: titulo_destaque
             label: Título – palavra no bloco vermelho
             type: string
-          - name: frase_1
-            label: Frase por baixo (preto)
-            type: string
-          - name: frase_2
-            label: Frase por baixo (vermelho)
+          - name: subtitulo
+            label: Subtítulo por baixo do título
             type: string
           - name: autocolante_play
             label: Autocolante junto ao play
@@ -242,7 +247,7 @@ content:
             label: Autocolante vermelho
             type: string
       - name: trabalho
-        label: Lista de projetos
+        label: Bloco 3 – lista de projetos
         type: object
         fields:
           - name: titulo
@@ -268,6 +273,13 @@ content:
             description: Aparece no site todo e é para onde o formulário envia as mensagens.
           - name: site
             label: Endereço do site (texto)
+            type: string
+      - name: marca
+        label: Ao lado do logo
+        type: object
+        fields:
+          - name: descricao
+            label: 'Descrição ao lado do nome (ex.: Creative communication studio.)'
             type: string
       - name: menu
         label: Menu do topo
@@ -462,7 +474,7 @@ content:
     format: json
     fields:
       - name: titulo
-        label: Título e texto
+        label: Título (sublinhado a vermelho) e subtítulo
         type: object
         fields:
           - name: linha_1
@@ -472,7 +484,7 @@ content:
             label: Título – linha 2
             type: string
           - name: texto
-            label: Texto por baixo
+            label: Subtítulo
             type: text
       - name: formulario
         label: Formulário
@@ -485,7 +497,19 @@ content:
             label: 'Campo: email'
             type: string
           - name: mensagem
-            label: 'Campo: mensagem'
+            label: 'Campo: o problema'
+            type: string
+          - name: brief
+            label: 'Campo: brief'
+            type: string
+          - name: ficheiro
+            label: Botão para anexar ficheiro
+            type: string
+          - name: ficheiro_dica
+            label: Texto ao lado do botão de anexar
+            type: string
+          - name: ficheiro_grande
+            label: 'Mensagem: ficheiro com mais de 10 MB'
             type: string
           - name: botao
             label: Botão de enviar
@@ -512,19 +536,6 @@ content:
           - name: copiar
             label: Botão copiar
             type: string
-      - name: colagem
-        label: Autocolantes da colagem
-        type: object
-        fields:
-          - name: obrigado
-            label: Autocolante vermelho
-            type: string
-          - name: adeus
-            label: Palavra riscada
-            type: string
-          - name: ate_breve
-            label: Autocolante grande
-            type: string
       - name: botao_fixo
         label: Botão fixo no canto
         type: object
@@ -538,6 +549,14 @@ content:
     path: content/historia.json
     format: json
     fields:
+      - name: objetos
+        label: Imagens dos objetos
+        type: object
+        fields:
+          - name: viagra_imagem
+            label: Imagem do Viagra
+            type: image
+            description: Melhor um recorte com fundo transparente (PNG ou WebP). Vazio = comprimido azul.
       - name: s01
         label: 1. Three things nobody meant to invent
         type: object

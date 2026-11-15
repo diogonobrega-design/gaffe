@@ -3,6 +3,9 @@
     "email": "info@gaffe.pt",
     "site": "www.gaffe.pt"
   },
+  "marca": {
+    "descricao": "Creative communication studio."
+  },
   "menu": {
     "trabalho": "Work",
     "o_que_fazemos": "What we make",

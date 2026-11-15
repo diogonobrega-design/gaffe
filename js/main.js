@@ -341,15 +341,43 @@
   /* ---------- the brief form: sent in the background, with a mail fallback ---------- */
   var form = document.getElementById('brief');
   var fstate = document.getElementById('form-state');
+  var fileIn = form.querySelector('input[type="file"]');
+  var fileName = form.querySelector('.file__name');
+  var MAX_FILE = 10 * 1024 * 1024;  // FormSubmit's limit
+  fileIn.addEventListener('change', function () {
+    var f = fileIn.files[0];
+    fileName.textContent = f ? f.name : fileName.getAttribute('data-empty');
+    fileIn.parentNode.classList.toggle('has-file', !!f);
+  });
+  // back from FormSubmit after a form with a file: say it went through
+  if (/[?&]enviado=1/.test(location.search)) {
+    fstate.className = 'lbl form__state is-ok';
+    fstate.textContent = form.getAttribute('data-msg-ok');
+    try { history.replaceState(null, '', location.pathname + '#contact'); } catch (err) { /* the message still shows */ }
+    setTimeout(function () { contactSec.scrollIntoView({ behavior: 'auto' }); }, 300);
+  }
   form.addEventListener('submit', function (e) {
-    if (!window.fetch || !window.FormData) { return; }  // old browsers post the form normally
-    e.preventDefault();
-    var data = new FormData(form);
-    form.classList.add('is-sending');
+    var file = fileIn.files[0];
+    if (file && file.size > MAX_FILE) {
+      e.preventDefault();
+      fstate.className = 'lbl form__state is-err';
+      fstate.textContent = form.getAttribute('data-msg-too-big');
+      return;
+    }
     fstate.className = 'lbl form__state';
     fstate.textContent = form.getAttribute('data-msg-sending');
+    // FormSubmit only takes files from a normal post: let the browser send it and come back to ?enviado=1
+    if (file || !window.fetch || !window.FormData) {
+      form.querySelector('[name="_next"]').value = location.href.split(/[?#]/)[0] + '?enviado=1#contact';
+      return;
+    }
+    e.preventDefault();
+    var data = new FormData(form);
+    data.delete('_next');
+    data.delete('attachment');
+    form.classList.add('is-sending');
     function fallback() {
-      var body = data.get('message') + '\n\n' + data.get('name') + ' <' + data.get('email') + '>';
+      var body = data.get('message') + (data.get('brief') ? '\n\n' + data.get('brief') : '') + '\n\n' + data.get('name') + ' <' + data.get('email') + '>';
       fstate.className = 'lbl form__state is-err';
       var link = document.createElement('a');
       link.href = 'mailto:' + document.getElementById('mail').textContent + '?subject=' + encodeURIComponent('New brief') + '&body=' + encodeURIComponent(body);
@@ -362,6 +390,8 @@
       .then(function (res) {
         if (res && (res.success === true || res.success === 'true')) {
           form.reset();
+          fileName.textContent = fileName.getAttribute('data-empty');
+          fileIn.parentNode.classList.remove('has-file');
           fstate.className = 'lbl form__state is-ok';
           fstate.textContent = form.getAttribute('data-msg-ok');
         } else { fallback(); }

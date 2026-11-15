@@ -1,14 +1,18 @@
 {
   "titulo": {
-    "linha_1": "Cut the mistakes.",
-    "linha_2": "Go for gaffe(s)!",
-    "texto": "Send the brief. We'll come back with the answer you weren't expecting."
+    "linha_1": "Brief us.",
+    "linha_2": "We dare you!",
+    "texto": "We’ll send you a solution you didn’t expect."
   },
   "formulario": {
     "nome": "Your name",
     "email": "Your email",
-    "mensagem": "The question you're bringing",
-    "botao": "Send the brief",
+    "mensagem": "Your problem",
+    "brief": "Your Brief",
+    "ficheiro": "Attach a file",
+    "ficheiro_dica": "PDF, Word, PowerPoint or images, up to 10 MB",
+    "ficheiro_grande": "That file is over 10 MB. Try a smaller one, or send a link in the brief.",
+    "botao": "Send",
     "a_enviar": "Sending…",
     "enviado": "Got it. Talk soon!",
     "falhou": "That didn’t go through.",
@@ -17,11 +21,6 @@
   "email_direto": {
     "texto": "or write to",
     "copiar": "Copy"
-  },
-  "colagem": {
-    "obrigado": "(and thank you!)",
-    "adeus": "goodbye",
-    "ate_breve": "talk soon!"
   },
   "botao_fixo": {
     "texto": "Talk to us"
