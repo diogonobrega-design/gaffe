@@ -171,7 +171,7 @@ ${blocks}
 function viagra() {
   const img = content.historia.objetos?.viagra_imagem;
   return img
-    ? `<div class="pc" style="--x:16%;--y:14%;--w:70%;--r:-4deg" data-hspeed=".07"><img class="lift" src="${src(img)}" alt="" loading="lazy"></div>`
+    ? `<div class="pc" style="--x:22%;--y:28%;--w:66%;--r:-8deg" data-hspeed=".07"><img class="lift" src="${src(img)}" alt="" loading="lazy"></div>`
     : '<div class="pc" style="--x:40%;--y:22%;--w:40%" data-hspeed=".07"><div class="pill lift"></div></div>';
 }
 
