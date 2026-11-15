@@ -1,1074 +1,1442 @@
-# Pages CMS (pagescms.org): what the gaffe team can edit. The site is rebuilt from content/*.json on every save.
+# Pages CMS (https://app.pagescms.org): what the gaffe team edits. Every save rebuilds the site (build.mjs).
 media:
   input: img
   output: img
 content:
-  - name: geral
-    label: "Geral (menu e contactos)"
+  - name: projetos
+    label: "Projetos"
     type: file
-    path: content/geral.json
+    path: content/projetos.json
     format: json
+    list: true
+    description: "A ordem aqui é a ordem no site. Arrasta para reordenar."
     fields:
-      - name: email
-        label: "Email de contacto"
+      - name: nome
+        label: "Nome (como aparece na lista, ex.: RUA.)"
         type: string
-        description: "Usado nos links, no rodapé e no formulário (as mensagens chegam aqui)."
-      - name: site
-        label: "Endereço do site (texto)"
+        required: true
+      - name: endereco
+        label: "Endereço da página"
         type: string
-      - name: geral_001
-        label: "Título da página: gaffe · Keep it interesting"
+        description: "Só minúsculas, números e hífens. Fica no link: …/#endereco. Não mudar nos 3 projetos que já existem."
+        required: true
+        pattern: "^[a-z0-9-]+$"
+      - name: frase
+        label: "Frase da lista"
         type: string
-      - name: geral_002
-        label: "Link: Skip to content"
+      - name: setor
+        label: "Setor / tipo de trabalho (texto pequeno à direita)"
         type: string
-      - name: geral_003
-        label: "Texto: Work"
-        type: string
-      - name: geral_004
-        label: "Texto: What we make"
-        type: string
-      - name: geral_005
-        label: "Texto: About"
-        type: string
-      - name: geral_006
-        label: "Texto: Contact"
-        type: string
-      - name: geral_007
-        label: "Texto: Menu"
-        type: string
-      - name: descricao
-        label: "Descrição para o Google"
-        type: text
-      - name: partilha_titulo
-        label: "Título quando se partilha o link"
-        type: text
-      - name: partilha_descricao
-        label: "Descrição quando se partilha o link"
-        type: text
+      - name: estado
+        label: "Estado"
+        type: select
+        options:
+          values:
+            - value: publicado
+              label: "Publicado (com página)"
+            - value: brevemente
+              label: "Em breve (sem link)"
+      - name: preview
+        label: "Imagem que aparece ao passar o rato"
+        type: object
+        fields:
+          - name: imagem
+            label: "Imagem"
+            type: image
+          - name: fundo
+            label: "Cor de fundo"
+            type: select
+            options:
+              values:
+                - value: amarelo
+                  label: "Amarelo"
+                - value: vermelho
+                  label: "Vermelho"
+                - value: azul
+                  label: "Azul"
+                - value: preto
+                  label: "Preto"
+                - value: agua
+                  label: "Verde-água"
+                - value: branco
+                  label: "Branco"
+          - name: ajuste
+            label: "Ajuste da imagem"
+            type: select
+            options:
+              values:
+                - value: cobrir
+                  label: "Encher o cartão"
+                - value: centrar
+                  label: "Centrada (logos)"
+          - name: rodar
+            label: "A rodar"
+            type: boolean
+      - name: cabecalho
+        label: "Página do projeto – topo"
+        type: object
+        description: "Só para projetos novos. ARA, Sanjo e AQUAINN têm páginas feitas à medida, editáveis nas entradas \"Case: …\"."
+        fields:
+          - name: subtitulo
+            label: "Frase por baixo do nome"
+            type: text
+          - name: imagem
+            label: "Imagem ao lado do nome"
+            type: image
+          - name: cliente
+            label: "Cliente"
+            type: string
+          - name: setor
+            label: "Setor"
+            type: string
+          - name: fizemos
+            label: "O que fizemos"
+            type: text
+          - name: formato
+            label: "Formato"
+            type: string
+      - name: blocos
+        label: "Página do projeto – blocos"
+        type: block
+        description: "Carrega em + para juntar blocos; arrasta para mudar a ordem. Dicas: ==palavra== sublinha a amarelo, ~~palavra~~ risca a vermelho, **palavra** fica a negrito. Enter muda de linha."
+        list: true
+        blockKey: tipo
+        blocks:
+          - name: secao
+            label: "Secção com título grande (the question?, the insight.)"
+            fields:
+              - name: titulo
+                label: "Título grande (Enter para partir a linha)"
+                type: text
+              - name: destaque
+                label: "Frase em destaque"
+                type: text
+              - name: texto
+                label: "Texto (linha em branco = novo parágrafo)"
+                type: text
+              - name: fundo
+                label: "Fundo"
+                type: select
+                options:
+                  values:
+                    - value: branco
+                      label: "Branco"
+                    - value: amarelo
+                      label: "Amarelo"
+                    - value: azul
+                      label: "Azul"
+          - name: obvio
+            label: "Óbvio vs gaffe"
+            fields:
+              - name: obvio
+                label: "A resposta óbvia (aparece riscada)"
+                type: text
+              - name: gaffe
+                label: "A gaffe (a resposta deles, em grande)"
+                type: text
+              - name: titulo_obvio
+                label: "Título da resposta óbvia (vazio = o de sempre)"
+                type: text
+              - name: titulo_gaffe
+                label: "Título da gaffe (vazio = o de sempre)"
+                type: text
+          - name: citacao
+            label: "Citação grande"
+            fields:
+              - name: texto
+                label: "Citação"
+                type: text
+              - name: traducao
+                label: "Tradução ou nota (pequena, por baixo)"
+                type: text
+          - name: numeros
+            label: "Números em destaque"
+            fields:
+              - name: itens
+                label: "Números"
+                type: object
+                list: true
+                fields:
+                  - name: numero
+                    label: "Número (ex.: 800 L)"
+                    type: string
+                  - name: texto
+                    label: "Explicação"
+                    type: string
+          - name: texto
+            label: "Texto simples"
+            fields:
+              - name: texto
+                label: "Texto (linha em branco = novo parágrafo)"
+                type: text
+          - name: imagem
+            label: "Imagem"
+            fields:
+              - name: imagem
+                label: "Imagem"
+                type: image
+              - name: legenda
+                label: "Legenda"
+                type: string
+              - name: largura
+                label: "Largura"
+                type: select
+                options:
+                  values:
+                    - value: inteira
+                      label: "Largura toda"
+                    - value: normal
+                      label: "Mais estreita"
+          - name: galeria
+            label: "Galeria de imagens"
+            fields:
+              - name: imagens
+                label: "Imagens"
+                type: object
+                list: true
+                fields:
+                  - name: imagem
+                    label: "Imagem"
+                    type: image
+                  - name: legenda
+                    label: "Legenda"
+                    type: string
   - name: home
     label: "Página inicial"
     type: file
     path: content/home.json
     format: json
     fields:
-      - name: home_001
-        label: "Texto: Creative studio / keep it interesting"
-        type: string
-      - name: home_002
-        label: "Título: How many stories"
-        type: string
-      - name: home_003
-        label: "Título: started"
-        type: string
-      - name: home_004
-        label: "Título: with a"
-        type: string
-      - name: home_005
-        label: "Riscado: mistake"
-        type: string
-      - name: home_006
-        label: "Texto: gaffe?"
-        type: string
-      - name: home_007
-        label: "Texto: The best ones were accidents."
-        type: string
-      - name: home_008
-        label: "Texto: Ours are on purpose."
-        type: string
-      - name: home_009
-        label: "Etiqueta: press play"
-        type: string
-      - name: home_010
-        label: "Etiqueta: Keep it interesting."
-        type: string
-      - name: home_011
-        label: "Título: our work"
-        type: string
-      - name: home_012
-        label: "Texto: 4 projects"
-        type: string
-      - name: home_013
-        label: "Etiqueta: ARA."
-        type: string
-      - name: home_014
-        label: "Texto: The spoke of a wheel."
-        type: string
-      - name: home_015
-        label: "Texto: Healthcare / Brand concept"
-        type: string
-      - name: home_016
-        label: "Etiqueta: SANJO."
-        type: string
-      - name: home_017
-        label: "Texto: Tradition is worn on your feet."
-        type: string
-      - name: home_018
-        label: "Texto: Footwear / Campaign"
-        type: string
-      - name: home_019
-        label: "Etiqueta: AQUAINN."
-        type: string
-      - name: home_020
-        label: "Texto: The best 5 minutes of your life."
-        type: string
-      - name: home_021
-        label: "Texto: Hospitality / Strategy & activation"
-        type: string
-      - name: home_022
-        label: "Etiqueta: RUA."
-        type: string
-      - name: home_023
-        label: "Texto: Coming down the street."
-        type: string
-      - name: home_024
-        label: "Texto: In the works"
-        type: string
-      - name: home_025
-        label: "Texto: soon"
-        type: string
-      - name: home_026
-        label: "Etiqueta: soon!"
-        type: string
-  - name: historia
-    label: "História (play)"
+      - name: hero
+        label: "Topo (título grande)"
+        type: object
+        fields:
+          - name: etiqueta
+            label: "Etiqueta pequena por cima"
+            type: string
+          - name: titulo_1
+            label: "Título – linha 1"
+            type: string
+          - name: titulo_2
+            label: "Título – linha 2"
+            type: string
+          - name: titulo_3
+            label: "Título – linha 3"
+            type: string
+          - name: titulo_riscado
+            label: "Título – palavra riscada a vermelho"
+            type: string
+          - name: titulo_destaque
+            label: "Título – palavra no bloco vermelho"
+            type: string
+          - name: frase_1
+            label: "Frase por baixo (preto)"
+            type: string
+          - name: frase_2
+            label: "Frase por baixo (vermelho)"
+            type: string
+          - name: autocolante_play
+            label: "Autocolante junto ao play"
+            type: string
+          - name: autocolante
+            label: "Autocolante vermelho"
+            type: string
+      - name: trabalho
+        label: "Lista de projetos"
+        type: object
+        fields:
+          - name: titulo
+            label: "Título da lista"
+            type: string
+          - name: contagem
+            label: "Texto depois do número de projetos"
+            type: string
+            description: "O número é contado sozinho. Os projetos editam-se em \"Projetos\"."
+  - name: geral
+    label: "Geral (menu, contactos, Google)"
     type: file
-    path: content/historia.json
+    path: content/geral.json
     format: json
     fields:
-      - name: historia_001
-        label: "Texto: Three things nobody meant to invent"
-        type: string
-      - name: historia_002
-        label: "Título: microwave"
-        type: string
-      - name: historia_003
-        label: "Texto: A chocolate bar melted in an engineer's pocket."
-        type: string
-      - name: historia_004
-        label: "Título: corn flakes"
-        type: string
-      - name: historia_005
-        label: "Texto: Cooked wheat, left out until it went stale."
-        type: string
-      - name: historia_006
-        label: "Título: viagra"
-        type: string
-      - name: historia_007
-        label: "Texto: Meant for angina. The side effect won."
-        type: string
-      - name: historia_008
-        label: "Texto: Mistakes?"
-        type: string
-      - name: historia_009
-        label: "Etiqueta: NO!"
-        type: string
-      - name: historia_010
-        label: "Título: Those were"
-        type: string
-      - name: historia_011
-        label: "Título: accidents."
-        type: string
-      - name: historia_012
-        label: "Texto: Ours are"
-        type: string
-      - name: historia_013
-        label: "Texto: on purpose."
-        type: string
-      - name: historia_014
-        label: "Etiqueta: new ways"
-        type: string
-      - name: historia_015
-        label: "Título: how we do it"
-        type: string
-      - name: historia_016
-        label: "Texto: You bring the question"
-        type: string
-      - name: historia_017
-        label: "Texto: We write down the obvious answer"
-        type: string
-      - name: historia_018
-        label: "Texto: We cross it out"
-        type: string
-      - name: historia_019
-        label: "Texto: We build the gaffe in its place"
-        type: string
-      - name: historia_020
-        label: "Link: See what we did"
-        type: string
-      - name: historia_021
-        label: "Texto: Scroll to walk →"
-        type: string
-      - name: historia_022
-        label: "Link: Skip to our work ↓"
-        type: string
-      - name: historia_023
-        label: "Texto: Next"
-        type: string
-      - name: historia_024
-        label: "Link: Our work →"
-        type: string
-      - name: historia_025
-        label: "Link: Home"
-        type: string
+      - name: contactos
+        label: "Contactos"
+        type: object
+        fields:
+          - name: email
+            label: "Email"
+            type: string
+            description: "Aparece no site todo e é para onde o formulário envia as mensagens."
+          - name: site
+            label: "Endereço do site (texto)"
+            type: string
+      - name: menu
+        label: "Menu do topo"
+        type: object
+        fields:
+          - name: trabalho
+            label: "Work"
+            type: string
+          - name: o_que_fazemos
+            label: "What we make"
+            type: string
+          - name: about
+            label: "About"
+            type: string
+          - name: contacto
+            label: "Contact (botão preto)"
+            type: string
+      - name: seo
+        label: "Google e partilhas"
+        type: object
+        fields:
+          - name: titulo
+            label: "Título no separador do browser"
+            type: string
+          - name: descricao
+            label: "Descrição para o Google"
+            type: text
+          - name: partilha_titulo
+            label: "Título quando se partilha o link"
+            type: string
+          - name: partilha_descricao
+            label: "Descrição quando se partilha o link"
+            type: text
+      - name: projetos
+        label: "Textos fixos das páginas de projeto"
+        type: object
+        fields:
+          - name: voltar
+            label: "Link de voltar (topo)"
+            type: string
+          - name: cliente
+            label: "Rótulo: Cliente"
+            type: string
+          - name: setor
+            label: "Rótulo: Setor"
+            type: string
+          - name: fizemos
+            label: "Rótulo: O que fizemos"
+            type: string
+          - name: formato
+            label: "Rótulo: Formato"
+            type: string
+          - name: titulo_obvio
+            label: "Título do bloco \"óbvio\" (por defeito)"
+            type: text
+          - name: titulo_gaffe
+            label: "Título do bloco \"gaffe\" (por defeito)"
+            type: text
+          - name: proximo
+            label: "Rótulo: Próximo projeto"
+            type: string
+          - name: todos
+            label: "Botão: todos os projetos"
+            type: string
+          - name: brevemente
+            label: "Etiqueta dos projetos \"em breve\""
+            type: string
+      - name: acessibilidade
+        label: "Leitores de ecrã (invisível)"
+        type: object
+        fields:
+          - name: saltar
+            label: "Saltar para o conteúdo"
+            type: string
+          - name: menu
+            label: "Botão do menu no telemóvel"
+            type: string
   - name: servicos
     label: "What we make"
     type: file
     path: content/servicos.json
     format: json
     fields:
-      - name: servicos_001
-        label: "Link: ← Home"
-        type: string
-      - name: servicos_002
-        label: "Texto pequeno: Five things"
-        type: string
-      - name: servicos_003
-        label: "Título: what we"
-        type: string
-      - name: servicos_004
-        label: "Título: make"
-        type: string
-      - name: servicos_005
-        label: "Texto: strategy"
-        type: string
-      - name: servicos_006
-        label: "Texto: soul of the brand."
-        type: string
-      - name: servicos_007
-        label: "Texto: What only you can say, and a plan for saying i…"
-        type: text
-      - name: servicos_008
-        label: "Texto: irresistible copy."
-        type: string
-      - name: servicos_009
-        label: "Texto: Scripts, websites, campaigns, articles and pre…"
-        type: text
-      - name: servicos_010
-        label: "Texto: presence"
-        type: string
-      - name: servicos_011
-        label: "Texto pequeno: with striking design."
-        type: string
-      - name: servicos_012
-        label: "Texto: Identities, brand guides, websites and motion,…"
-        type: text
-      - name: servicos_013
-        label: "Texto: a thousand words."
-        type: string
-      - name: servicos_014
-        label: "Texto: Photography and film made for your story: bran…"
-        type: text
-      - name: servicos_015
-        label: "Texto: digital"
-        type: string
-      - name: servicos_016
-        label: "Texto pequeno: and ideal."
-        type: string
-      - name: servicos_017
-        label: "Texto: Social media, SEO and 360 plans built around o…"
-        type: text
-      - name: servicos_018
-        label: "Texto: Next"
-        type: string
-      - name: servicos_019
-        label: "Link: About us →"
-        type: string
-      - name: servicos_020
-        label: "Link: Home"
-        type: string
+      - name: cabecalho
+        label: "Topo"
+        type: object
+        fields:
+          - name: voltar
+            label: "Link de voltar"
+            type: string
+          - name: etiqueta
+            label: "Etiqueta pequena"
+            type: string
+          - name: titulo_1
+            label: "Título – linha 1"
+            type: string
+          - name: titulo_2
+            label: "Título – linha 2"
+            type: string
+      - name: lista
+        label: "Serviços"
+        type: object
+        description: "Carrega em + para acrescentar um serviço. Um \"+\" no título fica a vermelho."
+        list: true
+        fields:
+          - name: titulo
+            label: "Título"
+            type: string
+          - name: complemento
+            label: "Complemento pequeno por baixo (opcional)"
+            type: string
+          - name: descricao
+            label: "Descrição"
+            type: text
+          - name: cor
+            label: "Cor do sublinhado ao passar o rato"
+            type: select
+            options:
+              values:
+                - value: amarelo
+                  label: "Amarelo"
+                - value: vermelho
+                  label: "Vermelho"
+      - name: proximo
+        label: "Bloco amarelo do fim"
+        type: object
+        fields:
+          - name: etiqueta
+            label: "Etiqueta"
+            type: string
+          - name: link
+            label: "Link grande"
+            type: string
+          - name: botao
+            label: "Botão"
+            type: string
   - name: about
     label: "About"
     type: file
     path: content/about.json
     format: json
     fields:
-      - name: about_001
-        label: "Link: ← Home"
-        type: string
-      - name: about_002
-        label: "Texto pequeno: Who holds the broom"
-        type: string
-      - name: about_003
-        label: "Título: about"
-        type: string
-      - name: about_004
-        label: "Título: us"
-        type: string
-      - name: about_005
-        label: "Texto: We'll clean your"
-        type: string
-      - name: about_006
-        label: "Texto: creative"
-        type: string
-      - name: about_007
-        label: "Texto: problems."
-        type: string
-      - name: about_008
-        label: "Texto: Every brief arrives with some mess. We sweep o…"
-        type: text
-      - name: about_009
-        label: "Texto: Next"
-        type: string
-      - name: about_010
-        label: "Link: The work →"
-        type: string
-      - name: about_011
-        label: "Link: Home"
-        type: string
-  - name: aquainn
-    label: "Case: AQUAINN"
-    type: file
-    path: content/aquainn.json
-    format: json
-    fields:
-      - name: aquainn_001
-        label: "Link: ← All clients"
-        type: string
-      - name: aquainn_002
-        label: "Texto: A system that monitors water use in hotels and…"
-        type: text
-      - name: aquainn_003
-        label: "Texto: Shower"
-        type: string
-      - name: aquainn_004
-        label: "Texto: = 50 litres"
-        type: string
-      - name: aquainn_005
-        label: "Etiqueta: one drop at a time"
-        type: string
-      - name: aquainn_006
-        label: "Rótulo: Client"
-        type: string
-      - name: aquainn_007
-        label: "Valor: AQUAINN"
-        type: string
-      - name: aquainn_008
-        label: "Rótulo: Sector"
-        type: string
-      - name: aquainn_009
-        label: "Valor: Hospitality, water efficiency"
-        type: string
-      - name: aquainn_010
-        label: "Rótulo: What we did"
-        type: string
-      - name: aquainn_011
-        label: "Valor: Communication strategy, creative concept, copy…"
-        type: text
-      - name: aquainn_012
-        label: "Rótulo: Format"
-        type: string
-      - name: aquainn_013
-        label: "Valor: Creative proposal, including Web Summit activa…"
-        type: string
-      - name: aquainn_014
-        label: "Título: the"
-        type: string
-      - name: aquainn_015
-        label: "Título: question?"
-        type: string
-      - name: aquainn_016
-        label: "Texto: How do you get hotel guests to use less water …"
-        type: text
-      - name: aquainn_017
-        label: "Texto: Hotels have to cut water in a drought. Guests …"
-        type: text
-      - name: aquainn_018
-        label: "Etiqueta: 800 L"
-        type: string
-      - name: aquainn_019
-        label: "Texto: Estimated water use per hotel guest, per day"
-        type: string
-      - name: aquainn_020
-        label: "Etiqueta: 4 audiences"
-        type: string
-      - name: aquainn_021
-        label: "Texto: Guests, managers, staff and the hotel's local …"
-        type: string
-      - name: aquainn_022
-        label: "Etiqueta: 7.5 L"
-        type: string
-      - name: aquainn_023
-        label: "Texto: Lost every minute a tap is left running"
-        type: string
-      - name: aquainn_024
-        label: "Título: obvious"
-        type: string
-      - name: aquainn_025
-        label: "Título: answer"
-        type: string
-      - name: aquainn_026
-        label: "Texto: Tell people what they should or shouldn't do."
-        type: string
-      - name: aquainn_027
-        label: "Título: gaffe."
-        type: string
-      - name: aquainn_028
-        label: "Texto: The best"
-        type: string
-      - name: aquainn_029
-        label: "Texto: 5 minutes"
-        type: string
-      - name: aquainn_030
-        label: "Texto: of your life?"
-        type: string
-      - name: aquainn_031
-        label: "Título: insight"
-        type: string
-      - name: aquainn_032
-        label: "Texto: What's the most impactful thing you could do i…"
-        type: string
-      - name: aquainn_033
-        label: "Item de lista: Bungee jumping."
-        type: string
-      - name: aquainn_034
-        label: "Item de lista: A wedding proposal."
-        type: string
-      - name: aquainn_035
-        label: "Item de lista: Skydiving."
-        type: string
-      - name: aquainn_036
-        label: "Item de lista: Or maybe a 5 minute shower."
-        type: string
-      - name: aquainn_037
-        label: "Texto: Not all great experiences take long. So the ca…"
-        type: text
-      - name: aquainn_038
-        label: "Rótulo do formulário: Try it: shower length"
-        type: string
-      - name: aquainn_039
-        label: "Resultado: 5 min = 50 L"
-        type: string
-      - name: aquainn_040
-        label: "Texto: The best five minutes of your life."
-        type: string
-      - name: aquainn_041
-        label: "Texto pequeno: Based on the proposal's figures: 5 minutes use…"
-        type: text
-      - name: aquainn_042
-        label: "Título: what it"
-        type: string
-      - name: aquainn_043
-        label: "Título: became"
-        type: string
-      - name: aquainn_044
-        label: "Texto: One idea, said differently to everyone in the …"
-        type: string
-      - name: aquainn_045
-        label: "Botão: Guests"
-        type: string
-      - name: aquainn_046
-        label: "Botão: Managers"
-        type: string
-      - name: aquainn_047
-        label: "Botão: Staff"
-        type: string
-      - name: aquainn_048
-        label: "Botão: Partner network"
-        type: string
-      - name: aquainn_049
-        label: "Botão: Web Summit"
-        type: string
-      - name: aquainn_050
-        label: "Texto: What do we tell guests when they walk into the…"
-        type: string
-      - name: aquainn_051
-        label: "Texto: On the toothbrush glass"
-        type: string
-      - name: aquainn_052
-        label: "Subtítulo: “Time to brush off old ideas!”"
-        type: string
-      - name: aquainn_053
-        label: "Texto: A complimentary toothbrush with a message abou…"
-        type: text
-      - name: aquainn_054
-        label: "Texto: At check-in"
-        type: string
-      - name: aquainn_055
-        label: "Subtítulo: “Put on a different kind of thinking cap!”"
-        type: string
-      - name: aquainn_056
-        label: "Texto: A shower cap nobody expects, carrying the numb…"
-        type: text
-      - name: aquainn_057
-        label: "Texto: On the room tablet"
-        type: string
-      - name: aquainn_058
-        label: "Subtítulo: “The best 5 minutes of your life?”"
-        type: string
-      - name: aquainn_059
-        label: "Texto: A short shower is all it takes for a greener s…"
-        type: string
-      - name: aquainn_060
-        label: "Texto: Shower playlist"
-        type: string
-      - name: aquainn_061
-        label: "Subtítulo: AquaSoundscapes"
-        type: string
-      - name: aquainn_062
-        label: "Texto: A Spotify playlist where every song runs under…"
-        type: text
-      - name: aquainn_063
-        label: "Texto: What do we tell managers so they partner with …"
-        type: string
-      - name: aquainn_064
-        label: "Texto: Headline"
-        type: string
-      - name: aquainn_065
-        label: "Subtítulo: “Help us, help you, help them!”"
-        type: string
-      - name: aquainn_066
-        label: "Texto: The pitch in one breath: the hotel, the guest …"
-        type: text
-      - name: aquainn_067
-        label: "Subtítulo: “Savings beyond the water cycle!”"
-        type: string
-      - name: aquainn_068
-        label: "Texto: Less hot water also means a smaller energy bill."
-        type: string
-      - name: aquainn_069
-        label: "Texto: The promise"
-        type: string
-      - name: aquainn_070
-        label: "Subtítulo: Up to 30% less water. Up to 20% less heating."
-        type: string
-      - name: aquainn_071
-        label: "Texto: The potential savings AQUAINN puts in front of…"
-        type: string
-      - name: aquainn_072
-        label: "Texto: What do we tell staff so they help us?"
-        type: string
-      - name: aquainn_073
-        label: "Texto: Training programme"
-        type: string
-      - name: aquainn_074
-        label: "Subtítulo: HydroSustain"
-        type: string
-      - name: aquainn_075
-        label: "Texto: An internal education programme that shows hot…"
-        type: text
-      - name: aquainn_076
-        label: "Texto: Restaurant menu"
-        type: string
-      - name: aquainn_077
-        label: "Subtítulo: AquaArtistry"
-        type: string
-      - name: aquainn_078
-        label: "Texto: A menu built with the hotel's kitchen around w…"
-        type: text
-      - name: aquainn_079
-        label: "Texto: What do we tell local partners so they join th…"
-        type: string
-      - name: aquainn_080
-        label: "Texto: Partner network seal"
-        type: string
-      - name: aquainn_081
-        label: "Subtítulo: The AQUAINN seal of excellence in water usage"
-        type: string
-      - name: aquainn_082
-        label: "Texto: Awarded to the restaurants, spas, wineries, lo…"
-        type: text
-      - name: aquainn_083
-        label: "Texto: Why they join"
-        type: string
-      - name: aquainn_084
-        label: "Subtítulo: Guests arrive. So does business."
-        type: string
-      - name: aquainn_085
-        label: "Texto: The network sends the hotel's guests to local …"
-        type: text
-      - name: aquainn_086
-        label: "Texto: What do we tell Web Summit visitors so they wa…"
-        type: string
-      - name: aquainn_087
-        label: "Texto: Activation"
-        type: string
-      - name: aquainn_088
-        label: "Subtítulo: The Thinking Cap"
-        type: string
-      - name: aquainn_089
-        label: "Texto: Promoters in bathrobes and slippers hand out s…"
-        type: text
-      - name: aquainn_090
-        label: "Texto: Promo video, 20 seconds"
-        type: string
-      - name: aquainn_091
-        label: "Subtítulo: “Water is life. And life is worth saving!”"
-        type: string
-      - name: aquainn_092
-        label: "Texto: The logo turns into a cap and lands on a head.…"
-        type: string
-      - name: aquainn_093
-        label: "Subtítulo: Sustainable Unlock"
-        type: string
-      - name: aquainn_094
-        label: "Texto: A concierge walks the venue handing out keys o…"
-        type: text
-      - name: aquainn_095
-        label: "Texto: Next client"
-        type: string
-      - name: aquainn_096
-        label: "Link: ARA →"
-        type: string
-      - name: aquainn_097
-        label: "Link: All clients"
-        type: string
-  - name: ara
-    label: "Case: ARA"
-    type: file
-    path: content/ara.json
-    format: json
-    fields:
-      - name: ara_001
-        label: "Link: ← All clients"
-        type: string
-      - name: ara_002
-        label: "Título: ARA"
-        type: string
-      - name: ara_003
-        label: "Texto: A conceptual foundation for Comprehensive Ayur…"
-        type: text
-      - name: ara_004
-        label: "Texto: अर"
-        type: string
-      - name: ara_005
-        label: "Etiqueta: the spoke of a wheel"
-        type: string
-      - name: ara_006
-        label: "Rótulo: Client"
-        type: string
-      - name: ara_007
-        label: "Valor: Comprehensive Ayurveda Healthcare"
-        type: string
-      - name: ara_008
-        label: "Rótulo: Sector"
-        type: string
-      - name: ara_009
-        label: "Valor: Healthcare, Ayurveda"
-        type: string
-      - name: ara_010
-        label: "Rótulo: What we did"
-        type: string
-      - name: ara_011
-        label: "Valor: Brand concept, naming, brand architecture, roa…"
-        type: string
-      - name: ara_012
-        label: "Rótulo: Format"
-        type: string
-      - name: ara_013
-        label: "Valor: Creative proposal."
-        type: string
-      - name: ara_014
-        label: "Link: See it live ↗"
-        type: string
-      - name: ara_015
-        label: "Título: the"
-        type: string
-      - name: ara_016
-        label: "Título: question?"
-        type: string
-      - name: ara_017
-        label: "Texto: Build the conceptual foundation for an Ayurved…"
-        type: text
-      - name: ara_018
-        label: "Texto: In India, Ayurveda is a way of understanding l…"
-        type: text
-      - name: ara_019
-        label: "Título: obvious"
-        type: string
-      - name: ara_020
-        label: "Título: answer"
-        type: string
-      - name: ara_021
-        label: "Texto: A wellness brand. A spa concept. A collection …"
-        type: string
-      - name: ara_022
-        label: "Título: gaffe."
-        type: string
-      - name: ara_023
-        label: "Texto: ARA. The"
-        type: string
-      - name: ara_024
-        label: "Texto: spoke"
-        type: string
-      - name: ara_025
-        label: "Texto: of a wheel."
-        type: string
-      - name: ara_026
-        label: "Título: insight"
-        type: string
-      - name: ara_027
-        label: "Texto: If health is relational, the brand must be str…"
-        type: string
-      - name: ara_028
-        label: "Texto: A name applied on top would not hold. The bran…"
-        type: text
-      - name: ara_029
-        label: "Texto: The spoke of a wheel."
-        type: string
-      - name: ara_030
-        label: "Texto: The element that holds tension and creates con…"
-        type: text
-      - name: ara_031
-        label: "Texto: We do not scale the person. We structure the s…"
-        type: string
-      - name: ara_032
-        label: "Texto: Kavitha Abzeena trained from childhood in Kera…"
-        type: text
-      - name: ara_033
-        label: "Título: what it"
-        type: string
-      - name: ara_034
-        label: "Título: became"
-        type: string
-      - name: ara_035
-        label: "Texto: The KA · VI · THA system."
-        type: string
-      - name: ara_036
-        label: "Texto: From the syllables of Kavitha's name, the ARA …"
-        type: text
-      - name: ara_037
-        label: "Texto: The Center"
-        type: string
-      - name: ara_038
-        label: "Texto: · KA"
-        type: string
-      - name: ara_039
-        label: "Texto: The point of diagnosis"
-        type: string
-      - name: ara_040
-        label: "Texto: The Medicine"
-        type: string
-      - name: ara_041
-        label: "Texto: · VI"
-        type: string
-      - name: ara_042
-        label: "Texto: The point of formulation"
-        type: string
-      - name: ara_043
-        label: "Texto: The Experience"
-        type: string
-      - name: ara_044
-        label: "Texto: · THA"
-        type: string
-      - name: ara_045
-        label: "Texto: The point of experience"
-        type: string
-      - name: ara_046
-        label: "Texto: The Institute"
-        type: string
-      - name: ara_047
-        label: "Texto: · KAVITHA"
-        type: string
-      - name: ara_048
-        label: "Texto: The point of transmission"
-        type: string
-      - name: ara_049
-        label: "Texto: Then a three-step road to opening day."
-        type: string
-      - name: ara_050
-        label: "Subtítulo: Brand foundation"
-        type: string
-      - name: ara_051
-        label: "Texto: Identity, positioning, audiences, tone of voic…"
-        type: text
-      - name: ara_052
-        label: "Texto: 4 months / Brand ID document"
-        type: string
-      - name: ara_053
-        label: "Subtítulo: Brand deployment"
-        type: string
-      - name: ara_054
-        label: "Texto: Website, social, press and internal materials,…"
-        type: text
-      - name: ara_055
-        label: "Texto: 6 months / Launch-ready presence"
-        type: string
-      - name: ara_056
-        label: "Subtítulo: Brand activation"
-        type: string
-      - name: ara_057
-        label: "Texto: The full communication strategy, then the firs…"
-        type: text
-      - name: ara_058
-        label: "Texto: 6 months / Plan + first campaign"
-        type: string
-      - name: ara_059
-        label: "Texto: The knowledge exists. The practice exists. The…"
-        type: string
-      - name: ara_060
-        label: "Texto: is the structure that lets them become one."
-        type: string
-      - name: ara_061
-        label: "Texto: Next client"
-        type: string
-      - name: ara_062
-        label: "Link: Sanjo →"
-        type: string
-      - name: ara_063
-        label: "Link: All clients"
-        type: string
-  - name: sanjo
-    label: "Case: Sanjo"
-    type: file
-    path: content/sanjo.json
-    format: json
-    fields:
-      - name: sanjo_001
-        label: "Link: ← All clients"
-        type: string
-      - name: sanjo_002
-        label: "Título: Sanjo"
-        type: string
-      - name: sanjo_003
-        label: "Texto: É um passo da tua história."
-        type: string
-      - name: sanjo_004
-        label: "Texto: A step in your story."
-        type: string
-      - name: sanjo_005
-        label: "Etiqueta: é um passo da tua história"
-        type: string
-      - name: sanjo_006
-        label: "Rótulo: Client"
-        type: string
-      - name: sanjo_007
-        label: "Rótulo: Sector"
-        type: string
-      - name: sanjo_008
-        label: "Valor: Footwear"
-        type: string
-      - name: sanjo_009
-        label: "Rótulo: What we did"
-        type: string
-      - name: sanjo_010
-        label: "Valor: Campaign concept, copy, packaging, film script…"
-        type: text
-      - name: sanjo_011
-        label: "Rótulo: Format"
-        type: string
-      - name: sanjo_012
-        label: "Valor: Campaign proposal, with [in]sight studio"
-        type: string
-      - name: sanjo_013
-        label: "Título: the"
-        type: string
-      - name: sanjo_014
-        label: "Título: question?"
-        type: string
-      - name: sanjo_015
-        label: "Texto: How does a brand that is almost a century old …"
-        type: text
-      - name: sanjo_016
-        label: "Texto: The brand of the old days reinvented itself. S…"
-        type: text
-      - name: sanjo_017
-        label: "Subtítulo: Boomers & Gen X"
-        type: string
-      - name: sanjo_018
-        label: "Texto: Know the legacy and keep it alive. They also h…"
-        type: string
-      - name: sanjo_019
-        label: "Subtítulo: Millennials, Gen Z & Alpha"
-        type: string
-      - name: sanjo_020
-        label: "Texto: Nostalgic for things they never had."
-        type: string
-      - name: sanjo_021
-        label: "Subtítulo: The next generation"
-        type: string
-      - name: sanjo_022
-        label: "Texto: Ready to go past tradition altogether."
-        type: string
-      - name: sanjo_023
-        label: "Título: obvious"
-        type: string
-      - name: sanjo_024
-        label: "Título: answer"
-        type: string
-      - name: sanjo_025
-        label: "Texto: Tradition is passed from hand to hand."
-        type: string
-      - name: sanjo_026
-        label: "Título: gaffe."
-        type: string
-      - name: sanjo_027
-        label: "Texto: Tradition is worn"
-        type: string
-      - name: sanjo_028
-        label: "Texto: on your feet."
-        type: string
-      - name: sanjo_029
-        label: "Texto: A tradição é uma herança passada entre mãos, m…"
-        type: string
-      - name: sanjo_030
-        label: "Título: insight"
-        type: string
-      - name: sanjo_031
-        label: "Texto: Tudo pode mudar. Mas há coisas que caminham se…"
-        type: string
-      - name: sanjo_032
-        label: "Texto: Everything can change. Some things always walk…"
-        type: string
-      - name: sanjo_033
-        label: "Texto: The young reach Sanjo through parents and gran…"
-        type: text
-      - name: sanjo_034
-        label: "Título: what it"
-        type: string
-      - name: sanjo_035
-        label: "Título: became"
-        type: string
-      - name: sanjo_036
-        label: "Texto: Online and off"
-        type: string
-      - name: sanjo_037
-        label: "Subtítulo: A um passo do online"
-        type: string
-      - name: sanjo_038
-        label: "Texto: One step from online"
-        type: string
-      - name: sanjo_039
-        label: "Legenda: The exclusive box"
-        type: string
-      - name: sanjo_040
-        label: "Legenda: Sneakers inside"
-        type: string
-      - name: sanjo_041
-        label: "Texto: Packaging for online orders"
-        type: string
-      - name: sanjo_042
-        label: "Subtítulo: A biscuit tin, with sneakers in it"
-        type: string
-      - name: sanjo_043
-        label: "Texto: The shoebox borrows from another piece of Port…"
-        type: text
-      - name: sanjo_044
-        label: "Texto: Two film spots"
-        type: string
-      - name: sanjo_045
-        label: "Subtítulo: Herança & O Amanhã"
-        type: string
-      - name: sanjo_046
-        label: "Texto: A young woman scrolls through family photos an…"
-        type: text
-      - name: sanjo_047
-        label: "Texto: Podcast"
-        type: string
-      - name: sanjo_048
-        label: "Subtítulo: Um Par de Histórias"
-        type: string
-      - name: sanjo_049
-        label: "Texto: Real stories that began with a pair of shoes, …"
-        type: text
-      - name: sanjo_050
-        label: "Subtítulo: Com um pé no offline"
-        type: string
-      - name: sanjo_051
-        label: "Texto: One foot in offline"
-        type: string
-      - name: sanjo_052
-        label: "Legenda: Outdoor, one step at a time"
-        type: string
-      - name: sanjo_053
-        label: "Legenda: Retail displays"
-        type: string
-      - name: sanjo_054
-        label: "Legenda: Digital outdoor"
-        type: string
-      - name: sanjo_055
-        label: "Legenda: Stores"
-        type: string
-      - name: sanjo_056
-        label: "Legenda: Fashion events"
-        type: string
-      - name: sanjo_057
-        label: "Subtítulo: A photo studio shaped like a shoebox"
-        type: string
-      - name: sanjo_058
-        label: "Texto: Visitors pick an outfit outside, step into the…"
-        type: text
-      - name: sanjo_059
-        label: "Texto: Outdoor, radio, stores, retail"
-        type: string
-      - name: sanjo_060
-        label: "Subtítulo: The same step, everywhere you walk"
-        type: string
-      - name: sanjo_061
-        label: "Texto: Online sales keep growing. The street still gi…"
-        type: text
-      - name: sanjo_062
-        label: "Texto: Não é um passo em falso. Não é um passo maior …"
-        type: string
-      - name: sanjo_063
-        label: "Texto: É o próximo passo."
-        type: string
-      - name: sanjo_064
-        label: "Texto: Not a false step. Not a step too far. The next…"
-        type: string
-      - name: sanjo_065
-        label: "Texto: Next client"
-        type: string
-      - name: sanjo_066
-        label: "Link: AQUAINN →"
-        type: string
-      - name: sanjo_067
-        label: "Link: All clients"
-        type: string
+      - name: cabecalho
+        label: "Topo"
+        type: object
+        fields:
+          - name: voltar
+            label: "Link de voltar"
+            type: string
+          - name: etiqueta
+            label: "Etiqueta pequena"
+            type: string
+          - name: titulo_1
+            label: "Título – linha 1"
+            type: string
+          - name: titulo_2
+            label: "Título – linha 2"
+            type: string
+      - name: texto
+        label: "Texto"
+        type: object
+        fields:
+          - name: frase_inicio
+            label: "Frase grande – início"
+            type: string
+          - name: frase_destaque
+            label: "Frase grande – palavra sublinhada a amarelo"
+            type: string
+          - name: frase_fim
+            label: "Frase grande – fim"
+            type: string
+          - name: paragrafo
+            label: "Parágrafo"
+            type: text
+      - name: proximo
+        label: "Bloco amarelo do fim"
+        type: object
+        fields:
+          - name: etiqueta
+            label: "Etiqueta"
+            type: string
+          - name: link
+            label: "Link grande"
+            type: string
+          - name: botao
+            label: "Botão"
+            type: string
   - name: contacto
     label: "Contacto e rodapé"
     type: file
     path: content/contacto.json
     format: json
     fields:
-      - name: contacto_001
-        label: "Sublinhado: Cut the mistakes."
-        type: string
-      - name: contacto_002
-        label: "Sublinhado: Go for gaffe(s)!"
-        type: string
-      - name: contacto_003
-        label: "Texto: Send the brief. We'll come back with the answe…"
-        type: string
-      - name: contacto_004
-        label: "Texto: Your name"
-        type: string
-      - name: contacto_005
-        label: "Texto: Your email"
-        type: string
-      - name: contacto_006
-        label: "Texto: The question you're bringing"
-        type: string
-      - name: contacto_007
-        label: "Botão: Send the brief"
-        type: string
-      - name: contacto_008
-        label: "Texto: or write to"
-        type: string
-      - name: contacto_009
-        label: "Botão: Copy"
-        type: string
-      - name: contacto_010
-        label: "Etiqueta: (and thank you!)"
-        type: string
-      - name: contacto_011
-        label: "Riscado: goodbye"
-        type: string
-      - name: contacto_012
-        label: "Etiqueta: talk soon!"
-        type: string
-      - name: contacto_013
-        label: "Texto: Talk to us"
-        type: string
-      - name: form_a_enviar
-        label: "Formulário: a enviar"
-        type: string
-      - name: form_enviado
-        label: "Formulário: enviado com sucesso"
-        type: string
-      - name: form_falhou
-        label: "Formulário: quando falha"
-        type: string
-      - name: form_falhou_link
-        label: "Formulário: link para enviar por email"
-        type: string
+      - name: titulo
+        label: "Título e texto"
+        type: object
+        fields:
+          - name: linha_1
+            label: "Título – linha 1"
+            type: string
+          - name: linha_2
+            label: "Título – linha 2"
+            type: string
+          - name: texto
+            label: "Texto por baixo"
+            type: text
+      - name: formulario
+        label: "Formulário"
+        type: object
+        fields:
+          - name: nome
+            label: "Campo: nome"
+            type: string
+          - name: email
+            label: "Campo: email"
+            type: string
+          - name: mensagem
+            label: "Campo: mensagem"
+            type: string
+          - name: botao
+            label: "Botão de enviar"
+            type: string
+          - name: a_enviar
+            label: "Mensagem: a enviar"
+            type: string
+          - name: enviado
+            label: "Mensagem: enviado"
+            type: string
+          - name: falhou
+            label: "Mensagem: quando falha"
+            type: string
+          - name: falhou_link
+            label: "Mensagem: link para enviar por email"
+            type: string
+      - name: email_direto
+        label: "Email por baixo do formulário"
+        type: object
+        fields:
+          - name: texto
+            label: "Texto antes do email"
+            type: string
+          - name: copiar
+            label: "Botão copiar"
+            type: string
+      - name: colagem
+        label: "Autocolantes da colagem"
+        type: object
+        fields:
+          - name: obrigado
+            label: "Autocolante vermelho"
+            type: string
+          - name: adeus
+            label: "Palavra riscada"
+            type: string
+          - name: ate_breve
+            label: "Autocolante grande"
+            type: string
+      - name: botao_fixo
+        label: "Botão fixo no canto"
+        type: object
+        fields:
+          - name: texto
+            label: "Texto do botão"
+            type: string
+  - name: historia
+    label: "História (play)"
+    type: file
+    path: content/historia.json
+    format: json
+    fields:
+      - name: s01
+        label: "1. Three things nobody meant to invent"
+        type: object
+        fields:
+          - name: t01
+            label: "Texto: Three things nobody meant to invent"
+            type: string
+          - name: t02
+            label: "Título: microwave"
+            type: string
+          - name: t03
+            label: "Etiqueta: A chocolate bar melted in an engineer's pocket."
+            type: string
+          - name: t04
+            label: "Título: corn flakes"
+            type: string
+          - name: t05
+            label: "Etiqueta: Cooked wheat, left out until it went stale."
+            type: string
+          - name: t06
+            label: "Título: viagra"
+            type: string
+          - name: t07
+            label: "Etiqueta: Meant for angina. The side effect won."
+            type: string
+      - name: s02
+        label: "2. Mistakes?"
+        type: object
+        fields:
+          - name: t01
+            label: "Texto: Mistakes?"
+            type: string
+      - name: s03
+        label: "3. NO!"
+        type: object
+        fields:
+          - name: t01
+            label: "Etiqueta: NO!"
+            type: string
+      - name: s04
+        label: "4. Those were"
+        type: object
+        fields:
+          - name: t01
+            label: "Título: Those were"
+            type: string
+          - name: t02
+            label: "Título: accidents."
+            type: string
+          - name: t03
+            label: "Texto: Ours are"
+            type: string
+          - name: t04
+            label: "Texto: on purpose."
+            type: string
+      - name: s05
+        label: "5. new ways"
+        type: object
+        fields:
+          - name: t01
+            label: "Etiqueta: new ways"
+            type: string
+      - name: s06
+        label: "6. how we do it"
+        type: object
+        fields:
+          - name: t01
+            label: "Título: how we do it"
+            type: string
+          - name: t02
+            label: "Texto: You bring the question"
+            type: string
+          - name: t03
+            label: "Texto: We write down the obvious answer"
+            type: string
+          - name: t04
+            label: "Texto: We cross it out"
+            type: string
+          - name: t05
+            label: "Texto: We build the gaffe in its place"
+            type: string
+          - name: t06
+            label: "Link: See what we did"
+            type: string
+          - name: t07
+            label: "Texto: Scroll to walk →"
+            type: string
+          - name: t08
+            label: "Link: Skip to our work ↓"
+            type: string
+      - name: s07
+        label: "7. Next"
+        type: object
+        fields:
+          - name: t01
+            label: "Texto: Next"
+            type: string
+          - name: t02
+            label: "Link: Our work →"
+            type: string
+          - name: t03
+            label: "Link: Home"
+            type: string
+  - name: aquainn
+    label: "Case: AQUAINN"
+    type: file
+    path: content/aquainn.json
+    format: json
+    fields:
+      - name: s01
+        label: "1. ← All clients"
+        type: object
+        fields:
+          - name: t01
+            label: "Link: ← All clients"
+            type: string
+          - name: t02
+            label: "Texto: A system that monitors water use in hotels and…"
+            type: text
+          - name: t03
+            label: "Texto: Shower"
+            type: string
+          - name: t04
+            label: "Texto: = 50 litres"
+            type: string
+          - name: t05
+            label: "Etiqueta: one drop at a time"
+            type: string
+          - name: t06
+            label: "Rótulo: Client"
+            type: string
+          - name: t07
+            label: "Valor: AQUAINN"
+            type: string
+          - name: t08
+            label: "Rótulo: Sector"
+            type: string
+          - name: t09
+            label: "Valor: Hospitality, water efficiency"
+            type: string
+          - name: t10
+            label: "Rótulo: What we did"
+            type: string
+          - name: t11
+            label: "Valor: Communication strategy, creative concept, copy…"
+            type: text
+          - name: t12
+            label: "Rótulo: Format"
+            type: string
+          - name: t13
+            label: "Valor: Creative proposal, including Web Summit activa…"
+            type: string
+      - name: s02
+        label: "2. the"
+        type: object
+        fields:
+          - name: t01
+            label: "Título: the"
+            type: string
+          - name: t02
+            label: "Título: question?"
+            type: string
+          - name: t03
+            label: "Texto: How do you get hotel guests to use less water …"
+            type: text
+          - name: t04
+            label: "Texto: Hotels have to cut water in a drought. Guests …"
+            type: text
+          - name: t05
+            label: "Etiqueta: 800 L"
+            type: string
+          - name: t06
+            label: "Etiqueta: Estimated water use per hotel guest, per day"
+            type: string
+          - name: t07
+            label: "Etiqueta: 4 audiences"
+            type: string
+          - name: t08
+            label: "Etiqueta: Guests, managers, staff and the hotel's local …"
+            type: string
+          - name: t09
+            label: "Etiqueta: 7.5 L"
+            type: string
+          - name: t10
+            label: "Etiqueta: Lost every minute a tap is left running"
+            type: string
+      - name: s03
+        label: "3. obvious"
+        type: object
+        fields:
+          - name: t01
+            label: "Título: obvious"
+            type: string
+          - name: t02
+            label: "Título: answer"
+            type: string
+          - name: t03
+            label: "Texto: Tell people what they should or shouldn't do."
+            type: string
+          - name: t04
+            label: "Título: gaffe."
+            type: string
+          - name: t05
+            label: "Texto: The best"
+            type: string
+          - name: t06
+            label: "Texto: 5 minutes"
+            type: string
+          - name: t07
+            label: "Texto: of your life?"
+            type: string
+      - name: s04
+        label: "4. insight"
+        type: object
+        fields:
+          - name: t01
+            label: "Título: insight"
+            type: string
+          - name: t02
+            label: "Texto: What's the most impactful thing you could do i…"
+            type: string
+          - name: t03
+            label: "Item: Bungee jumping."
+            type: string
+          - name: t04
+            label: "Item: A wedding proposal."
+            type: string
+          - name: t05
+            label: "Item: Skydiving."
+            type: string
+          - name: t06
+            label: "Item: Or maybe a 5 minute shower."
+            type: string
+          - name: t07
+            label: "Texto: Not all great experiences take long. So the ca…"
+            type: text
+          - name: t08
+            label: "Rótulo: Try it: shower length"
+            type: string
+          - name: t09
+            label: "Resultado: 5 min = 50 L"
+            type: string
+          - name: t10
+            label: "Texto: The best five minutes of your life."
+            type: string
+          - name: t11
+            label: "Texto: Based on the proposal's figures: 5 minutes use…"
+            type: text
+      - name: s05
+        label: "5. what it"
+        type: object
+        fields:
+          - name: t01
+            label: "Título: what it"
+            type: string
+          - name: t02
+            label: "Título: became"
+            type: string
+          - name: t03
+            label: "Texto: One idea, said differently to everyone in the …"
+            type: string
+          - name: t04
+            label: "Botão: Guests"
+            type: string
+          - name: t05
+            label: "Botão: Managers"
+            type: string
+          - name: t06
+            label: "Botão: Staff"
+            type: string
+          - name: t07
+            label: "Botão: Partner network"
+            type: string
+          - name: t08
+            label: "Botão: Web Summit"
+            type: string
+      - name: s06
+        label: "6. What do we tell guests when they walk …"
+        type: object
+        fields:
+          - name: t01
+            label: "Texto: What do we tell guests when they walk into the…"
+            type: string
+          - name: t02
+            label: "Texto: On the toothbrush glass"
+            type: string
+          - name: t03
+            label: "Subtítulo: “Time to brush off old ideas!”"
+            type: string
+          - name: t04
+            label: "Texto: A complimentary toothbrush with a message abou…"
+            type: text
+          - name: t05
+            label: "Texto: At check-in"
+            type: string
+          - name: t06
+            label: "Subtítulo: “Put on a different kind of thinking cap!”"
+            type: string
+          - name: t07
+            label: "Texto: A shower cap nobody expects, carrying the numb…"
+            type: text
+          - name: t08
+            label: "Texto: On the room tablet"
+            type: string
+          - name: t09
+            label: "Subtítulo: “The best 5 minutes of your life?”"
+            type: string
+          - name: t10
+            label: "Texto: A short shower is all it takes for a greener s…"
+            type: string
+          - name: t11
+            label: "Texto: Shower playlist"
+            type: string
+          - name: t12
+            label: "Subtítulo: AquaSoundscapes"
+            type: string
+          - name: t13
+            label: "Texto: A Spotify playlist where every song runs under…"
+            type: text
+      - name: s07
+        label: "7. What do we tell managers so they partn…"
+        type: object
+        fields:
+          - name: t01
+            label: "Texto: What do we tell managers so they partner with …"
+            type: string
+          - name: t02
+            label: "Texto: Headline"
+            type: string
+          - name: t03
+            label: "Subtítulo: “Help us, help you, help them!”"
+            type: string
+          - name: t04
+            label: "Texto: The pitch in one breath: the hotel, the guest …"
+            type: text
+          - name: t05
+            label: "Subtítulo: “Savings beyond the water cycle!”"
+            type: string
+          - name: t06
+            label: "Texto: Less hot water also means a smaller energy bill."
+            type: string
+          - name: t07
+            label: "Texto: The promise"
+            type: string
+          - name: t08
+            label: "Subtítulo: Up to 30% less water. Up to 20% less heating."
+            type: string
+          - name: t09
+            label: "Texto: The potential savings AQUAINN puts in front of…"
+            type: string
+      - name: s08
+        label: "8. What do we tell staff so they help us?"
+        type: object
+        fields:
+          - name: t01
+            label: "Texto: What do we tell staff so they help us?"
+            type: string
+          - name: t02
+            label: "Texto: Training programme"
+            type: string
+          - name: t03
+            label: "Subtítulo: HydroSustain"
+            type: string
+          - name: t04
+            label: "Texto: An internal education programme that shows hot…"
+            type: text
+          - name: t05
+            label: "Texto: Restaurant menu"
+            type: string
+          - name: t06
+            label: "Subtítulo: AquaArtistry"
+            type: string
+          - name: t07
+            label: "Texto: A menu built with the hotel's kitchen around w…"
+            type: text
+      - name: s09
+        label: "9. What do we tell local partners so they…"
+        type: object
+        fields:
+          - name: t01
+            label: "Texto: What do we tell local partners so they join th…"
+            type: string
+          - name: t02
+            label: "Texto: Partner network seal"
+            type: string
+          - name: t03
+            label: "Subtítulo: The AQUAINN seal of excellence in water usage"
+            type: string
+          - name: t04
+            label: "Texto: Awarded to the restaurants, spas, wineries, lo…"
+            type: text
+          - name: t05
+            label: "Texto: Why they join"
+            type: string
+          - name: t06
+            label: "Subtítulo: Guests arrive. So does business."
+            type: string
+          - name: t07
+            label: "Texto: The network sends the hotel's guests to local …"
+            type: text
+      - name: s10
+        label: "10. What do we tell Web Summit visitors so…"
+        type: object
+        fields:
+          - name: t01
+            label: "Texto: What do we tell Web Summit visitors so they wa…"
+            type: string
+          - name: t02
+            label: "Texto: Activation"
+            type: string
+          - name: t03
+            label: "Subtítulo: The Thinking Cap"
+            type: string
+          - name: t04
+            label: "Texto: Promoters in bathrobes and slippers hand out s…"
+            type: text
+          - name: t05
+            label: "Texto: Promo video, 20 seconds"
+            type: string
+          - name: t06
+            label: "Subtítulo: “Water is life. And life is worth saving!”"
+            type: string
+          - name: t07
+            label: "Texto: The logo turns into a cap and lands on a head.…"
+            type: string
+          - name: t08
+            label: "Subtítulo: Sustainable Unlock"
+            type: string
+          - name: t09
+            label: "Texto: A concierge walks the venue handing out keys o…"
+            type: text
+      - name: s11
+        label: "11. Next client"
+        type: object
+        fields:
+          - name: t01
+            label: "Texto: Next client"
+            type: string
+          - name: t02
+            label: "Link: ARA →"
+            type: string
+          - name: t03
+            label: "Link: All clients"
+            type: string
+  - name: ara
+    label: "Case: ARA"
+    type: file
+    path: content/ara.json
+    format: json
+    fields:
+      - name: s01
+        label: "1. ← All clients"
+        type: object
+        fields:
+          - name: t01
+            label: "Link: ← All clients"
+            type: string
+          - name: t02
+            label: "Título: ARA"
+            type: string
+          - name: t03
+            label: "Texto: A conceptual foundation for Comprehensive Ayur…"
+            type: text
+          - name: t04
+            label: "Texto: अर"
+            type: string
+          - name: t05
+            label: "Etiqueta: the spoke of a wheel"
+            type: string
+          - name: t06
+            label: "Rótulo: Client"
+            type: string
+          - name: t07
+            label: "Valor: Comprehensive Ayurveda Healthcare"
+            type: string
+          - name: t08
+            label: "Rótulo: Sector"
+            type: string
+          - name: t09
+            label: "Valor: Healthcare, Ayurveda"
+            type: string
+          - name: t10
+            label: "Rótulo: What we did"
+            type: string
+          - name: t11
+            label: "Valor: Brand concept, naming, brand architecture, roa…"
+            type: string
+          - name: t12
+            label: "Rótulo: Format"
+            type: string
+          - name: t13
+            label: "Valor: Creative proposal."
+            type: string
+          - name: t14
+            label: "Link: See it live ↗"
+            type: string
+      - name: s02
+        label: "2. the"
+        type: object
+        fields:
+          - name: t01
+            label: "Título: the"
+            type: string
+          - name: t02
+            label: "Título: question?"
+            type: string
+          - name: t03
+            label: "Texto: Build the conceptual foundation for an Ayurved…"
+            type: text
+          - name: t04
+            label: "Texto: In India, Ayurveda is a way of understanding l…"
+            type: text
+      - name: s03
+        label: "3. obvious"
+        type: object
+        fields:
+          - name: t01
+            label: "Título: obvious"
+            type: string
+          - name: t02
+            label: "Título: answer"
+            type: string
+          - name: t03
+            label: "Texto: A wellness brand. A spa concept. A collection …"
+            type: string
+          - name: t04
+            label: "Título: gaffe."
+            type: string
+          - name: t05
+            label: "Texto: ARA. The"
+            type: string
+          - name: t06
+            label: "Texto: spoke"
+            type: string
+          - name: t07
+            label: "Texto: of a wheel."
+            type: string
+      - name: s04
+        label: "4. insight"
+        type: object
+        fields:
+          - name: t01
+            label: "Título: insight"
+            type: string
+          - name: t02
+            label: "Texto: If health is relational, the brand must be str…"
+            type: string
+          - name: t03
+            label: "Texto: A name applied on top would not hold. The bran…"
+            type: text
+          - name: t04
+            label: "Texto: The spoke of a wheel."
+            type: string
+          - name: t05
+            label: "Texto: The element that holds tension and creates con…"
+            type: text
+          - name: t06
+            label: "Texto: We do not scale the person. We structure the s…"
+            type: string
+          - name: t07
+            label: "Texto: Kavitha Abzeena trained from childhood in Kera…"
+            type: text
+      - name: s05
+        label: "5. what it"
+        type: object
+        fields:
+          - name: t01
+            label: "Título: what it"
+            type: string
+          - name: t02
+            label: "Título: became"
+            type: string
+          - name: t03
+            label: "Texto: The KA · VI · THA system."
+            type: string
+          - name: t04
+            label: "Texto: From the syllables of Kavitha's name, the ARA …"
+            type: text
+          - name: t05
+            label: "Texto: The Center"
+            type: string
+          - name: t06
+            label: "Texto: · KA"
+            type: string
+          - name: t07
+            label: "Texto: The point of diagnosis"
+            type: string
+          - name: t08
+            label: "Texto: The Medicine"
+            type: string
+          - name: t09
+            label: "Texto: · VI"
+            type: string
+          - name: t10
+            label: "Texto: The point of formulation"
+            type: string
+          - name: t11
+            label: "Texto: The Experience"
+            type: string
+          - name: t12
+            label: "Texto: · THA"
+            type: string
+          - name: t13
+            label: "Texto: The point of experience"
+            type: string
+          - name: t14
+            label: "Texto: The Institute"
+            type: string
+          - name: t15
+            label: "Texto: · KAVITHA"
+            type: string
+          - name: t16
+            label: "Texto: The point of transmission"
+            type: string
+          - name: t17
+            label: "Texto: Then a three-step road to opening day."
+            type: string
+          - name: t18
+            label: "Subtítulo: Brand foundation"
+            type: string
+          - name: t19
+            label: "Texto: Identity, positioning, audiences, tone of voic…"
+            type: text
+          - name: t20
+            label: "Texto: 4 months / Brand ID document"
+            type: string
+          - name: t21
+            label: "Subtítulo: Brand deployment"
+            type: string
+          - name: t22
+            label: "Texto: Website, social, press and internal materials,…"
+            type: text
+          - name: t23
+            label: "Texto: 6 months / Launch-ready presence"
+            type: string
+          - name: t24
+            label: "Subtítulo: Brand activation"
+            type: string
+          - name: t25
+            label: "Texto: The full communication strategy, then the firs…"
+            type: text
+          - name: t26
+            label: "Texto: 6 months / Plan + first campaign"
+            type: string
+      - name: s06
+        label: "6. The knowledge exists. The practice exi…"
+        type: object
+        fields:
+          - name: t01
+            label: "Texto: The knowledge exists. The practice exists. The…"
+            type: string
+          - name: t02
+            label: "Texto: is the structure that lets them become one."
+            type: string
+      - name: s07
+        label: "7. Next client"
+        type: object
+        fields:
+          - name: t01
+            label: "Texto: Next client"
+            type: string
+          - name: t02
+            label: "Link: Sanjo →"
+            type: string
+          - name: t03
+            label: "Link: All clients"
+            type: string
+  - name: sanjo
+    label: "Case: Sanjo"
+    type: file
+    path: content/sanjo.json
+    format: json
+    fields:
+      - name: s01
+        label: "1. ← All clients"
+        type: object
+        fields:
+          - name: t01
+            label: "Link: ← All clients"
+            type: string
+          - name: t02
+            label: "Título: Sanjo"
+            type: string
+          - name: t03
+            label: "Texto: É um passo da tua história."
+            type: string
+          - name: t04
+            label: "Texto: A step in your story."
+            type: string
+          - name: t05
+            label: "Etiqueta: é um passo da tua história"
+            type: string
+          - name: t06
+            label: "Rótulo: Client"
+            type: string
+          - name: t07
+            label: "Rótulo: Sector"
+            type: string
+          - name: t08
+            label: "Valor: Footwear"
+            type: string
+          - name: t09
+            label: "Rótulo: What we did"
+            type: string
+          - name: t10
+            label: "Valor: Campaign concept, copy, packaging, film script…"
+            type: text
+          - name: t11
+            label: "Rótulo: Format"
+            type: string
+          - name: t12
+            label: "Valor: Campaign proposal, with [in]sight studio"
+            type: string
+      - name: s02
+        label: "2. the"
+        type: object
+        fields:
+          - name: t01
+            label: "Título: the"
+            type: string
+          - name: t02
+            label: "Título: question?"
+            type: string
+          - name: t03
+            label: "Texto: How does a brand that is almost a century old …"
+            type: text
+          - name: t04
+            label: "Texto: The brand of the old days reinvented itself. S…"
+            type: text
+          - name: t05
+            label: "Subtítulo: Boomers & Gen X"
+            type: string
+          - name: t06
+            label: "Texto: Know the legacy and keep it alive. They also h…"
+            type: string
+          - name: t07
+            label: "Subtítulo: Millennials, Gen Z & Alpha"
+            type: string
+          - name: t08
+            label: "Texto: Nostalgic for things they never had."
+            type: string
+          - name: t09
+            label: "Subtítulo: The next generation"
+            type: string
+          - name: t10
+            label: "Texto: Ready to go past tradition altogether."
+            type: string
+      - name: s03
+        label: "3. obvious"
+        type: object
+        fields:
+          - name: t01
+            label: "Título: obvious"
+            type: string
+          - name: t02
+            label: "Título: answer"
+            type: string
+          - name: t03
+            label: "Texto: Tradition is passed from hand to hand."
+            type: string
+          - name: t04
+            label: "Título: gaffe."
+            type: string
+          - name: t05
+            label: "Texto: Tradition is worn"
+            type: string
+          - name: t06
+            label: "Texto: on your feet."
+            type: string
+          - name: t07
+            label: "Texto: A tradição é uma herança passada entre mãos, m…"
+            type: string
+      - name: s04
+        label: "4. insight"
+        type: object
+        fields:
+          - name: t01
+            label: "Título: insight"
+            type: string
+          - name: t02
+            label: "Texto: Tudo pode mudar. Mas há coisas que caminham se…"
+            type: string
+          - name: t03
+            label: "Texto: Everything can change. Some things always walk…"
+            type: string
+          - name: t04
+            label: "Texto: The young reach Sanjo through parents and gran…"
+            type: text
+      - name: s05
+        label: "5. what it"
+        type: object
+        fields:
+          - name: t01
+            label: "Título: what it"
+            type: string
+          - name: t02
+            label: "Título: became"
+            type: string
+          - name: t03
+            label: "Texto: Online and off"
+            type: string
+          - name: t04
+            label: "Subtítulo: A um passo do online"
+            type: string
+          - name: t05
+            label: "Texto: One step from online"
+            type: string
+          - name: t06
+            label: "Legenda: The exclusive box"
+            type: string
+          - name: t07
+            label: "Legenda: Sneakers inside"
+            type: string
+          - name: t08
+            label: "Texto: Packaging for online orders"
+            type: string
+          - name: t09
+            label: "Subtítulo: A biscuit tin, with sneakers in it"
+            type: string
+          - name: t10
+            label: "Texto: The shoebox borrows from another piece of Port…"
+            type: text
+          - name: t11
+            label: "Texto: Two film spots"
+            type: string
+          - name: t12
+            label: "Subtítulo: Herança & O Amanhã"
+            type: string
+          - name: t13
+            label: "Texto: A young woman scrolls through family photos an…"
+            type: text
+          - name: t14
+            label: "Texto: Podcast"
+            type: string
+          - name: t15
+            label: "Subtítulo: Um Par de Histórias"
+            type: string
+          - name: t16
+            label: "Texto: Real stories that began with a pair of shoes, …"
+            type: text
+          - name: t17
+            label: "Subtítulo: Com um pé no offline"
+            type: string
+          - name: t18
+            label: "Texto: One foot in offline"
+            type: string
+          - name: t19
+            label: "Legenda: Outdoor, one step at a time"
+            type: string
+          - name: t20
+            label: "Legenda: Retail displays"
+            type: string
+          - name: t21
+            label: "Legenda: Digital outdoor"
+            type: string
+          - name: t22
+            label: "Legenda: Stores"
+            type: string
+          - name: t23
+            label: "Legenda: Fashion events"
+            type: string
+          - name: t24
+            label: "Subtítulo: A photo studio shaped like a shoebox"
+            type: string
+          - name: t25
+            label: "Texto: Visitors pick an outfit outside, step into the…"
+            type: text
+          - name: t26
+            label: "Texto: Outdoor, radio, stores, retail"
+            type: string
+          - name: t27
+            label: "Subtítulo: The same step, everywhere you walk"
+            type: string
+          - name: t28
+            label: "Texto: Online sales keep growing. The street still gi…"
+            type: text
+      - name: s06
+        label: "6. Não é um passo em falso. Não é um pass…"
+        type: object
+        fields:
+          - name: t01
+            label: "Texto: Não é um passo em falso. Não é um passo maior …"
+            type: string
+          - name: t02
+            label: "Texto: É o próximo passo."
+            type: string
+          - name: t03
+            label: "Texto: Not a false step. Not a step too far. The next…"
+            type: string
+      - name: s07
+        label: "7. Next client"
+        type: object
+        fields:
+          - name: t01
+            label: "Texto: Next client"
+            type: string
+          - name: t02
+            label: "Link: AQUAINN →"
+            type: string
+          - name: t03
+            label: "Link: All clients"
+            type: string

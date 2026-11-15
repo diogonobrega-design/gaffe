@@ -1,0 +1,62 @@
+[
+  {
+    "nome": "ARA.",
+    "endereco": "ara",
+    "frase": "The spoke of a wheel.",
+    "setor": "Healthcare / Brand concept",
+    "estado": "publicado",
+    "preview": {
+      "imagem": "img/ara-wheel.svg",
+      "fundo": "amarelo",
+      "ajuste": "centrar",
+      "rodar": true
+    },
+    "cabecalho": {},
+    "blocos": []
+  },
+  {
+    "nome": "SANJO.",
+    "endereco": "sanjo",
+    "frase": "Tradition is worn on your feet.",
+    "setor": "Footwear / Campaign",
+    "estado": "publicado",
+    "preview": {
+      "imagem": "img/sanjo-kv.webp",
+      "fundo": "preto",
+      "ajuste": "cobrir",
+      "rodar": false
+    },
+    "cabecalho": {},
+    "blocos": []
+  },
+  {
+    "nome": "AQUAINN.",
+    "endereco": "aquainn",
+    "frase": "The best 5 minutes of your life.",
+    "setor": "Hospitality / Strategy & activation",
+    "estado": "publicado",
+    "preview": {
+      "imagem": "img/aquainn-logo-2.png",
+      "fundo": "azul",
+      "ajuste": "centrar",
+      "rodar": false
+    },
+    "cabecalho": {},
+    "blocos": []
+  },
+  {
+    "nome": "RUA.",
+    "endereco": "rua",
+    "frase": "Coming down the street.",
+    "setor": "In the works",
+    "estado": "brevemente",
+    "preview": {
+      "imagem": "",
+      "fundo": "vermelho",
+      "ajuste": "centrar",
+      "rodar": false
+    },
+    "cabecalho": {},
+    "blocos": []
+  }
+]

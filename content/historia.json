@@ -1,27 +1,41 @@
 {
-  "historia_001": "Three things nobody meant to invent",
-  "historia_002": "microwave",
-  "historia_003": "A chocolate bar melted in an engineer's pocket.",
-  "historia_004": "corn flakes",
-  "historia_005": "Cooked wheat, left out until it went stale.",
-  "historia_006": "viagra",
-  "historia_007": "Meant for angina. The side effect won.",
-  "historia_008": "Mistakes?",
-  "historia_009": "NO!",
-  "historia_010": "Those were",
-  "historia_011": "accidents.",
-  "historia_012": "Ours are",
-  "historia_013": "on purpose.",
-  "historia_014": "new ways",
-  "historia_015": "how we do it",
-  "historia_016": "You bring the question",
-  "historia_017": "We write down the obvious answer",
-  "historia_018": "We cross it out",
-  "historia_019": "We build the gaffe in its place",
-  "historia_020": "See what we did",
-  "historia_021": "Scroll to walk →",
-  "historia_022": "Skip to our work ↓",
-  "historia_023": "Next",
-  "historia_024": "Our work →",
-  "historia_025": "Home"
+  "s01": {
+    "t01": "Three things nobody meant to invent",
+    "t02": "microwave",
+    "t03": "A chocolate bar melted in an engineer's pocket.",
+    "t04": "corn flakes",
+    "t05": "Cooked wheat, left out until it went stale.",
+    "t06": "viagra",
+    "t07": "Meant for angina. The side effect won."
+  },
+  "s02": {
+    "t01": "Mistakes?"
+  },
+  "s03": {
+    "t01": "NO!"
+  },
+  "s04": {
+    "t01": "Those were",
+    "t02": "accidents.",
+    "t03": "Ours are",
+    "t04": "on purpose."
+  },
+  "s05": {
+    "t01": "new ways"
+  },
+  "s06": {
+    "t01": "how we do it",
+    "t02": "You bring the question",
+    "t03": "We write down the obvious answer",
+    "t04": "We cross it out",
+    "t05": "We build the gaffe in its place",
+    "t06": "See what we did",
+    "t07": "Scroll to walk →",
+    "t08": "Skip to our work ↓"
+  },
+  "s07": {
+    "t01": "Next",
+    "t02": "Our work →",
+    "t03": "Home"
+  }
 }

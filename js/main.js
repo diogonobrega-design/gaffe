@@ -1,8 +1,10 @@
 (function () {
   var root = document.documentElement;
   var home = document.getElementById('home');
-  // every view that is not the homepage: the three cases, What we make, About us, the gaffe story
-  var cases = { aquainn: document.getElementById('aquainn'), ara: document.getElementById('ara'), sanjo: document.getElementById('sanjo'), services: document.getElementById('services'), about: document.getElementById('about'), story: document.getElementById('story') };
+  // every view that is not the homepage: the projects (including the ones built from Pages CMS blocks),
+  // What we make, About us and the gaffe story
+  var cases = {};
+  Array.prototype.forEach.call(document.querySelectorAll('article.case'), function (el) { cases[el.id] = el; });
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function each(sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); }
   function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }

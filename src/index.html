@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{{geral.geral_001}}</title>
-<meta name="description" content="{{geral.descricao}}">
+<title>{{geral.seo.titulo}}</title>
+<meta name="description" content="{{=geral.seo.descricao}}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Jost:ital,wght@0,400;0,500;0,700;0,900;1,500;1,700;1,800;1,900&family=Tiro+Devanagari+Sanskrit&display=swap">
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="icon" type="image/png" sizes="512x512" href="img/favicon-512.png">
@@ -13,8 +13,8 @@
 <!-- link previews (WhatsApp, LinkedIn, iMessage…): switch the URLs to the real domain once it's live -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="gaffe">
-<meta property="og:title" content="{{geral.partilha_titulo}}">
-<meta property="og:description" content="{{geral.partilha_descricao}}">
+<meta property="og:title" content="{{=geral.seo.partilha_titulo}}">
+<meta property="og:description" content="{{=geral.seo.partilha_descricao}}">
 <meta property="og:url" content="https://diogonobrega-design.github.io/gaffe/">
 <meta property="og:image" content="https://diogonobrega-design.github.io/gaffe/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -47,17 +47,17 @@
 </svg>
 
 
-<a class="skip" href="#home">{{geral.geral_002}}</a>
+<a class="skip" href="#home">{{geral.acessibilidade.saltar}}</a>
 
 <header class="top">
   <a class="top__logo" href="#top" data-go="home" aria-label="gaffe, home"><img src="img/logo.png" width="900" height="367" alt="gaffe"></a>
   <nav class="nav" id="nav" aria-label="Main">
-    <a href="#work" data-go="work" data-spy="work" style="--i:0"><span>{{geral.geral_003}}</span></a>
-    <a href="#services" data-go="services" data-spy="services" style="--i:1"><span>{{geral.geral_004}}</span></a>
-    <a href="#about" data-go="about" data-spy="about" style="--i:2"><span>{{geral.geral_005}}</span></a>
-    <a class="nav__cta" href="#contact" data-go="contact" data-spy="contact" style="--i:3"><span>{{geral.geral_006}}</span></a>
+    <a href="#work" data-go="work" data-spy="work" style="--i:0"><span>{{geral.menu.trabalho}}</span></a>
+    <a href="#services" data-go="services" data-spy="services" style="--i:1"><span>{{geral.menu.o_que_fazemos}}</span></a>
+    <a href="#about" data-go="about" data-spy="about" style="--i:2"><span>{{geral.menu.about}}</span></a>
+    <a class="nav__cta" href="#contact" data-go="contact" data-spy="contact" style="--i:3"><span>{{geral.menu.contacto}}</span></a>
   </nav>
-  <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="nav"><span class="burger__lines" aria-hidden="true"></span><span class="vh">{{geral.geral_007}}</span></button>
+  <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="nav"><span class="burger__lines" aria-hidden="true"></span><span class="vh">{{geral.acessibilidade.menu}}</span></button>
 </header>
 
 <main id="home">
@@ -65,9 +65,9 @@
   <section class="sec hero" id="top" data-in>
     <div class="wrap hero__grid">
       <div class="hero__txt">
-        <p class="lbl soft">{{home.home_001}}</p>
-        <h1 class="d">{{home.home_002}}<br>{{home.home_003}} <br class="br-m">{{home.home_004}}<br><s class="x">{{home.home_005}}</s> <br class="br-m"><span class="gaffe pop">{{home.home_006}}</span></h1>
-        <p class="hero__lede">{{home.home_007}}<br><span class="red">{{home.home_008}}</span></p>
+        <p class="lbl soft">{{home.hero.etiqueta}}</p>
+        <h1 class="d">{{home.hero.titulo_1}}<br>{{home.hero.titulo_2}} <br class="br-m">{{home.hero.titulo_3}}<br><s class="x">{{home.hero.titulo_riscado}}</s> <br class="br-m"><span class="gaffe pop">{{home.hero.titulo_destaque}}</span></h1>
+        <p class="hero__lede">{{home.hero.frase_1}}<br><span class="red">{{home.hero.frase_2}}</span></p>
       </div>
       <div class="cg hero__cg" data-mouse>
         <button type="button" class="pc play" id="play" style="--x:0%;--y:8%;--w:66%" data-depth="-8" aria-label="Play the gaffe story">
@@ -75,8 +75,8 @@
           <span class="play__tri" aria-hidden="true"></span>
         </button>
         <div class="pc" style="--x:46%;--y:6%;--w:54%;--r:3deg" data-speed=".04" data-depth="10" aria-hidden="true"><img class="snip" style="--clip:polygon(0 0,100% 0,100% 86%,70% 99%,0 90%)" src="img/hero-guy.webp" width="900" height="1082" alt=""></div>
-        <div class="pc" style="--x:2%;--y:78%;--r:-5deg;font-size:5.4cqw" data-speed=".1" data-depth="18" aria-hidden="true"><b class="strip pop" style="--r:0deg">{{home.home_009}}</b></div>
-        <div class="pc" style="--x:50%;--y:90%;--r:4deg;font-size:4.6cqw" data-speed=".12" data-depth="14" aria-hidden="true"><b class="strip strip--red">{{home.home_010}}</b></div>
+        <div class="pc" style="--x:2%;--y:78%;--r:-5deg;font-size:5.4cqw" data-speed=".1" data-depth="18" aria-hidden="true"><b class="strip pop" style="--r:0deg">{{home.hero.autocolante_play}}</b></div>
+        <div class="pc" style="--x:50%;--y:90%;--r:4deg;font-size:4.6cqw" data-speed=".12" data-depth="14" aria-hidden="true"><b class="strip strip--red">{{home.hero.autocolante}}</b></div>
       </div>
     </div>
   </section>
@@ -85,38 +85,11 @@
   <section class="sec" id="work" aria-labelledby="work-h" data-in>
     <div class="wrap">
       <div class="work__top">
-        <h2 class="sub" id="work-h">{{home.home_011}}<span class="red">.</span></h2>
-        <p class="lbl soft">{{home.home_012}}</p>
+        <h2 class="sub" id="work-h">{{home.trabalho.titulo}}<span class="red">.</span></h2>
+        <p class="lbl soft">{{> contagem_projetos}}</p>
       </div>
       <ul class="cl">
-        <li><a class="cl__row" href="#ara" data-go="ara">
-          <span class="cl__n lbl">01</span>
-          <span class="cl__txt"><b>{{home.home_013}}</b> <i>{{home.home_014}}</i></span>
-          <span class="cl__tag lbl soft">{{home.home_015}}</span>
-          <span class="cl__arr" aria-hidden="true">→</span>
-          <span class="cl__pv" style="--c:var(--yellow)" aria-hidden="true"><svg class="wheel spin" viewBox="0 0 400 400"><use href="#wheel"></use></svg></span>
-        </a></li>
-        <li><a class="cl__row" href="#sanjo" data-go="sanjo">
-          <span class="cl__n lbl">02</span>
-          <span class="cl__txt"><b>{{home.home_016}}</b> <i>{{home.home_017}}</i></span>
-          <span class="cl__tag lbl soft">{{home.home_018}}</span>
-          <span class="cl__arr" aria-hidden="true">→</span>
-          <span class="cl__pv cl__pv--img" aria-hidden="true"><img src="img/sanjo-kv.webp" width="1800" height="808" alt="" loading="lazy"></span>
-        </a></li>
-        <li><a class="cl__row" href="#aquainn" data-go="aquainn">
-          <span class="cl__n lbl">03</span>
-          <span class="cl__txt"><b>{{home.home_019}}</b> <i>{{home.home_020}}</i></span>
-          <span class="cl__tag lbl soft">{{home.home_021}}</span>
-          <span class="cl__arr" aria-hidden="true">→</span>
-          <span class="cl__pv cl__pv--logo" style="--c:var(--blue)" aria-hidden="true"><img src="img/aquainn-logo-2.png" width="1000" height="283" alt="" loading="lazy"></span>
-        </a></li>
-        <li><div class="cl__row cl__row--soon">
-          <span class="cl__n lbl">04</span>
-          <span class="cl__txt"><b>{{home.home_022}}</b> <i>{{home.home_023}}</i></span>
-          <span class="cl__tag lbl soft">{{home.home_024}}</span>
-          <span class="cl__soon strip strip--red">{{home.home_025}}</span>
-          <span class="cl__pv cl__pv--soon" style="--c:var(--red)" aria-hidden="true"><b class="strip">{{home.home_026}}</b></span>
-        </div></li>
+{{> lista_projetos}}
       </ul>
     </div>
   </section>
@@ -132,63 +105,63 @@
         <div class="side__track">
 
           <div class="scene s-acc">
-            <p class="lbl">{{historia.historia_001}}</p>
+            <p class="lbl">{{historia.s01.t01}}</p>
             <div class="acc__row">
               <article class="acc">
                 <div class="cg" aria-hidden="true">
                   <div class="pc" style="--x:44%;--y:-4%;--w:56%" data-hspeed=".02"><div class="shape burst spin" style="--c:var(--red)"></div></div>
                   <div class="pc" style="--x:12%;--y:20%;--w:72%;--r:-3deg" data-hspeed=".04"><img class="lift" src="img/acc-microwave.webp" width="900" height="675" alt=""></div>
                 </div>
-                <h2>{{historia.historia_002}}<sup>*</sup></h2>
-                <p><b class="red">*</b> {{historia.historia_003}}</p>
+                <h2>{{historia.s01.t02}}<sup>*</sup></h2>
+                <p><b class="red">*</b> {{historia.s01.t03}}</p>
               </article>
               <article class="acc">
                 <div class="cg" aria-hidden="true">
                   <div class="pc" style="--x:13%;--y:0%;--w:74%" data-hspeed=".05"><div class="shape dot" style="--c:var(--yellow)"></div></div>
                   <div class="pc mul" style="--x:16%;--y:22%;--w:68%;--r:4deg" data-hspeed=".05"><img class="lift" src="img/acc-cornflakes.webp" width="612" height="459" alt=""></div>
                 </div>
-                <h2>{{historia.historia_004}}<sup>*</sup></h2>
-                <p><b class="red">*</b> {{historia.historia_005}}</p>
+                <h2>{{historia.s01.t04}}<sup>*</sup></h2>
+                <p><b class="red">*</b> {{historia.s01.t05}}</p>
               </article>
               <article class="acc">
                 <div class="cg" aria-hidden="true">
                   <div class="pc" style="--x:8%;--y:4%;--w:62%" data-hspeed="-.06"><div class="shape burst spin spin--back" style="--c:var(--yellow)"></div></div>
                   <div class="pc" style="--x:40%;--y:22%;--w:40%" data-hspeed=".07"><div class="pill lift"></div></div>
                 </div>
-                <h2>{{historia.historia_006}}<sup>*</sup></h2>
-                <p><b class="red">*</b> {{historia.historia_007}}</p>
+                <h2>{{historia.s01.t06}}<sup>*</sup></h2>
+                <p><b class="red">*</b> {{historia.s01.t07}}</p>
               </article>
             </div>
           </div>
           <div class="scene" data-in>
-            <p class="g g--stack"><span>{{historia.historia_008}}</span><span class="hollow" aria-hidden="true">{{historia.historia_008}}</span><span aria-hidden="true">{{historia.historia_008}}</span><span class="hollow" aria-hidden="true">{{historia.historia_008}}</span></p>
+            <p class="g g--stack"><span>{{historia.s02.t01}}</span><span class="hollow" aria-hidden="true">{{historia.s02.t01}}</span><span aria-hidden="true">{{historia.s02.t01}}</span><span class="hollow" aria-hidden="true">{{historia.s02.t01}}</span></p>
           </div>
           <div class="scene cg" style="--cw:.84;--ar:1/.92" role="img" aria-label="No! No! No!" data-in>
             <div class="pc" style="--x:2%;--y:6%;--w:70%" data-hspeed="-.05"><div class="shape burst spin" style="--c:var(--yellow)"></div></div>
             <div class="pc" style="--x:44%;--y:0%;--w:56%;--r:2deg" data-hspeed=".04"><img class="snip" style="--clip:polygon(0 0,100% 0,94% 100%,16% 96%,0 86%)" src="img/no-guy.webp" width="900" height="1346" alt=""></div>
-            <div class="pc" style="--x:30%;--y:14%;--r:-8deg;font-size:9cqw" data-hspeed=".1"><b class="strip pop" style="--r:0deg">{{historia.historia_009}}</b></div>
-            <div class="pc" style="--x:10%;--y:34%;--r:5deg;font-size:15cqw" data-hspeed=".16"><b class="strip pop" style="--r:0deg">{{historia.historia_009}}</b></div>
-            <div class="pc" style="--x:-4%;--y:60%;--r:-4deg;font-size:23cqw" data-hspeed=".24"><b class="strip pop" style="--r:0deg">{{historia.historia_009}}</b></div>
+            <div class="pc" style="--x:30%;--y:14%;--r:-8deg;font-size:9cqw" data-hspeed=".1"><b class="strip pop" style="--r:0deg">{{historia.s03.t01}}</b></div>
+            <div class="pc" style="--x:10%;--y:34%;--r:5deg;font-size:15cqw" data-hspeed=".16"><b class="strip pop" style="--r:0deg">{{historia.s03.t01}}</b></div>
+            <div class="pc" style="--x:-4%;--y:60%;--r:-4deg;font-size:23cqw" data-hspeed=".24"><b class="strip pop" style="--r:0deg">{{historia.s03.t01}}</b></div>
           </div>
           <div class="scene" data-in>
-            <h2 class="g">{{historia.historia_010}}<br>{{historia.historia_011}}<br><span class="red">{{historia.historia_012}}<br>{{historia.historia_013}}</span></h2>
+            <h2 class="g">{{historia.s04.t01}}<br>{{historia.s04.t02}}<br><span class="red">{{historia.s04.t03}}<br>{{historia.s04.t04}}</span></h2>
           </div>
           <div class="scene cg" style="--cw:.44;--ar:1/1.5" aria-hidden="true" data-in>
             <div class="pc" style="--x:8%;--y:14%;--w:86%" data-hspeed="-.08"><div class="shape dot" style="--c:var(--yellow)"></div></div>
             <div class="pc" style="--x:10%;--y:0%;--w:80%" data-hspeed=".06"><img src="img/new-ways.webp" width="700" height="1092" alt=""></div>
-            <div class="pc" style="--x:-8%;--y:86%;--r:-5deg;font-size:15cqw" data-hspeed=".14"><b class="strip pop" style="--r:0deg">{{historia.historia_014}}</b></div>
+            <div class="pc" style="--x:-8%;--y:86%;--r:-5deg;font-size:15cqw" data-hspeed=".14"><b class="strip pop" style="--r:0deg">{{historia.s05.t01}}</b></div>
           </div>
 
           <div class="scene s-end" id="how" data-in>
             <div class="end__txt">
-              <h2 class="g g--b">{{historia.historia_015}}<span class="red">?</span></h2>
+              <h2 class="g g--b">{{historia.s06.t01}}<span class="red">?</span></h2>
               <ol class="beats">
-                <li><span>01</span><span>{{historia.historia_016}}</span></li>
-                <li><span>02</span><span>{{historia.historia_017}}</span></li>
-                <li><span>03</span><span>{{historia.historia_018}}</span></li>
-                <li><span>04</span><span>{{historia.historia_019}}</span></li>
+                <li><span>01</span><span>{{historia.s06.t02}}</span></li>
+                <li><span>02</span><span>{{historia.s06.t03}}</span></li>
+                <li><span>03</span><span>{{historia.s06.t04}}</span></li>
+                <li><span>04</span><span>{{historia.s06.t05}}</span></li>
               </ol>
-              <a class="btn" href="#work" data-go="work">{{historia.historia_020}} <span class="arr" aria-hidden="true">↓</span></a>
+              <a class="btn" href="#work" data-go="work">{{historia.s06.t06}} <span class="arr" aria-hidden="true">↓</span></a>
             </div>
           </div>
 
@@ -198,8 +171,8 @@
       <div class="side__bar" aria-hidden="true"></div>
       <div class="side__walk" aria-hidden="true"><img src="img/walker.webp" width="900" height="1106" alt=""></div>
       <div class="side__ui">
-        <span class="lbl hint">{{historia.historia_021}}</span>
-        <a class="lbl" href="#work" data-go="work">{{historia.historia_022}}</a>
+        <span class="lbl hint">{{historia.s06.t07}}</span>
+        <a class="lbl" href="#work" data-go="work">{{historia.s06.t08}}</a>
         <div class="side__nav">
           <button type="button" id="side-prev" aria-label="Back">←</button>
           <button type="button" id="side-next" aria-label="Forward">→</button>
@@ -209,50 +182,33 @@
   </section>
 
   <section class="sec on-yellow next">
-    <div><p class="lbl" style="margin-bottom:8px">{{historia.historia_023}}</p><a class="d" href="#work" data-go="work">{{historia.historia_024}}</a></div>
-    <a class="btn" href="#top" data-go="home">{{historia.historia_025}}</a>
+    <div><p class="lbl" style="margin-bottom:8px">{{historia.s07.t01}}</p><a class="d" href="#work" data-go="work">{{historia.s07.t02}}</a></div>
+    <a class="btn" href="#top" data-go="home">{{historia.s07.t03}}</a>
   </section>
 </article>
+
+{{> paginas_projetos}}
 
 <!-- ================= PAGE: WHAT WE MAKE ================= -->
 <article class="case" id="services" hidden>
   <header class="sec case__head" data-in>
     <div class="wrap">
-      <a class="lbl case__back" href="#top" data-go="home">{{servicos.servicos_001}}</a>
-      <h1 class="big"><small>{{servicos.servicos_002}}</small>{{servicos.servicos_003}}<br>{{servicos.servicos_004}}<span class="red">.</span></h1>
+      <a class="lbl case__back" href="#top" data-go="home">{{servicos.cabecalho.voltar}}</a>
+      <h1 class="big"><small>{{servicos.cabecalho.etiqueta}}</small>{{servicos.cabecalho.titulo_1}}<br>{{servicos.cabecalho.titulo_2}}<span class="red">.</span></h1>
     </div>
   </header>
 
   <section class="sec" style="padding-top:0">
     <div class="wrap">
       <ul class="svc__list">
-        <li class="svc__row" style="--hl:var(--yellow)">
-          <h3><span class="hl">{{servicos.servicos_005}} <b class="plus">+</b> {{servicos.servicos_006}}</span></h3>
-          <p>{{servicos.servicos_007}}</p>
-        </li>
-        <li class="svc__row" style="--hl:var(--red)">
-          <h3><span class="hl">{{servicos.servicos_008}}</span></h3>
-          <p>{{servicos.servicos_009}}</p>
-        </li>
-        <li class="svc__row" style="--hl:var(--yellow)">
-          <h3><span class="hl">{{servicos.servicos_010}}</span><small>{{servicos.servicos_011}}</small></h3>
-          <p>{{servicos.servicos_012}}</p>
-        </li>
-        <li class="svc__row" style="--hl:var(--red)">
-          <h3><span class="hl">{{servicos.servicos_013}}</span></h3>
-          <p>{{servicos.servicos_014}}</p>
-        </li>
-        <li class="svc__row" style="--hl:var(--yellow)">
-          <h3><span class="hl">{{servicos.servicos_015}}</span><small>{{servicos.servicos_016}}</small></h3>
-          <p>{{servicos.servicos_017}}</p>
-        </li>
+{{> lista_servicos}}
       </ul>
     </div>
   </section>
 
   <section class="sec on-yellow next">
-    <div><p class="lbl" style="margin-bottom:8px">{{servicos.servicos_018}}</p><a class="d" href="#about" data-go="about">{{servicos.servicos_019}}</a></div>
-    <a class="btn" href="#top" data-go="home">{{servicos.servicos_020}}</a>
+    <div><p class="lbl" style="margin-bottom:8px">{{servicos.proximo.etiqueta}}</p><a class="d" href="#about" data-go="about">{{servicos.proximo.link}}</a></div>
+    <a class="btn" href="#top" data-go="home">{{servicos.proximo.botao}}</a>
   </section>
 </article>
 
@@ -260,12 +216,12 @@
 <article class="case" id="about" hidden>
   <header class="sec case__head about" data-in>
     <div class="wrap">
-      <a class="lbl case__back" href="#top" data-go="home">{{about.about_001}}</a>
+      <a class="lbl case__back" href="#top" data-go="home">{{about.cabecalho.voltar}}</a>
       <div class="about__grid">
         <div class="about__txt">
-          <h1 class="big" id="about-h"><small>{{about.about_002}}</small>{{about.about_003}}<br>{{about.about_004}}<span class="red">.</span></h1>
-          <p class="d about__line">{{about.about_005}} <span class="mark" style="--c:var(--yellow)">{{about.about_006}}</span> {{about.about_007}}</p>
-          <p>{{about.about_008}}</p>
+          <h1 class="big" id="about-h"><small>{{about.cabecalho.etiqueta}}</small>{{about.cabecalho.titulo_1}}<br>{{about.cabecalho.titulo_2}}<span class="red">.</span></h1>
+          <p class="d about__line">{{about.texto.frase_inicio}} <span class="mark" style="--c:var(--yellow)">{{about.texto.frase_destaque}}</span> {{about.texto.frase_fim}}</p>
+          <p>{{about.texto.paragrafo}}</p>
         </div>
         <div class="cg about__cg">
           <!-- each of them pops out of a spinning star: below --line the photo only shows inside the star -->
@@ -278,8 +234,8 @@
   </header>
 
   <section class="sec on-yellow next">
-    <div><p class="lbl" style="margin-bottom:8px">{{about.about_009}}</p><a class="d" href="#work" data-go="work">{{about.about_010}}</a></div>
-    <a class="btn" href="#top" data-go="home">{{about.about_011}}</a>
+    <div><p class="lbl" style="margin-bottom:8px">{{about.proximo.etiqueta}}</p><a class="d" href="#work" data-go="work">{{about.proximo.link}}</a></div>
+    <a class="btn" href="#top" data-go="home">{{about.proximo.botao}}</a>
   </section>
 </article>
 
@@ -287,38 +243,38 @@
 <article class="case" id="aquainn" hidden>
   <header class="sec case__head" data-in>
     <div class="wrap">
-      <a class="lbl case__back" href="#work" data-go="work">{{aquainn.aquainn_001}}</a>
+      <a class="lbl case__back" href="#work" data-go="work">{{aquainn.s01.t01}}</a>
       <div class="case__title">
         <div>
           <h1><img src="img/aquainn-logo.png" width="1000" height="283" alt="AQUAINN. Empowering people, one drop at a time."></h1>
-          <p>{{aquainn.aquainn_002}}</p>
+          <p>{{aquainn.s01.t02}}</p>
         </div>
         <div class="case__cg"><div class="cg card__cg" aria-hidden="true">
           <div class="pc" style="--x:4%;--y:2%;--w:76%" data-speed="-.05"><div class="shape dot" style="--c:var(--blue)"></div></div>
           <div class="pc" style="--x:12%;--y:24%;--w:56%;--r:-7deg" data-speed=".03"><img src="img/aquainn-logo-2.png" width="1000" height="283" alt=""></div>
-          <div class="pc" style="--x:46%;--y:40%;--w:50%" data-speed=".09"><div class="timer lift"><span class="lbl">{{aquainn.aquainn_003}}</span><b data-timer>5:00</b><span class="lbl">{{aquainn.aquainn_004}}</span></div></div>
-          <div class="pc" style="--x:2%;--y:76%;--r:-5deg;font-size:6cqw" data-speed=".14"><b class="strip pop" style="--r:0deg">{{aquainn.aquainn_005}}</b></div>
+          <div class="pc" style="--x:46%;--y:40%;--w:50%" data-speed=".09"><div class="timer lift"><span class="lbl">{{aquainn.s01.t03}}</span><b data-timer>5:00</b><span class="lbl">{{aquainn.s01.t04}}</span></div></div>
+          <div class="pc" style="--x:2%;--y:76%;--r:-5deg;font-size:6cqw" data-speed=".14"><b class="strip pop" style="--r:0deg">{{aquainn.s01.t05}}</b></div>
         </div></div>
       </div>
       <dl class="meta">
-        <div><dt>{{aquainn.aquainn_006}}</dt><dd>{{aquainn.aquainn_007}}</dd></div>
-        <div><dt>{{aquainn.aquainn_008}}</dt><dd>{{aquainn.aquainn_009}}</dd></div>
-        <div><dt>{{aquainn.aquainn_010}}</dt><dd>{{aquainn.aquainn_011}}</dd></div>
-        <div><dt>{{aquainn.aquainn_012}}</dt><dd>{{aquainn.aquainn_013}}</dd></div>
+        <div><dt>{{aquainn.s01.t06}}</dt><dd>{{aquainn.s01.t07}}</dd></div>
+        <div><dt>{{aquainn.s01.t08}}</dt><dd>{{aquainn.s01.t09}}</dd></div>
+        <div><dt>{{aquainn.s01.t10}}</dt><dd>{{aquainn.s01.t11}}</dd></div>
+        <div><dt>{{aquainn.s01.t12}}</dt><dd>{{aquainn.s01.t13}}</dd></div>
       </dl>
     </div>
   </header>
 
   <section class="sec">
     <div class="wrap beat">
-      <h2 class="bigb">{{aquainn.aquainn_014}}<br>{{aquainn.aquainn_015}}</h2>
+      <h2 class="bigb">{{aquainn.s02.t01}}<br>{{aquainn.s02.t02}}</h2>
       <div class="beat__body">
-        <p class="quote">{{aquainn.aquainn_016}}</p>
-        <p>{{aquainn.aquainn_017}}</p>
+        <p class="quote">{{aquainn.s02.t03}}</p>
+        <p>{{aquainn.s02.t04}}</p>
         <div class="facts">
-          <p><b>{{aquainn.aquainn_018}}</b>{{aquainn.aquainn_019}}</p>
-          <p><b>{{aquainn.aquainn_020}}</b>{{aquainn.aquainn_021}}</p>
-          <p><b>{{aquainn.aquainn_022}}</b>{{aquainn.aquainn_023}}</p>
+          <p><b>{{aquainn.s02.t05}}</b>{{aquainn.s02.t06}}</p>
+          <p><b>{{aquainn.s02.t07}}</b>{{aquainn.s02.t08}}</p>
+          <p><b>{{aquainn.s02.t09}}</b>{{aquainn.s02.t10}}</p>
         </div>
       </div>
     </div>
@@ -326,33 +282,33 @@
 
   <section class="sec turn" data-in>
     <div class="wrap beat">
-      <h2 class="bigb">{{aquainn.aquainn_014}}<br>{{aquainn.aquainn_024}}<br>{{aquainn.aquainn_025}}<span class="red">.</span></h2>
-      <p class="obvious"><span class="xl">{{aquainn.aquainn_026}}</span></p>
+      <h2 class="bigb">{{aquainn.s02.t01}}<br>{{aquainn.s03.t01}}<br>{{aquainn.s03.t02}}<span class="red">.</span></h2>
+      <p class="obvious"><span class="xl">{{aquainn.s03.t03}}</span></p>
     </div>
     <div class="wrap beat">
-      <h2 class="bigb red">{{aquainn.aquainn_014}}<br>{{aquainn.aquainn_027}}</h2>
-      <p class="d t-mega">{{aquainn.aquainn_028}} <span class="mark" style="--c:var(--yellow)">{{aquainn.aquainn_029}}</span> {{aquainn.aquainn_030}}</p>
+      <h2 class="bigb red">{{aquainn.s02.t01}}<br>{{aquainn.s03.t04}}</h2>
+      <p class="d t-mega">{{aquainn.s03.t05}} <span class="mark" style="--c:var(--yellow)">{{aquainn.s03.t06}}</span> {{aquainn.s03.t07}}</p>
     </div>
   </section>
 
   <section class="sec on-blue">
     <div class="wrap beat">
-      <h2 class="bigb">{{aquainn.aquainn_014}}<br>{{aquainn.aquainn_031}}<span class="red">.</span></h2>
+      <h2 class="bigb">{{aquainn.s02.t01}}<br>{{aquainn.s04.t01}}<span class="red">.</span></h2>
       <div class="beat__body">
-        <p class="t-l d">{{aquainn.aquainn_032}}</p>
+        <p class="t-l d">{{aquainn.s04.t02}}</p>
         <ul class="listy">
-          <li class="hollow">{{aquainn.aquainn_033}}</li>
-          <li class="hollow">{{aquainn.aquainn_034}}</li>
-          <li class="hollow">{{aquainn.aquainn_035}}</li>
-          <li>{{aquainn.aquainn_036}}</li>
+          <li class="hollow">{{aquainn.s04.t03}}</li>
+          <li class="hollow">{{aquainn.s04.t04}}</li>
+          <li class="hollow">{{aquainn.s04.t05}}</li>
+          <li>{{aquainn.s04.t06}}</li>
         </ul>
-        <p>{{aquainn.aquainn_037}}</p>
+        <p>{{aquainn.s04.t07}}</p>
         <div class="shower">
-          <label class="lbl" for="shower-min">{{aquainn.aquainn_038}}</label>
+          <label class="lbl" for="shower-min">{{aquainn.s04.t08}}</label>
           <input type="range" id="shower-min" min="1" max="30" step="1" value="5">
-          <output id="shower-out" for="shower-min">{{aquainn.aquainn_039}}</output>
-          <p class="shower__note" id="shower-note">{{aquainn.aquainn_040}}</p>
-          <small>{{aquainn.aquainn_041}}</small>
+          <output id="shower-out" for="shower-min">{{aquainn.s04.t09}}</output>
+          <p class="shower__note" id="shower-note">{{aquainn.s04.t10}}</p>
+          <small>{{aquainn.s04.t11}}</small>
         </div>
       </div>
     </div>
@@ -360,60 +316,60 @@
 
   <section class="sec">
     <div class="wrap beat">
-      <h2 class="bigb">{{aquainn.aquainn_042}}<br>{{aquainn.aquainn_043}}<span class="red">.</span></h2>
+      <h2 class="bigb">{{aquainn.s05.t01}}<br>{{aquainn.s05.t02}}<span class="red">.</span></h2>
       <div class="beat__body">
-        <p class="t-l d">{{aquainn.aquainn_044}}</p>
+        <p class="t-l d">{{aquainn.s05.t03}}</p>
         <div>
           <div class="tabs" role="tablist" aria-label="Audience">
-            <button role="tab" id="tab-guests" aria-controls="tp-guests" aria-selected="true">{{aquainn.aquainn_045}}</button>
-            <button role="tab" id="tab-managers" aria-controls="tp-managers" aria-selected="false" tabindex="-1">{{aquainn.aquainn_046}}</button>
-            <button role="tab" id="tab-staff" aria-controls="tp-staff" aria-selected="false" tabindex="-1">{{aquainn.aquainn_047}}</button>
-            <button role="tab" id="tab-partners" aria-controls="tp-partners" aria-selected="false" tabindex="-1">{{aquainn.aquainn_048}}</button>
-            <button role="tab" id="tab-websummit" aria-controls="tp-websummit" aria-selected="false" tabindex="-1">{{aquainn.aquainn_049}}</button>
+            <button role="tab" id="tab-guests" aria-controls="tp-guests" aria-selected="true">{{aquainn.s05.t04}}</button>
+            <button role="tab" id="tab-managers" aria-controls="tp-managers" aria-selected="false" tabindex="-1">{{aquainn.s05.t05}}</button>
+            <button role="tab" id="tab-staff" aria-controls="tp-staff" aria-selected="false" tabindex="-1">{{aquainn.s05.t06}}</button>
+            <button role="tab" id="tab-partners" aria-controls="tp-partners" aria-selected="false" tabindex="-1">{{aquainn.s05.t07}}</button>
+            <button role="tab" id="tab-websummit" aria-controls="tp-websummit" aria-selected="false" tabindex="-1">{{aquainn.s05.t08}}</button>
           </div>
 
           <div class="tabpanel" style="--c:var(--yellow)" role="tabpanel" id="tp-guests" aria-labelledby="tab-guests">
-            <p class="lbl">{{aquainn.aquainn_050}}</p>
+            <p class="lbl">{{aquainn.s06.t01}}</p>
             <div class="pieces">
-              <div class="piece"><span class="lbl">{{aquainn.aquainn_051}}</span><h4>{{aquainn.aquainn_052}}</h4><p>{{aquainn.aquainn_053}}</p></div>
-              <div class="piece"><span class="lbl">{{aquainn.aquainn_054}}</span><h4>{{aquainn.aquainn_055}}</h4><p>{{aquainn.aquainn_056}}</p></div>
-              <div class="piece"><span class="lbl">{{aquainn.aquainn_057}}</span><h4>{{aquainn.aquainn_058}}</h4><p>{{aquainn.aquainn_059}}</p></div>
-              <div class="piece"><span class="lbl">{{aquainn.aquainn_060}}</span><h4>{{aquainn.aquainn_061}}</h4><p>{{aquainn.aquainn_062}}</p></div>
+              <div class="piece"><span class="lbl">{{aquainn.s06.t02}}</span><h4>{{aquainn.s06.t03}}</h4><p>{{aquainn.s06.t04}}</p></div>
+              <div class="piece"><span class="lbl">{{aquainn.s06.t05}}</span><h4>{{aquainn.s06.t06}}</h4><p>{{aquainn.s06.t07}}</p></div>
+              <div class="piece"><span class="lbl">{{aquainn.s06.t08}}</span><h4>{{aquainn.s06.t09}}</h4><p>{{aquainn.s06.t10}}</p></div>
+              <div class="piece"><span class="lbl">{{aquainn.s06.t11}}</span><h4>{{aquainn.s06.t12}}</h4><p>{{aquainn.s06.t13}}</p></div>
             </div>
           </div>
 
           <div class="tabpanel" style="--c:var(--red)" role="tabpanel" id="tp-managers" aria-labelledby="tab-managers" hidden>
-            <p class="lbl">{{aquainn.aquainn_063}}</p>
+            <p class="lbl">{{aquainn.s07.t01}}</p>
             <div class="pieces">
-              <div class="piece"><span class="lbl">{{aquainn.aquainn_064}}</span><h4>{{aquainn.aquainn_065}}</h4><p>{{aquainn.aquainn_066}}</p></div>
-              <div class="piece"><span class="lbl">{{aquainn.aquainn_064}}</span><h4>{{aquainn.aquainn_067}}</h4><p>{{aquainn.aquainn_068}}</p></div>
-              <div class="piece"><span class="lbl">{{aquainn.aquainn_069}}</span><h4>{{aquainn.aquainn_070}}</h4><p>{{aquainn.aquainn_071}}</p></div>
+              <div class="piece"><span class="lbl">{{aquainn.s07.t02}}</span><h4>{{aquainn.s07.t03}}</h4><p>{{aquainn.s07.t04}}</p></div>
+              <div class="piece"><span class="lbl">{{aquainn.s07.t02}}</span><h4>{{aquainn.s07.t05}}</h4><p>{{aquainn.s07.t06}}</p></div>
+              <div class="piece"><span class="lbl">{{aquainn.s07.t07}}</span><h4>{{aquainn.s07.t08}}</h4><p>{{aquainn.s07.t09}}</p></div>
             </div>
           </div>
 
           <div class="tabpanel" style="--c:var(--blue)" role="tabpanel" id="tp-staff" aria-labelledby="tab-staff" hidden>
-            <p class="lbl">{{aquainn.aquainn_072}}</p>
+            <p class="lbl">{{aquainn.s08.t01}}</p>
             <div class="pieces">
-              <div class="piece"><span class="lbl">{{aquainn.aquainn_073}}</span><h4>{{aquainn.aquainn_074}}</h4><p>{{aquainn.aquainn_075}}</p></div>
-              <div class="piece"><span class="lbl">{{aquainn.aquainn_076}}</span><h4>{{aquainn.aquainn_077}}</h4><p>{{aquainn.aquainn_078}}</p></div>
+              <div class="piece"><span class="lbl">{{aquainn.s08.t02}}</span><h4>{{aquainn.s08.t03}}</h4><p>{{aquainn.s08.t04}}</p></div>
+              <div class="piece"><span class="lbl">{{aquainn.s08.t05}}</span><h4>{{aquainn.s08.t06}}</h4><p>{{aquainn.s08.t07}}</p></div>
             </div>
           </div>
 
           <div class="tabpanel" style="--c:var(--teal)" role="tabpanel" id="tp-partners" aria-labelledby="tab-partners" hidden>
-            <p class="lbl">{{aquainn.aquainn_079}}</p>
+            <p class="lbl">{{aquainn.s09.t01}}</p>
             <div class="pieces">
-              <div class="piece"><span class="lbl">{{aquainn.aquainn_080}}</span><h4>{{aquainn.aquainn_081}}</h4><p>{{aquainn.aquainn_082}}</p></div>
-              <div class="piece"><span class="lbl">{{aquainn.aquainn_083}}</span><h4>{{aquainn.aquainn_084}}</h4><p>{{aquainn.aquainn_085}}</p></div>
+              <div class="piece"><span class="lbl">{{aquainn.s09.t02}}</span><h4>{{aquainn.s09.t03}}</h4><p>{{aquainn.s09.t04}}</p></div>
+              <div class="piece"><span class="lbl">{{aquainn.s09.t05}}</span><h4>{{aquainn.s09.t06}}</h4><p>{{aquainn.s09.t07}}</p></div>
             </div>
             <div class="seals"><img src="img/aquainn-seals.webp" width="1500" height="694" alt="Three versions of the AQUAINN seal: the main seal, a friendlier alternative and a children's version"></div>
           </div>
 
           <div class="tabpanel" style="--c:var(--ink)" role="tabpanel" id="tp-websummit" aria-labelledby="tab-websummit" hidden>
-            <p class="lbl">{{aquainn.aquainn_086}}</p>
+            <p class="lbl">{{aquainn.s10.t01}}</p>
             <div class="pieces">
-              <div class="piece"><span class="lbl">{{aquainn.aquainn_087}}</span><h4>{{aquainn.aquainn_088}}</h4><p>{{aquainn.aquainn_089}}</p></div>
-              <div class="piece"><span class="lbl">{{aquainn.aquainn_090}}</span><h4>{{aquainn.aquainn_091}}</h4><p>{{aquainn.aquainn_092}}</p></div>
-              <div class="piece"><span class="lbl">{{aquainn.aquainn_087}}</span><h4>{{aquainn.aquainn_093}}</h4><p>{{aquainn.aquainn_094}}</p></div>
+              <div class="piece"><span class="lbl">{{aquainn.s10.t02}}</span><h4>{{aquainn.s10.t03}}</h4><p>{{aquainn.s10.t04}}</p></div>
+              <div class="piece"><span class="lbl">{{aquainn.s10.t05}}</span><h4>{{aquainn.s10.t06}}</h4><p>{{aquainn.s10.t07}}</p></div>
+              <div class="piece"><span class="lbl">{{aquainn.s10.t02}}</span><h4>{{aquainn.s10.t08}}</h4><p>{{aquainn.s10.t09}}</p></div>
             </div>
           </div>
         </div>
@@ -422,8 +378,8 @@
   </section>
 
   <section class="sec on-yellow next">
-    <div><p class="lbl" style="margin-bottom:8px">{{aquainn.aquainn_095}}</p><a class="d" href="#ara" data-go="ara">{{aquainn.aquainn_096}}</a></div>
-    <a class="btn" href="#work" data-go="work">{{aquainn.aquainn_097}}</a>
+    <div><p class="lbl" style="margin-bottom:8px">{{aquainn.s11.t01}}</p><a class="d" href="#ara" data-go="ara">{{aquainn.s11.t02}}</a></div>
+    <a class="btn" href="#work" data-go="work">{{aquainn.s11.t03}}</a>
   </section>
 </article>
 
@@ -431,86 +387,86 @@
 <article class="case" id="ara" hidden>
   <header class="sec case__head" data-in>
     <div class="wrap">
-      <a class="lbl case__back" href="#work" data-go="work">{{ara.ara_001}}</a>
+      <a class="lbl case__back" href="#work" data-go="work">{{ara.s01.t01}}</a>
       <div class="case__title">
         <div>
-          <h1 class="d">{{ara.ara_002}}</h1>
-          <p>{{ara.ara_003}}</p>
+          <h1 class="d">{{ara.s01.t02}}</h1>
+          <p>{{ara.s01.t03}}</p>
         </div>
         <div class="case__cg"><div class="cg card__cg" aria-hidden="true">
           <div class="pc" style="--x:12%;--y:0%;--w:84%" data-speed="-.05"><div class="shape dot" style="--c:var(--yellow)"></div></div>
           <div class="pc" style="--x:22%;--y:10%;--w:64%" data-speed=".03"><svg class="wheel spin" viewBox="0 0 400 400"><use href="#wheel"></use></svg></div>
-          <div class="pc deva" style="--x:0%;--y:48%;font-size:30cqw" data-speed=".12" lang="sa">{{ara.ara_004}}</div>
-          <div class="pc" style="--x:36%;--y:82%;--r:4deg;font-size:5.2cqw" data-speed=".15"><b class="strip strip--red pop" style="--r:0deg">{{ara.ara_005}}</b></div>
+          <div class="pc deva" style="--x:0%;--y:48%;font-size:30cqw" data-speed=".12" lang="sa">{{ara.s01.t04}}</div>
+          <div class="pc" style="--x:36%;--y:82%;--r:4deg;font-size:5.2cqw" data-speed=".15"><b class="strip strip--red pop" style="--r:0deg">{{ara.s01.t05}}</b></div>
         </div></div>
       </div>
       <dl class="meta">
-        <div><dt>{{ara.ara_006}}</dt><dd>{{ara.ara_007}}</dd></div>
-        <div><dt>{{ara.ara_008}}</dt><dd>{{ara.ara_009}}</dd></div>
-        <div><dt>{{ara.ara_010}}</dt><dd>{{ara.ara_011}}</dd></div>
-        <div><dt>{{ara.ara_012}}</dt><dd>{{ara.ara_013}} <a href="https://ayurvedacenter-creativeproposal.framer.website" target="_blank" rel="noopener">{{ara.ara_014}}</a></dd></div>
+        <div><dt>{{ara.s01.t06}}</dt><dd>{{ara.s01.t07}}</dd></div>
+        <div><dt>{{ara.s01.t08}}</dt><dd>{{ara.s01.t09}}</dd></div>
+        <div><dt>{{ara.s01.t10}}</dt><dd>{{ara.s01.t11}}</dd></div>
+        <div><dt>{{ara.s01.t12}}</dt><dd>{{ara.s01.t13}} <a href="https://ayurvedacenter-creativeproposal.framer.website" target="_blank" rel="noopener">{{ara.s01.t14}}</a></dd></div>
       </dl>
     </div>
   </header>
 
   <section class="sec">
     <div class="wrap beat">
-      <h2 class="bigb">{{ara.ara_015}}<br>{{ara.ara_016}}</h2>
+      <h2 class="bigb">{{ara.s02.t01}}<br>{{ara.s02.t02}}</h2>
       <div class="beat__body">
-        <p class="quote">{{ara.ara_017}}</p>
-        <p>{{ara.ara_018}}</p>
+        <p class="quote">{{ara.s02.t03}}</p>
+        <p>{{ara.s02.t04}}</p>
       </div>
     </div>
   </section>
 
   <section class="sec turn" data-in>
     <div class="wrap beat">
-      <h2 class="bigb">{{ara.ara_015}}<br>{{ara.ara_019}}<br>{{ara.ara_020}}<span class="red">.</span></h2>
-      <p class="obvious"><span class="xl">{{ara.ara_021}}</span></p>
+      <h2 class="bigb">{{ara.s02.t01}}<br>{{ara.s03.t01}}<br>{{ara.s03.t02}}<span class="red">.</span></h2>
+      <p class="obvious"><span class="xl">{{ara.s03.t03}}</span></p>
     </div>
     <div class="wrap beat">
-      <h2 class="bigb red">{{ara.ara_015}}<br>{{ara.ara_022}}</h2>
-      <p class="d t-mega">{{ara.ara_023}} <span class="mark" style="--c:var(--yellow)">{{ara.ara_024}}</span> {{ara.ara_025}}</p>
+      <h2 class="bigb red">{{ara.s02.t01}}<br>{{ara.s03.t04}}</h2>
+      <p class="d t-mega">{{ara.s03.t05}} <span class="mark" style="--c:var(--yellow)">{{ara.s03.t06}}</span> {{ara.s03.t07}}</p>
     </div>
   </section>
 
   <section class="sec on-yellow">
     <div class="wrap beat">
-      <h2 class="bigb">{{ara.ara_015}}<br>{{ara.ara_026}}<span class="red">.</span></h2>
+      <h2 class="bigb">{{ara.s02.t01}}<br>{{ara.s04.t01}}<span class="red">.</span></h2>
       <div class="beat__body">
-        <p class="t-l d">{{ara.ara_027}}</p>
-        <p>{{ara.ara_028}}</p>
+        <p class="t-l d">{{ara.s04.t02}}</p>
+        <p>{{ara.s04.t03}}</p>
         <div class="spoke">
           <svg class="wheel spin" viewBox="0 0 400 400" role="img" aria-label="A wheel with one spoke marked in red"><use href="#wheel"></use></svg>
           <div>
-            <p class="deva" lang="sa">{{ara.ara_004}}</p>
-            <p class="t-l d" style="margin-bottom:12px">{{ara.ara_029}}</p>
-            <p class="measure">{{ara.ara_030}}</p>
+            <p class="deva" lang="sa">{{ara.s01.t04}}</p>
+            <p class="t-l d" style="margin-bottom:12px">{{ara.s04.t04}}</p>
+            <p class="measure">{{ara.s04.t05}}</p>
           </div>
         </div>
-        <p class="t-l d">{{ara.ara_031}}</p>
-        <p>{{ara.ara_032}}</p>
+        <p class="t-l d">{{ara.s04.t06}}</p>
+        <p>{{ara.s04.t07}}</p>
       </div>
     </div>
   </section>
 
   <section class="sec">
     <div class="wrap beat">
-      <h2 class="bigb">{{ara.ara_033}}<br>{{ara.ara_034}}<span class="red">.</span></h2>
+      <h2 class="bigb">{{ara.s05.t01}}<br>{{ara.s05.t02}}<span class="red">.</span></h2>
       <div class="beat__body">
-        <p class="t-l d">{{ara.ara_035}}</p>
-        <p>{{ara.ara_036}}</p>
+        <p class="t-l d">{{ara.s05.t03}}</p>
+        <p>{{ara.s05.t04}}</p>
         <div class="pillars">
-          <div class="pillar"><span class="lbl">{{ara.ara_037}}</span><div><h4>{{ara.ara_002}} <i>{{ara.ara_038}}</i></h4><p>{{ara.ara_039}}</p></div></div>
-          <div class="pillar"><span class="lbl">{{ara.ara_040}}</span><div><h4>{{ara.ara_002}} <i>{{ara.ara_041}}</i></h4><p>{{ara.ara_042}}</p></div></div>
-          <div class="pillar"><span class="lbl">{{ara.ara_043}}</span><div><h4>{{ara.ara_002}} <i>{{ara.ara_044}}</i></h4><p>{{ara.ara_045}}</p></div></div>
-          <div class="pillar"><span class="lbl">{{ara.ara_046}}</span><div><h4>{{ara.ara_002}} <i>{{ara.ara_047}}</i></h4><p>{{ara.ara_048}}</p></div></div>
+          <div class="pillar"><span class="lbl">{{ara.s05.t05}}</span><div><h4>{{ara.s01.t02}} <i>{{ara.s05.t06}}</i></h4><p>{{ara.s05.t07}}</p></div></div>
+          <div class="pillar"><span class="lbl">{{ara.s05.t08}}</span><div><h4>{{ara.s01.t02}} <i>{{ara.s05.t09}}</i></h4><p>{{ara.s05.t10}}</p></div></div>
+          <div class="pillar"><span class="lbl">{{ara.s05.t11}}</span><div><h4>{{ara.s01.t02}} <i>{{ara.s05.t12}}</i></h4><p>{{ara.s05.t13}}</p></div></div>
+          <div class="pillar"><span class="lbl">{{ara.s05.t14}}</span><div><h4>{{ara.s01.t02}} <i>{{ara.s05.t15}}</i></h4><p>{{ara.s05.t16}}</p></div></div>
         </div>
-        <p class="t-l d" style="margin-top:clamp(12px,2.4vw,32px)">{{ara.ara_049}}</p>
+        <p class="t-l d" style="margin-top:clamp(12px,2.4vw,32px)">{{ara.s05.t17}}</p>
         <ol class="steps">
-          <li><h4>{{ara.ara_050}}</h4><p>{{ara.ara_051}}</p><p class="lbl">{{ara.ara_052}}</p></li>
-          <li><h4>{{ara.ara_053}}</h4><p>{{ara.ara_054}}</p><p class="lbl">{{ara.ara_055}}</p></li>
-          <li><h4>{{ara.ara_056}}</h4><p>{{ara.ara_057}}</p><p class="lbl">{{ara.ara_058}}</p></li>
+          <li><h4>{{ara.s05.t18}}</h4><p>{{ara.s05.t19}}</p><p class="lbl">{{ara.s05.t20}}</p></li>
+          <li><h4>{{ara.s05.t21}}</h4><p>{{ara.s05.t22}}</p><p class="lbl">{{ara.s05.t23}}</p></li>
+          <li><h4>{{ara.s05.t24}}</h4><p>{{ara.s05.t25}}</p><p class="lbl">{{ara.s05.t26}}</p></li>
         </ol>
       </div>
     </div>
@@ -518,13 +474,13 @@
 
   <section class="sec" style="padding-top:0">
     <div class="wrap">
-      <p class="quote"><span class="hollow">{{ara.ara_059}}</span> <span class="red">{{ara.ara_002}}</span> {{ara.ara_060}}</p>
+      <p class="quote"><span class="hollow">{{ara.s06.t01}}</span> <span class="red">{{ara.s01.t02}}</span> {{ara.s06.t02}}</p>
     </div>
   </section>
 
   <section class="sec on-yellow next">
-    <div><p class="lbl" style="margin-bottom:8px">{{ara.ara_061}}</p><a class="d" href="#sanjo" data-go="sanjo">{{ara.ara_062}}</a></div>
-    <a class="btn" href="#work" data-go="work">{{ara.ara_063}}</a>
+    <div><p class="lbl" style="margin-bottom:8px">{{ara.s07.t01}}</p><a class="d" href="#sanjo" data-go="sanjo">{{ara.s07.t02}}</a></div>
+    <a class="btn" href="#work" data-go="work">{{ara.s07.t03}}</a>
   </section>
 </article>
 
@@ -532,38 +488,38 @@
 <article class="case" id="sanjo" hidden>
   <header class="sec case__head" data-in>
     <div class="wrap">
-      <a class="lbl case__back" href="#work" data-go="work">{{sanjo.sanjo_001}}</a>
+      <a class="lbl case__back" href="#work" data-go="work">{{sanjo.s01.t01}}</a>
       <div class="case__title">
         <div>
-          <h1 class="d">{{sanjo.sanjo_002}}</h1>
-          <p lang="pt">{{sanjo.sanjo_003}} <span class="gloss" lang="en" style="display:block;font-style:normal;font-weight:400;margin-top:6px">{{sanjo.sanjo_004}}</span></p>
+          <h1 class="d">{{sanjo.s01.t02}}</h1>
+          <p lang="pt">{{sanjo.s01.t03}} <span class="gloss" lang="en" style="display:block;font-style:normal;font-weight:400;margin-top:6px">{{sanjo.s01.t04}}</span></p>
         </div>
         <div class="case__cg"><div class="cg card__cg" aria-hidden="true">
           <div class="pc" style="--x:58%;--y:34%;--w:40%" data-speed="-.06"><div class="shape burst spin" style="--c:var(--yellow)"></div></div>
           <div class="pc" style="--x:0%;--y:4%;--w:96%;--r:-3deg" data-speed=".03"><img class="snip" style="--clip:polygon(0 6%,100% 0,97% 100%,3% 92%)" src="img/sanjo-kv.webp" width="1800" height="808" alt=""></div>
           <div class="pc" style="--x:48%;--y:50%;--w:46%;--r:5deg" data-speed=".11"><img class="lift lift--b" src="img/sanjo-sneaker.webp" width="900" height="917" alt=""></div>
-          <div class="pc" style="--x:0%;--y:60%;--r:-6deg;font-size:5.6cqw" data-speed=".15"><b class="strip pop" style="--r:0deg" lang="pt">{{sanjo.sanjo_005}}</b></div>
+          <div class="pc" style="--x:0%;--y:60%;--r:-6deg;font-size:5.6cqw" data-speed=".15"><b class="strip pop" style="--r:0deg" lang="pt">{{sanjo.s01.t05}}</b></div>
         </div></div>
       </div>
       <dl class="meta">
-        <div><dt>{{sanjo.sanjo_006}}</dt><dd>{{sanjo.sanjo_002}}</dd></div>
-        <div><dt>{{sanjo.sanjo_007}}</dt><dd>{{sanjo.sanjo_008}}</dd></div>
-        <div><dt>{{sanjo.sanjo_009}}</dt><dd>{{sanjo.sanjo_010}}</dd></div>
-        <div><dt>{{sanjo.sanjo_011}}</dt><dd>{{sanjo.sanjo_012}}</dd></div>
+        <div><dt>{{sanjo.s01.t06}}</dt><dd>{{sanjo.s01.t02}}</dd></div>
+        <div><dt>{{sanjo.s01.t07}}</dt><dd>{{sanjo.s01.t08}}</dd></div>
+        <div><dt>{{sanjo.s01.t09}}</dt><dd>{{sanjo.s01.t10}}</dd></div>
+        <div><dt>{{sanjo.s01.t11}}</dt><dd>{{sanjo.s01.t12}}</dd></div>
       </dl>
     </div>
   </header>
 
   <section class="sec">
     <div class="wrap beat">
-      <h2 class="bigb">{{sanjo.sanjo_013}}<br>{{sanjo.sanjo_014}}</h2>
+      <h2 class="bigb">{{sanjo.s02.t01}}<br>{{sanjo.s02.t02}}</h2>
       <div class="beat__body">
-        <p class="quote">{{sanjo.sanjo_015}}</p>
-        <p>{{sanjo.sanjo_016}}</p>
+        <p class="quote">{{sanjo.s02.t03}}</p>
+        <p>{{sanjo.s02.t04}}</p>
         <div class="gens">
-          <div><h4>{{sanjo.sanjo_017}}</h4><p>{{sanjo.sanjo_018}}</p></div>
-          <div><h4>{{sanjo.sanjo_019}}</h4><p>{{sanjo.sanjo_020}}</p></div>
-          <div><h4>{{sanjo.sanjo_021}}</h4><p>{{sanjo.sanjo_022}}</p></div>
+          <div><h4>{{sanjo.s02.t05}}</h4><p>{{sanjo.s02.t06}}</p></div>
+          <div><h4>{{sanjo.s02.t07}}</h4><p>{{sanjo.s02.t08}}</p></div>
+          <div><h4>{{sanjo.s02.t09}}</h4><p>{{sanjo.s02.t10}}</p></div>
         </div>
       </div>
     </div>
@@ -571,14 +527,14 @@
 
   <section class="sec turn" data-in>
     <div class="wrap beat">
-      <h2 class="bigb">{{sanjo.sanjo_013}}<br>{{sanjo.sanjo_023}}<br>{{sanjo.sanjo_024}}<span class="red">.</span></h2>
-      <p class="obvious"><span class="xl">{{sanjo.sanjo_025}}</span></p>
+      <h2 class="bigb">{{sanjo.s02.t01}}<br>{{sanjo.s03.t01}}<br>{{sanjo.s03.t02}}<span class="red">.</span></h2>
+      <p class="obvious"><span class="xl">{{sanjo.s03.t03}}</span></p>
     </div>
     <div class="wrap beat">
-      <h2 class="bigb red">{{sanjo.sanjo_013}}<br>{{sanjo.sanjo_026}}</h2>
+      <h2 class="bigb red">{{sanjo.s02.t01}}<br>{{sanjo.s03.t04}}</h2>
       <div>
-        <p class="d t-mega">{{sanjo.sanjo_027}} <span class="mark" style="--c:var(--yellow)">{{sanjo.sanjo_028}}</span></p>
-        <p class="gloss" lang="pt" style="margin-top:16px">{{sanjo.sanjo_029}}</p>
+        <p class="d t-mega">{{sanjo.s03.t05}} <span class="mark" style="--c:var(--yellow)">{{sanjo.s03.t06}}</span></p>
+        <p class="gloss" lang="pt" style="margin-top:16px">{{sanjo.s03.t07}}</p>
       </div>
     </div>
   </section>
@@ -587,43 +543,43 @@
 
   <section class="sec">
     <div class="wrap beat">
-      <h2 class="bigb">{{sanjo.sanjo_013}}<br>{{sanjo.sanjo_030}}<span class="red">.</span></h2>
+      <h2 class="bigb">{{sanjo.s02.t01}}<br>{{sanjo.s04.t01}}<span class="red">.</span></h2>
       <div class="beat__body">
-        <p class="t-l d" lang="pt">{{sanjo.sanjo_031}}</p>
-        <p class="gloss" style="margin-top:-8px">{{sanjo.sanjo_032}}</p>
-        <p>{{sanjo.sanjo_033}}</p>
+        <p class="t-l d" lang="pt">{{sanjo.s04.t02}}</p>
+        <p class="gloss" style="margin-top:-8px">{{sanjo.s04.t03}}</p>
+        <p>{{sanjo.s04.t04}}</p>
       </div>
     </div>
   </section>
 
   <section class="sec" style="padding-top:0">
     <div class="wrap">
-      <div class="sec__head"><h2 class="bigb">{{sanjo.sanjo_034}}<br>{{sanjo.sanjo_035}}<span class="red">.</span></h2><p class="lbl soft">{{sanjo.sanjo_036}}</p></div>
+      <div class="sec__head"><h2 class="bigb">{{sanjo.s05.t01}}<br>{{sanjo.s05.t02}}<span class="red">.</span></h2><p class="lbl soft">{{sanjo.s05.t03}}</p></div>
       <div class="halves">
         <div>
-          <div class="half__head"><h3 lang="pt">{{sanjo.sanjo_037}}</h3><p class="lbl soft">{{sanjo.sanjo_038}}</p></div>
+          <div class="half__head"><h3 lang="pt">{{sanjo.s05.t04}}</h3><p class="lbl soft">{{sanjo.s05.t05}}</p></div>
           <div class="shots">
-            <figure class="shot s-7 r-a"><img src="img/sanjo-tins.webp" width="1600" height="640" alt="Rows of pastel-coloured Sanjo tins embossed with the logo"><figcaption>{{sanjo.sanjo_039}}</figcaption></figure>
-            <figure class="shot s-5"><img src="img/sanjo-tin-open.webp" width="1000" height="1019" alt="An open pink Sanjo tin with a pair of sneakers inside"><figcaption>{{sanjo.sanjo_040}}</figcaption></figure>
+            <figure class="shot s-7 r-a"><img src="img/sanjo-tins.webp" width="1600" height="640" alt="Rows of pastel-coloured Sanjo tins embossed with the logo"><figcaption>{{sanjo.s05.t06}}</figcaption></figure>
+            <figure class="shot s-5"><img src="img/sanjo-tin-open.webp" width="1000" height="1019" alt="An open pink Sanjo tin with a pair of sneakers inside"><figcaption>{{sanjo.s05.t07}}</figcaption></figure>
           </div>
           <div class="words">
-            <div class="piece"><span class="lbl">{{sanjo.sanjo_041}}</span><h4>{{sanjo.sanjo_042}}</h4><p>{{sanjo.sanjo_043}}</p></div>
-            <div class="piece"><span class="lbl">{{sanjo.sanjo_044}}</span><h4 lang="pt">{{sanjo.sanjo_045}}</h4><p>{{sanjo.sanjo_046}}</p></div>
-            <div class="piece"><span class="lbl">{{sanjo.sanjo_047}}</span><h4 lang="pt">{{sanjo.sanjo_048}}</h4><p>{{sanjo.sanjo_049}}</p></div>
+            <div class="piece"><span class="lbl">{{sanjo.s05.t08}}</span><h4>{{sanjo.s05.t09}}</h4><p>{{sanjo.s05.t10}}</p></div>
+            <div class="piece"><span class="lbl">{{sanjo.s05.t11}}</span><h4 lang="pt">{{sanjo.s05.t12}}</h4><p>{{sanjo.s05.t13}}</p></div>
+            <div class="piece"><span class="lbl">{{sanjo.s05.t14}}</span><h4 lang="pt">{{sanjo.s05.t15}}</h4><p>{{sanjo.s05.t16}}</p></div>
           </div>
         </div>
         <div>
-          <div class="half__head"><h3 lang="pt">{{sanjo.sanjo_050}}</h3><p class="lbl soft">{{sanjo.sanjo_051}}</p></div>
+          <div class="half__head"><h3 lang="pt">{{sanjo.s05.t17}}</h3><p class="lbl soft">{{sanjo.s05.t18}}</p></div>
           <div class="shots">
-            <figure class="shot s-8 r-b"><img src="img/sanjo-stairs.webp" width="1600" height="730" alt="A staircase in a station covered step by step with the campaign artwork"><figcaption>{{sanjo.sanjo_052}}</figcaption></figure>
-            <figure class="shot s-4"><img src="img/sanjo-retail.webp" width="800" height="1099" alt="A retail display built from pastel geometric blocks holding Sanjo shoes"><figcaption>{{sanjo.sanjo_053}}</figcaption></figure>
-            <figure class="shot s-6 r-b"><img src="img/sanjo-billboard.webp" width="1600" height="748" alt="A large digital billboard on a stone wall showing the campaign"><figcaption>{{sanjo.sanjo_054}}</figcaption></figure>
-            <figure class="shot s-6 r-b"><img src="img/sanjo-store.webp" width="1600" height="637" alt="A store interior wrapped in the campaign's colours and shapes"><figcaption>{{sanjo.sanjo_055}}</figcaption></figure>
-            <figure class="shot s-12 r-c"><img src="img/sanjo-event.webp" width="1600" height="848" alt="A lilac event stand shaped like a Sanjo shoebox, with a clothes rail and a counter in front"><figcaption>{{sanjo.sanjo_056}}</figcaption></figure>
+            <figure class="shot s-8 r-b"><img src="img/sanjo-stairs.webp" width="1600" height="730" alt="A staircase in a station covered step by step with the campaign artwork"><figcaption>{{sanjo.s05.t19}}</figcaption></figure>
+            <figure class="shot s-4"><img src="img/sanjo-retail.webp" width="800" height="1099" alt="A retail display built from pastel geometric blocks holding Sanjo shoes"><figcaption>{{sanjo.s05.t20}}</figcaption></figure>
+            <figure class="shot s-6 r-b"><img src="img/sanjo-billboard.webp" width="1600" height="748" alt="A large digital billboard on a stone wall showing the campaign"><figcaption>{{sanjo.s05.t21}}</figcaption></figure>
+            <figure class="shot s-6 r-b"><img src="img/sanjo-store.webp" width="1600" height="637" alt="A store interior wrapped in the campaign's colours and shapes"><figcaption>{{sanjo.s05.t22}}</figcaption></figure>
+            <figure class="shot s-12 r-c"><img src="img/sanjo-event.webp" width="1600" height="848" alt="A lilac event stand shaped like a Sanjo shoebox, with a clothes rail and a counter in front"><figcaption>{{sanjo.s05.t23}}</figcaption></figure>
           </div>
           <div class="words">
-            <div class="piece"><span class="lbl">{{sanjo.sanjo_056}}</span><h4>{{sanjo.sanjo_057}}</h4><p>{{sanjo.sanjo_058}}</p></div>
-            <div class="piece"><span class="lbl">{{sanjo.sanjo_059}}</span><h4>{{sanjo.sanjo_060}}</h4><p>{{sanjo.sanjo_061}}</p></div>
+            <div class="piece"><span class="lbl">{{sanjo.s05.t23}}</span><h4>{{sanjo.s05.t24}}</h4><p>{{sanjo.s05.t25}}</p></div>
+            <div class="piece"><span class="lbl">{{sanjo.s05.t26}}</span><h4>{{sanjo.s05.t27}}</h4><p>{{sanjo.s05.t28}}</p></div>
           </div>
         </div>
       </div>
@@ -632,14 +588,14 @@
 
   <section class="sec" style="padding-top:0">
     <div class="wrap">
-      <p class="quote" lang="pt"><span class="hollow">{{sanjo.sanjo_062}}</span> {{sanjo.sanjo_063}}</p>
-      <p class="gloss" style="margin-top:16px">{{sanjo.sanjo_064}}</p>
+      <p class="quote" lang="pt"><span class="hollow">{{sanjo.s06.t01}}</span> {{sanjo.s06.t02}}</p>
+      <p class="gloss" style="margin-top:16px">{{sanjo.s06.t03}}</p>
     </div>
   </section>
 
   <section class="sec on-yellow next">
-    <div><p class="lbl" style="margin-bottom:8px">{{sanjo.sanjo_065}}</p><a class="d" href="#aquainn" data-go="aquainn">{{sanjo.sanjo_066}}</a></div>
-    <a class="btn" href="#work" data-go="work">{{sanjo.sanjo_067}}</a>
+    <div><p class="lbl" style="margin-bottom:8px">{{sanjo.s07.t01}}</p><a class="d" href="#aquainn" data-go="aquainn">{{sanjo.s07.t02}}</a></div>
+    <a class="btn" href="#work" data-go="work">{{sanjo.s07.t03}}</a>
   </section>
 </article>
 
@@ -648,38 +604,38 @@
 <section class="sec contact" id="contact" aria-labelledby="contact-h" data-in>
   <div class="wrap contact__grid">
     <div>
-      <h2 class="d" id="contact-h"><u>{{contacto.contacto_001}}</u><br><u>{{contacto.contacto_002}}</u></h2>
-      <p class="t-m soft measure" style="margin-bottom:clamp(20px,2.6vw,32px)">{{contacto.contacto_003}}</p>
+      <h2 class="d" id="contact-h"><u>{{contacto.titulo.linha_1}}</u><br><u>{{contacto.titulo.linha_2}}</u></h2>
+      <p class="t-m soft measure" style="margin-bottom:clamp(20px,2.6vw,32px)">{{contacto.titulo.texto}}</p>
 
       <!-- Sent through FormSubmit to the address in data-endpoint. The very first message asks that address to confirm, once. -->
-      <form class="form" id="brief" action="https://formsubmit.co/{{geral.email}}" method="POST" data-endpoint="https://formsubmit.co/ajax/{{geral.email}}" data-msg-sending="{{contacto.form_a_enviar}}" data-msg-ok="{{contacto.form_enviado}}" data-msg-fail="{{contacto.form_falhou}}" data-msg-fail-link="{{contacto.form_falhou_link}}">
+      <form class="form" id="brief" action="https://formsubmit.co/{{=geral.contactos.email}}" method="POST" data-endpoint="https://formsubmit.co/ajax/{{=geral.contactos.email}}" data-msg-sending="{{=contacto.formulario.a_enviar}}" data-msg-ok="{{=contacto.formulario.enviado}}" data-msg-fail="{{=contacto.formulario.falhou}}" data-msg-fail-link="{{=contacto.formulario.falhou_link}}">
         <input type="hidden" name="_subject" value="New brief from gaffe.pt">
         <input type="hidden" name="_template" value="table">
         <input type="text" name="_honey" class="vh" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="form__row">
-          <label class="field"><span class="lbl">{{contacto.contacto_004}}</span><input type="text" name="name" autocomplete="name" required></label>
-          <label class="field"><span class="lbl">{{contacto.contacto_005}}</span><input type="email" name="email" autocomplete="email" required></label>
+          <label class="field"><span class="lbl">{{contacto.formulario.nome}}</span><input type="text" name="name" autocomplete="name" required></label>
+          <label class="field"><span class="lbl">{{contacto.formulario.email}}</span><input type="email" name="email" autocomplete="email" required></label>
         </div>
-        <label class="field"><span class="lbl">{{contacto.contacto_006}}</span><textarea name="message" rows="4" required></textarea></label>
+        <label class="field"><span class="lbl">{{contacto.formulario.mensagem}}</span><textarea name="message" rows="4" required></textarea></label>
         <div class="form__end">
-          <button class="btn" type="submit">{{contacto.contacto_007}} <span class="arr" aria-hidden="true">→</span></button>
+          <button class="btn" type="submit">{{contacto.formulario.botao}} <span class="arr" aria-hidden="true">→</span></button>
           <p class="lbl form__state" id="form-state" role="status" aria-live="polite"></p>
         </div>
       </form>
 
       <div class="reach">
-        <span class="lbl soft">{{contacto.contacto_008}}</span>
-        <a class="reach__line reach__line--b" id="mail" href="mailto:{{geral.email}}">{{geral.email}}</a>
-        <button class="lbl reach__copy" type="button" id="copy-mail">{{contacto.contacto_009}}</button>
+        <span class="lbl soft">{{contacto.email_direto.texto}}</span>
+        <a class="reach__line reach__line--b" id="mail" href="mailto:{{=geral.contactos.email}}">{{geral.contactos.email}}</a>
+        <button class="lbl reach__copy" type="button" id="copy-mail">{{contacto.email_direto.copiar}}</button>
         <span class="lbl" id="copy-state" role="status" aria-live="polite"></span>
       </div>
     </div>
     <div class="cg contact__cg" aria-hidden="true">
       <div class="pc" style="--x:4%;--y:6%;--w:78%" data-speed="-.05"><div class="shape burst spin" style="--c:var(--yellow)"></div></div>
       <div class="pc" style="--x:38%;--y:0%;--w:62%;--r:2deg" data-speed=".04"><img class="snip" style="--clip:polygon(0 0,100% 0,94% 100%,16% 96%,0 86%)" src="img/no-guy.webp" width="900" height="1346" alt="" loading="lazy"></div>
-      <div class="pc" style="--x:8%;--y:30%;--r:-4deg;font-size:4.4cqw" data-speed=".08"><b class="strip strip--red">{{contacto.contacto_010}}</b></div>
-      <div class="pc" style="--x:0%;--y:42%;--r:-6deg;font-size:10cqw" data-speed=".12"><b class="strip strip--paper"><s class="x">{{contacto.contacto_011}}</s></b></div>
-      <div class="pc" style="--x:6%;--y:60%;--r:3deg;font-size:13cqw" data-speed=".17"><b class="strip pop" style="--r:0deg">{{contacto.contacto_012}}</b></div>
+      <div class="pc" style="--x:8%;--y:30%;--r:-4deg;font-size:4.4cqw" data-speed=".08"><b class="strip strip--red">{{contacto.colagem.obrigado}}</b></div>
+      <div class="pc" style="--x:0%;--y:42%;--r:-6deg;font-size:10cqw" data-speed=".12"><b class="strip strip--paper"><s class="x">{{contacto.colagem.adeus}}</s></b></div>
+      <div class="pc" style="--x:6%;--y:60%;--r:3deg;font-size:13cqw" data-speed=".17"><b class="strip pop" style="--r:0deg">{{contacto.colagem.ate_breve}}</b></div>
     </div>
   </div>
 </section>
@@ -687,12 +643,12 @@
 <footer class="sec on-ink" style="padding-block:clamp(28px,4vw,48px)">
   <div class="wrap foot">
     <img src="img/footer-logo.png" width="1200" height="573" alt="gaffe. Keep it interesting" loading="lazy">
-    <p class="lbl soft"><a href="https://www.gaffe.pt">{{geral.site}}</a><br><a href="mailto:{{geral.email}}">{{geral.email}}</a></p>
+    <p class="lbl soft"><a href="https://www.gaffe.pt">{{geral.contactos.site}}</a><br><a href="mailto:{{=geral.contactos.email}}">{{geral.contactos.email}}</a></p>
   </div>
 </footer>
 
 <!-- contact details stay one tap away; hidden while the contact section is on screen -->
-<a class="fab" href="#contact" data-go="contact"><span class="fab__dot" aria-hidden="true"></span><span class="fab__txt">{{contacto.contacto_013}}</span><span class="fab__mail lbl">{{geral.email}}</span></a>
+<a class="fab" href="#contact" data-go="contact"><span class="fab__dot" aria-hidden="true"></span><span class="fab__txt">{{contacto.botao_fixo.texto}}</span><span class="fab__mail lbl">{{geral.contactos.email}}</span></a>
 
 
 <script src="js/main.js" defer></script>

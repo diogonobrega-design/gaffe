@@ -1,13 +1,19 @@
 {
-  "about_001": "← Home",
-  "about_002": "Who holds the broom",
-  "about_003": "about",
-  "about_004": "us",
-  "about_005": "We'll clean your",
-  "about_006": "creative",
-  "about_007": "problems.",
-  "about_008": "Every brief arrives with some mess. We sweep out the obvious and leave the idea worth keeping.",
-  "about_009": "Next",
-  "about_010": "The work →",
-  "about_011": "Home"
+  "cabecalho": {
+    "voltar": "← Home",
+    "etiqueta": "Who holds the broom",
+    "titulo_1": "about",
+    "titulo_2": "us"
+  },
+  "texto": {
+    "frase_inicio": "We'll clean your",
+    "frase_destaque": "creative",
+    "frase_fim": "problems.",
+    "paragrafo": "Every brief arrives with some mess. We sweep out the obvious and leave the idea worth keeping."
+  },
+  "proximo": {
+    "etiqueta": "Next",
+    "link": "The work →",
+    "botao": "Home"
+  }
 }

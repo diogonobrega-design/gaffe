@@ -1,22 +1,45 @@
 {
-  "servicos_001": "← Home",
-  "servicos_002": "Five things",
-  "servicos_003": "what we",
-  "servicos_004": "make",
-  "servicos_005": "strategy",
-  "servicos_006": "soul of the brand.",
-  "servicos_007": "What only you can say, and a plan for saying it everywhere: positioning, identity, rebrands and content plans.",
-  "servicos_008": "irresistible copy.",
-  "servicos_009": "Scripts, websites, campaigns, articles and press written to be read to the end. Search engines enjoy them too.",
-  "servicos_010": "presence",
-  "servicos_011": "with striking design.",
-  "servicos_012": "Identities, brand guides, websites and motion, from bold minimalism to bursts of colour. Recognisable before anyone reads the name.",
-  "servicos_013": "a thousand words.",
-  "servicos_014": "Photography and film made for your story: brand shoots, event coverage and video.",
-  "servicos_015": "digital",
-  "servicos_016": "and ideal.",
-  "servicos_017": "Social media, SEO and 360 plans built around one idea, so every channel says the same thing in its own way.",
-  "servicos_018": "Next",
-  "servicos_019": "About us →",
-  "servicos_020": "Home"
+  "cabecalho": {
+    "voltar": "← Home",
+    "etiqueta": "Five things",
+    "titulo_1": "what we",
+    "titulo_2": "make"
+  },
+  "proximo": {
+    "etiqueta": "Next",
+    "link": "About us →",
+    "botao": "Home"
+  },
+  "lista": [
+    {
+      "titulo": "strategy + soul of the brand.",
+      "complemento": "",
+      "descricao": "What only you can say, and a plan for saying it everywhere: positioning, identity, rebrands and content plans.",
+      "cor": "amarelo"
+    },
+    {
+      "titulo": "irresistible copy.",
+      "complemento": "",
+      "descricao": "Scripts, websites, campaigns, articles and press written to be read to the end. Search engines enjoy them too.",
+      "cor": "vermelho"
+    },
+    {
+      "titulo": "presence",
+      "complemento": "with striking design.",
+      "descricao": "Identities, brand guides, websites and motion, from bold minimalism to bursts of colour. Recognisable before anyone reads the name.",
+      "cor": "amarelo"
+    },
+    {
+      "titulo": "a thousand words.",
+      "complemento": "",
+      "descricao": "Photography and film made for your story: brand shoots, event coverage and video.",
+      "cor": "vermelho"
+    },
+    {
+      "titulo": "digital",
+      "complemento": "and ideal.",
+      "descricao": "Social media, SEO and 360 plans built around one idea, so every channel says the same thing in its own way.",
+      "cor": "amarelo"
+    }
+  ]
 }

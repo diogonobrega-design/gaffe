@@ -485,3 +485,8 @@ a.reach__line:hover{background:var(--red)}
 
 /* ---------- what we make: the small line sits under the big word, so hovering never pushes into the text ---------- */
 .svc__row h3 small{display:block;margin:.25em 0 0;white-space:normal}
+
+/* ---------- previews and pages built from Pages CMS ---------- */
+.cl__pv--logo img.spin{width:auto;height:80%}
+.case__cg > img{width:100%;transform:rotate(2deg)}
+.turn > .wrap{width:100%}

@@ -17,14 +17,21 @@ e abrir http://localhost:5180.
 
 ## Estrutura
 
-- `src/index.html` — o modelo da página (home, história, What we make, About e os cases), com `{{pagina.chave}}` onde entra cada texto
-- `content/*.json` — os textos, um ficheiro por página; é isto que o Pages CMS edita
-- `.pages.yml` — o que aparece no Pages CMS (nome e descrição de cada campo)
-- `build.mjs` — gera `_site/` a partir do modelo e dos textos; falha se faltar algum texto
+- `src/index.html` — o modelo da página (home, história, What we make, About e os 3 cases feitos à medida).
+  `{{pagina.secao.campo}}` mete um texto, `{{=…}}` o mesmo em atributos, `{{> nome}}` uma parte gerada
+- `content/*.json` — os textos, um ficheiro por página e arrumados por secção; é isto que o Pages CMS edita
+- `content/projetos.json` — a lista de projetos (ordem, nome, frase, imagem do preview, estado) e, nos projetos
+  novos, a página feita com blocos (secção, óbvio vs gaffe, citação, números, texto, imagem, galeria)
+- `content/servicos.json` — inclui a lista de serviços do What we make
+- `.pages.yml` — o que aparece no Pages CMS (nomes, descrições e tipos de bloco)
+- `build.mjs` — gera `_site/`: textos, lista de projetos, lista de serviços e páginas dos projetos novos; falha se faltar algum texto
 - `css/style.css`, `js/main.js`, `img/` — estilos, comportamento e imagens
 
-Para tornar um texto novo editável: escrever `{{pagina.chave}}` em `src/index.html`, acrescentar a chave ao
-`content/pagina.json` e o campo ao `.pages.yml`.
+Nos textos dá para escrever `==palavra==` (sublinhado amarelo), `~~palavra~~` (riscado vermelho) e `**palavra**` (negrito);
+Enter muda de linha e uma linha em branco começa um parágrafo novo.
+
+Os projetos `ara`, `sanjo` e `aquainn` têm páginas feitas à medida em `src/index.html`; os outros são gerados a partir dos blocos.
+Um bloco novo faz-se em três sítios: o tipo no `.pages.yml`, a função em `BLOCKS` no `build.mjs` e, se precisar, CSS.
 
 ## Back office (Pages CMS)
 

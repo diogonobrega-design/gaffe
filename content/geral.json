@@ -1,14 +1,34 @@
 {
-  "email": "info@gaffe.pt",
-  "site": "www.gaffe.pt",
-  "geral_001": "gaffe · Keep it interesting",
-  "geral_002": "Skip to content",
-  "geral_003": "Work",
-  "geral_004": "What we make",
-  "geral_005": "About",
-  "geral_006": "Contact",
-  "geral_007": "Menu",
-  "descricao": "gaffe is the creative studio that crosses out the obvious answer. Strategy, copy, design, image and digital.",
-  "partilha_titulo": "gaffe · Keep it interesting",
-  "partilha_descricao": "The creative studio that crosses out the obvious answer. Strategy, copy, design, image and digital."
+  "contactos": {
+    "email": "info@gaffe.pt",
+    "site": "www.gaffe.pt"
+  },
+  "menu": {
+    "trabalho": "Work",
+    "o_que_fazemos": "What we make",
+    "about": "About",
+    "contacto": "Contact"
+  },
+  "seo": {
+    "titulo": "gaffe · Keep it interesting",
+    "descricao": "gaffe is the creative studio that crosses out the obvious answer. Strategy, copy, design, image and digital.",
+    "partilha_titulo": "gaffe · Keep it interesting",
+    "partilha_descricao": "The creative studio that crosses out the obvious answer. Strategy, copy, design, image and digital."
+  },
+  "projetos": {
+    "voltar": "All clients",
+    "cliente": "Client",
+    "setor": "Sector",
+    "fizemos": "What we did",
+    "formato": "Format",
+    "titulo_obvio": "the\nobvious\nanswer.",
+    "titulo_gaffe": "the\ngaffe.",
+    "proximo": "Next client",
+    "todos": "All clients",
+    "brevemente": "soon"
+  },
+  "acessibilidade": {
+    "saltar": "Skip to content",
+    "menu": "Menu"
+  }
 }
