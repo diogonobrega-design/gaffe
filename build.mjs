@@ -132,13 +132,15 @@ const BLOCKS = {
   },
 };
 
+const renderBlocks = (p) => (p.blocos || []).map((b) => (BLOCKS[b.tipo] || (() => ''))(b)).filter(Boolean).join('\n\n');
+
 function projectPages() {
   return live.filter((p) => !HANDMADE.includes(p.slug)).map((p) => {
     const i = live.indexOf(p);
     const next = live.length > 1 ? live[(i + 1) % live.length] : null;
     const h = p.cabecalho || {};
     const meta = [[T.cliente, h.cliente], [T.setor, h.setor], [T.fizemos, h.fizemos], [T.formato, h.formato]].filter(([, v]) => v);
-    const blocks = (p.blocos || []).map((b) => (BLOCKS[b.tipo] || (() => ''))(b)).filter(Boolean).join('\n\n');
+    const blocks = renderBlocks(p);
     return `<!-- ================= PROJECT: ${esc(p.title)} (built from Pages CMS blocks) ================= -->
 <article class="case" id="${p.slug}" hidden>
   <header class="sec case__head" data-in>
@@ -180,6 +182,13 @@ const html = readFileSync('src/index.html', 'utf8')
     if (v === undefined || v === null) { missing.push(m); return ''; }
     return plain ? esc(v) : fmt(v);
   });
+// the hand-made cases take extra blocks too: they go right before the yellow "Next client" band
+let page = html;
+for (const p of projects.filter((p) => HANDMADE.includes(p.slug) && (p.blocos || []).length)) {
+  const start = page.indexOf(`<article class="case" id="${p.slug}"`);
+  const at = start < 0 ? -1 : page.indexOf('<section class="sec on-yellow next">', start);
+  if (at > 0) page = page.slice(0, at) + renderBlocks(p) + '\n\n  ' + page.slice(at);
+}
 if (missing.length) {
   console.error('Missing texts:', [...new Set(missing)].join(', '));
   process.exit(1);
@@ -187,6 +196,6 @@ if (missing.length) {
 
 rmSync('_site', { recursive: true, force: true });
 mkdirSync('_site');
-writeFileSync('_site/index.html', html);
+writeFileSync('_site/index.html', page);
 for (const dir of ['css', 'js', 'img']) cpSync(dir, '_site/' + dir, { recursive: true });
 console.log('Built _site/ with', projects.length, 'projects');

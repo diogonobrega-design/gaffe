@@ -4,1439 +4,1439 @@ media:
   output: img
 content:
   - name: projetos
-    label: "Projetos"
+    label: Projetos
     type: file
     path: content/projetos.json
     format: json
     list: true
-    description: "A ordem aqui é a ordem no site. Arrasta para reordenar."
+    description: A ordem aqui é a ordem no site. Arrasta para reordenar.
     fields:
       - name: nome
-        label: "Nome (como aparece na lista, ex.: RUA.)"
+        label: 'Nome (como aparece na lista, ex.: RUA.)'
         type: string
         required: true
       - name: endereco
-        label: "Endereço da página"
+        label: Endereço da página
         type: string
-        description: "Só minúsculas, números e hífens. Fica no link: …/#endereco. Não mudar nos 3 projetos que já existem."
+        description: 'Só minúsculas, números e hífens. Fica no link: …/#endereco. Não mudar nos 3 projetos que já existem.'
         required: true
-        pattern: "^[a-z0-9-]+$"
+        pattern: ^[a-z0-9-]+$
       - name: frase
-        label: "Frase da lista"
+        label: Frase da lista
         type: string
       - name: setor
-        label: "Setor / tipo de trabalho (texto pequeno à direita)"
+        label: Setor / tipo de trabalho (texto pequeno à direita)
         type: string
       - name: estado
-        label: "Estado"
+        label: Estado
         type: select
         options:
           values:
             - value: publicado
-              label: "Publicado (com página)"
+              label: Publicado (com página)
             - value: brevemente
-              label: "Em breve (sem link)"
+              label: Em breve (sem link)
       - name: preview
-        label: "Imagem que aparece ao passar o rato"
+        label: Imagem que aparece ao passar o rato
         type: object
         fields:
           - name: imagem
-            label: "Imagem"
+            label: Imagem
             type: image
           - name: fundo
-            label: "Cor de fundo"
+            label: Cor de fundo
             type: select
             options:
               values:
                 - value: amarelo
-                  label: "Amarelo"
+                  label: Amarelo
                 - value: vermelho
-                  label: "Vermelho"
+                  label: Vermelho
                 - value: azul
-                  label: "Azul"
+                  label: Azul
                 - value: preto
-                  label: "Preto"
+                  label: Preto
                 - value: agua
-                  label: "Verde-água"
+                  label: Verde-água
                 - value: branco
-                  label: "Branco"
+                  label: Branco
           - name: ajuste
-            label: "Ajuste da imagem"
+            label: Ajuste da imagem
             type: select
             options:
               values:
                 - value: cobrir
-                  label: "Encher o cartão"
+                  label: Encher o cartão
                 - value: centrar
-                  label: "Centrada (logos)"
+                  label: Centrada (logos)
           - name: rodar
-            label: "A rodar"
+            label: A rodar
             type: boolean
       - name: cabecalho
-        label: "Página do projeto – topo"
+        label: Página do projeto – topo
         type: object
-        description: "Só para projetos novos. ARA, Sanjo e AQUAINN têm páginas feitas à medida, editáveis nas entradas \"Case: …\"."
+        description: 'Só para projetos novos. ARA, Sanjo e AQUAINN têm o topo feito à medida, editável nas entradas "Case: …".'
         fields:
           - name: subtitulo
-            label: "Frase por baixo do nome"
+            label: Frase por baixo do nome
             type: text
           - name: imagem
-            label: "Imagem ao lado do nome"
+            label: Imagem ao lado do nome
             type: image
           - name: cliente
-            label: "Cliente"
+            label: Cliente
             type: string
           - name: setor
-            label: "Setor"
+            label: Setor
             type: string
           - name: fizemos
-            label: "O que fizemos"
+            label: O que fizemos
             type: text
           - name: formato
-            label: "Formato"
+            label: Formato
             type: string
       - name: blocos
-        label: "Página do projeto – blocos"
+        label: Página do projeto – blocos
         type: block
-        description: "Carrega em + para juntar blocos; arrasta para mudar a ordem. Dicas: ==palavra== sublinha a amarelo, ~~palavra~~ risca a vermelho, **palavra** fica a negrito. Enter muda de linha."
+        description: 'Nos projetos novos, os blocos são a página toda. Em ARA, Sanjo e AQUAINN entram no fim da página, antes do bloco amarelo. Carrega em + para juntar blocos; arrasta para mudar a ordem. Dicas: ==palavra== sublinha a amarelo, ~~palavra~~ risca a vermelho, **palavra** fica a negrito. Enter muda de linha.'
         list: true
         blockKey: tipo
         blocks:
           - name: secao
-            label: "Secção com título grande (the question?, the insight.)"
+            label: Secção com título grande (the question?, the insight.)
             fields:
               - name: titulo
-                label: "Título grande (Enter para partir a linha)"
+                label: Título grande (Enter para partir a linha)
                 type: text
               - name: destaque
-                label: "Frase em destaque"
+                label: Frase em destaque
                 type: text
               - name: texto
-                label: "Texto (linha em branco = novo parágrafo)"
+                label: Texto (linha em branco = novo parágrafo)
                 type: text
               - name: fundo
-                label: "Fundo"
+                label: Fundo
                 type: select
                 options:
                   values:
                     - value: branco
-                      label: "Branco"
+                      label: Branco
                     - value: amarelo
-                      label: "Amarelo"
+                      label: Amarelo
                     - value: azul
-                      label: "Azul"
+                      label: Azul
           - name: obvio
-            label: "Óbvio vs gaffe"
+            label: Óbvio vs gaffe
             fields:
               - name: obvio
-                label: "A resposta óbvia (aparece riscada)"
+                label: A resposta óbvia (aparece riscada)
                 type: text
               - name: gaffe
-                label: "A gaffe (a resposta deles, em grande)"
+                label: A gaffe (a resposta deles, em grande)
                 type: text
               - name: titulo_obvio
-                label: "Título da resposta óbvia (vazio = o de sempre)"
+                label: Título da resposta óbvia (vazio = o de sempre)
                 type: text
               - name: titulo_gaffe
-                label: "Título da gaffe (vazio = o de sempre)"
+                label: Título da gaffe (vazio = o de sempre)
                 type: text
           - name: citacao
-            label: "Citação grande"
+            label: Citação grande
             fields:
               - name: texto
-                label: "Citação"
+                label: Citação
                 type: text
               - name: traducao
-                label: "Tradução ou nota (pequena, por baixo)"
+                label: Tradução ou nota (pequena, por baixo)
                 type: text
           - name: numeros
-            label: "Números em destaque"
+            label: Números em destaque
             fields:
               - name: itens
-                label: "Números"
+                label: Números
                 type: object
                 list: true
                 fields:
                   - name: numero
-                    label: "Número (ex.: 800 L)"
+                    label: 'Número (ex.: 800 L)'
                     type: string
                   - name: texto
-                    label: "Explicação"
+                    label: Explicação
                     type: string
           - name: texto
-            label: "Texto simples"
+            label: Texto simples
             fields:
               - name: texto
-                label: "Texto (linha em branco = novo parágrafo)"
+                label: Texto (linha em branco = novo parágrafo)
                 type: text
           - name: imagem
-            label: "Imagem"
+            label: Imagem
             fields:
               - name: imagem
-                label: "Imagem"
+                label: Imagem
                 type: image
               - name: legenda
-                label: "Legenda"
+                label: Legenda
                 type: string
               - name: largura
-                label: "Largura"
+                label: Largura
                 type: select
                 options:
                   values:
                     - value: inteira
-                      label: "Largura toda"
+                      label: Largura toda
                     - value: normal
-                      label: "Mais estreita"
+                      label: Mais estreita
           - name: galeria
-            label: "Galeria de imagens"
+            label: Galeria de imagens
             fields:
               - name: imagens
-                label: "Imagens"
+                label: Imagens
                 type: object
                 list: true
                 fields:
                   - name: imagem
-                    label: "Imagem"
+                    label: Imagem
                     type: image
                   - name: legenda
-                    label: "Legenda"
+                    label: Legenda
                     type: string
   - name: home
-    label: "Página inicial"
+    label: Página inicial
     type: file
     path: content/home.json
     format: json
     fields:
       - name: hero
-        label: "Topo (título grande)"
+        label: Topo (título grande)
         type: object
         fields:
           - name: etiqueta
-            label: "Etiqueta pequena por cima"
+            label: Etiqueta pequena por cima
             type: string
           - name: titulo_1
-            label: "Título – linha 1"
+            label: Título – linha 1
             type: string
           - name: titulo_2
-            label: "Título – linha 2"
+            label: Título – linha 2
             type: string
           - name: titulo_3
-            label: "Título – linha 3"
+            label: Título – linha 3
             type: string
           - name: titulo_riscado
-            label: "Título – palavra riscada a vermelho"
+            label: Título – palavra riscada a vermelho
             type: string
           - name: titulo_destaque
-            label: "Título – palavra no bloco vermelho"
+            label: Título – palavra no bloco vermelho
             type: string
           - name: frase_1
-            label: "Frase por baixo (preto)"
+            label: Frase por baixo (preto)
             type: string
           - name: frase_2
-            label: "Frase por baixo (vermelho)"
+            label: Frase por baixo (vermelho)
             type: string
           - name: autocolante_play
-            label: "Autocolante junto ao play"
+            label: Autocolante junto ao play
             type: string
           - name: autocolante
-            label: "Autocolante vermelho"
+            label: Autocolante vermelho
             type: string
       - name: trabalho
-        label: "Lista de projetos"
+        label: Lista de projetos
         type: object
         fields:
           - name: titulo
-            label: "Título da lista"
+            label: Título da lista
             type: string
           - name: contagem
-            label: "Texto depois do número de projetos"
+            label: Texto depois do número de projetos
             type: string
-            description: "O número é contado sozinho. Os projetos editam-se em \"Projetos\"."
+            description: O número é contado sozinho. Os projetos editam-se em "Projetos".
   - name: geral
-    label: "Geral (menu, contactos, Google)"
+    label: Geral (menu, contactos, Google)
     type: file
     path: content/geral.json
     format: json
     fields:
       - name: contactos
-        label: "Contactos"
+        label: Contactos
         type: object
         fields:
           - name: email
-            label: "Email"
+            label: Email
             type: string
-            description: "Aparece no site todo e é para onde o formulário envia as mensagens."
+            description: Aparece no site todo e é para onde o formulário envia as mensagens.
           - name: site
-            label: "Endereço do site (texto)"
+            label: Endereço do site (texto)
             type: string
       - name: menu
-        label: "Menu do topo"
+        label: Menu do topo
         type: object
         fields:
           - name: trabalho
-            label: "Work"
+            label: Work
             type: string
           - name: o_que_fazemos
-            label: "What we make"
+            label: What we make
             type: string
           - name: about
-            label: "About"
+            label: About
             type: string
           - name: contacto
-            label: "Contact (botão preto)"
+            label: Contact (botão preto)
             type: string
       - name: seo
-        label: "Google e partilhas"
+        label: Google e partilhas
         type: object
         fields:
           - name: titulo
-            label: "Título no separador do browser"
+            label: Título no separador do browser
             type: string
           - name: descricao
-            label: "Descrição para o Google"
+            label: Descrição para o Google
             type: text
           - name: partilha_titulo
-            label: "Título quando se partilha o link"
+            label: Título quando se partilha o link
             type: string
           - name: partilha_descricao
-            label: "Descrição quando se partilha o link"
+            label: Descrição quando se partilha o link
             type: text
       - name: projetos
-        label: "Textos fixos das páginas de projeto"
+        label: Textos fixos das páginas de projeto
         type: object
         fields:
           - name: voltar
-            label: "Link de voltar (topo)"
+            label: Link de voltar (topo)
             type: string
           - name: cliente
-            label: "Rótulo: Cliente"
+            label: 'Rótulo: Cliente'
             type: string
           - name: setor
-            label: "Rótulo: Setor"
+            label: 'Rótulo: Setor'
             type: string
           - name: fizemos
-            label: "Rótulo: O que fizemos"
+            label: 'Rótulo: O que fizemos'
             type: string
           - name: formato
-            label: "Rótulo: Formato"
+            label: 'Rótulo: Formato'
             type: string
           - name: titulo_obvio
-            label: "Título do bloco \"óbvio\" (por defeito)"
+            label: Título do bloco "óbvio" (por defeito)
             type: text
           - name: titulo_gaffe
-            label: "Título do bloco \"gaffe\" (por defeito)"
+            label: Título do bloco "gaffe" (por defeito)
             type: text
           - name: proximo
-            label: "Rótulo: Próximo projeto"
+            label: 'Rótulo: Próximo projeto'
             type: string
           - name: todos
-            label: "Botão: todos os projetos"
+            label: 'Botão: todos os projetos'
             type: string
           - name: brevemente
-            label: "Etiqueta dos projetos \"em breve\""
+            label: Etiqueta dos projetos "em breve"
             type: string
       - name: acessibilidade
-        label: "Leitores de ecrã (invisível)"
+        label: Leitores de ecrã (invisível)
         type: object
         fields:
           - name: saltar
-            label: "Saltar para o conteúdo"
+            label: Saltar para o conteúdo
             type: string
           - name: menu
-            label: "Botão do menu no telemóvel"
+            label: Botão do menu no telemóvel
             type: string
   - name: servicos
-    label: "What we make"
+    label: What we make
     type: file
     path: content/servicos.json
     format: json
     fields:
       - name: cabecalho
-        label: "Topo"
+        label: Topo
         type: object
         fields:
           - name: voltar
-            label: "Link de voltar"
+            label: Link de voltar
             type: string
           - name: etiqueta
-            label: "Etiqueta pequena"
+            label: Etiqueta pequena
             type: string
           - name: titulo_1
-            label: "Título – linha 1"
+            label: Título – linha 1
             type: string
           - name: titulo_2
-            label: "Título – linha 2"
+            label: Título – linha 2
             type: string
       - name: lista
-        label: "Serviços"
+        label: Serviços
         type: object
-        description: "Carrega em + para acrescentar um serviço. Um \"+\" no título fica a vermelho."
+        description: Carrega em + para acrescentar um serviço. Um "+" no título fica a vermelho.
         list: true
         fields:
           - name: titulo
-            label: "Título"
+            label: Título
             type: string
           - name: complemento
-            label: "Complemento pequeno por baixo (opcional)"
+            label: Complemento pequeno por baixo (opcional)
             type: string
           - name: descricao
-            label: "Descrição"
+            label: Descrição
             type: text
           - name: cor
-            label: "Cor do sublinhado ao passar o rato"
+            label: Cor do sublinhado ao passar o rato
             type: select
             options:
               values:
                 - value: amarelo
-                  label: "Amarelo"
+                  label: Amarelo
                 - value: vermelho
-                  label: "Vermelho"
+                  label: Vermelho
       - name: proximo
-        label: "Bloco amarelo do fim"
+        label: Bloco amarelo do fim
         type: object
         fields:
           - name: etiqueta
-            label: "Etiqueta"
+            label: Etiqueta
             type: string
           - name: link
-            label: "Link grande"
+            label: Link grande
             type: string
           - name: botao
-            label: "Botão"
+            label: Botão
             type: string
   - name: about
-    label: "About"
+    label: About
     type: file
     path: content/about.json
     format: json
     fields:
       - name: cabecalho
-        label: "Topo"
+        label: Topo
         type: object
         fields:
           - name: voltar
-            label: "Link de voltar"
+            label: Link de voltar
             type: string
           - name: etiqueta
-            label: "Etiqueta pequena"
+            label: Etiqueta pequena
             type: string
           - name: titulo_1
-            label: "Título – linha 1"
+            label: Título – linha 1
             type: string
           - name: titulo_2
-            label: "Título – linha 2"
+            label: Título – linha 2
             type: string
       - name: texto
-        label: "Texto"
+        label: Texto
         type: object
         fields:
           - name: frase_inicio
-            label: "Frase grande – início"
+            label: Frase grande – início
             type: string
           - name: frase_destaque
-            label: "Frase grande – palavra sublinhada a amarelo"
+            label: Frase grande – palavra sublinhada a amarelo
             type: string
           - name: frase_fim
-            label: "Frase grande – fim"
+            label: Frase grande – fim
             type: string
           - name: paragrafo
-            label: "Parágrafo"
+            label: Parágrafo
             type: text
       - name: proximo
-        label: "Bloco amarelo do fim"
+        label: Bloco amarelo do fim
         type: object
         fields:
           - name: etiqueta
-            label: "Etiqueta"
+            label: Etiqueta
             type: string
           - name: link
-            label: "Link grande"
+            label: Link grande
             type: string
           - name: botao
-            label: "Botão"
+            label: Botão
             type: string
   - name: contacto
-    label: "Contacto e rodapé"
+    label: Contacto e rodapé
     type: file
     path: content/contacto.json
     format: json
     fields:
       - name: titulo
-        label: "Título e texto"
+        label: Título e texto
         type: object
         fields:
           - name: linha_1
-            label: "Título – linha 1"
+            label: Título – linha 1
             type: string
           - name: linha_2
-            label: "Título – linha 2"
+            label: Título – linha 2
             type: string
           - name: texto
-            label: "Texto por baixo"
+            label: Texto por baixo
             type: text
       - name: formulario
-        label: "Formulário"
+        label: Formulário
         type: object
         fields:
           - name: nome
-            label: "Campo: nome"
+            label: 'Campo: nome'
             type: string
           - name: email
-            label: "Campo: email"
+            label: 'Campo: email'
             type: string
           - name: mensagem
-            label: "Campo: mensagem"
+            label: 'Campo: mensagem'
             type: string
           - name: botao
-            label: "Botão de enviar"
+            label: Botão de enviar
             type: string
           - name: a_enviar
-            label: "Mensagem: a enviar"
+            label: 'Mensagem: a enviar'
             type: string
           - name: enviado
-            label: "Mensagem: enviado"
+            label: 'Mensagem: enviado'
             type: string
           - name: falhou
-            label: "Mensagem: quando falha"
+            label: 'Mensagem: quando falha'
             type: string
           - name: falhou_link
-            label: "Mensagem: link para enviar por email"
+            label: 'Mensagem: link para enviar por email'
             type: string
       - name: email_direto
-        label: "Email por baixo do formulário"
+        label: Email por baixo do formulário
         type: object
         fields:
           - name: texto
-            label: "Texto antes do email"
+            label: Texto antes do email
             type: string
           - name: copiar
-            label: "Botão copiar"
+            label: Botão copiar
             type: string
       - name: colagem
-        label: "Autocolantes da colagem"
+        label: Autocolantes da colagem
         type: object
         fields:
           - name: obrigado
-            label: "Autocolante vermelho"
+            label: Autocolante vermelho
             type: string
           - name: adeus
-            label: "Palavra riscada"
+            label: Palavra riscada
             type: string
           - name: ate_breve
-            label: "Autocolante grande"
+            label: Autocolante grande
             type: string
       - name: botao_fixo
-        label: "Botão fixo no canto"
+        label: Botão fixo no canto
         type: object
         fields:
           - name: texto
-            label: "Texto do botão"
+            label: Texto do botão
             type: string
   - name: historia
-    label: "História (play)"
+    label: História (play)
     type: file
     path: content/historia.json
     format: json
     fields:
       - name: s01
-        label: "1. Three things nobody meant to invent"
+        label: 1. Three things nobody meant to invent
         type: object
         fields:
           - name: t01
-            label: "Texto: Three things nobody meant to invent"
+            label: 'Texto: Three things nobody meant to invent'
             type: string
           - name: t02
-            label: "Título: microwave"
+            label: 'Título: microwave'
             type: string
           - name: t03
-            label: "Etiqueta: A chocolate bar melted in an engineer's pocket."
+            label: 'Etiqueta: A chocolate bar melted in an engineer''s pocket.'
             type: string
           - name: t04
-            label: "Título: corn flakes"
+            label: 'Título: corn flakes'
             type: string
           - name: t05
-            label: "Etiqueta: Cooked wheat, left out until it went stale."
+            label: 'Etiqueta: Cooked wheat, left out until it went stale.'
             type: string
           - name: t06
-            label: "Título: viagra"
+            label: 'Título: viagra'
             type: string
           - name: t07
-            label: "Etiqueta: Meant for angina. The side effect won."
+            label: 'Etiqueta: Meant for angina. The side effect won.'
             type: string
       - name: s02
-        label: "2. Mistakes?"
+        label: 2. Mistakes?
         type: object
         fields:
           - name: t01
-            label: "Texto: Mistakes?"
+            label: 'Texto: Mistakes?'
             type: string
       - name: s03
-        label: "3. NO!"
+        label: 3. NO!
         type: object
         fields:
           - name: t01
-            label: "Etiqueta: NO!"
+            label: 'Etiqueta: NO!'
             type: string
       - name: s04
-        label: "4. Those were"
+        label: 4. Those were accidents.
         type: object
         fields:
           - name: t01
-            label: "Título: Those were"
+            label: 'Título: Those were'
             type: string
           - name: t02
-            label: "Título: accidents."
+            label: 'Título: accidents.'
             type: string
           - name: t03
-            label: "Texto: Ours are"
+            label: 'Texto: Ours are'
             type: string
           - name: t04
-            label: "Texto: on purpose."
+            label: 'Texto: on purpose.'
             type: string
       - name: s05
-        label: "5. new ways"
+        label: 5. new ways
         type: object
         fields:
           - name: t01
-            label: "Etiqueta: new ways"
+            label: 'Etiqueta: new ways'
             type: string
       - name: s06
-        label: "6. how we do it"
+        label: 6. how we do it?
         type: object
         fields:
           - name: t01
-            label: "Título: how we do it"
+            label: 'Título: how we do it'
             type: string
           - name: t02
-            label: "Texto: You bring the question"
+            label: 'Texto: You bring the question'
             type: string
           - name: t03
-            label: "Texto: We write down the obvious answer"
+            label: 'Texto: We write down the obvious answer'
             type: string
           - name: t04
-            label: "Texto: We cross it out"
+            label: 'Texto: We cross it out'
             type: string
           - name: t05
-            label: "Texto: We build the gaffe in its place"
+            label: 'Texto: We build the gaffe in its place'
             type: string
           - name: t06
-            label: "Link: See what we did"
+            label: 'Link: See what we did'
             type: string
           - name: t07
-            label: "Texto: Scroll to walk →"
+            label: 'Texto: Scroll to walk →'
             type: string
           - name: t08
-            label: "Link: Skip to our work ↓"
+            label: 'Link: Skip to our work ↓'
             type: string
       - name: s07
-        label: "7. Next"
+        label: 7. Bloco amarelo do fim
         type: object
         fields:
           - name: t01
-            label: "Texto: Next"
+            label: 'Texto: Next'
             type: string
           - name: t02
-            label: "Link: Our work →"
+            label: 'Link: Our work →'
             type: string
           - name: t03
-            label: "Link: Home"
+            label: 'Link: Home'
             type: string
   - name: aquainn
-    label: "Case: AQUAINN"
+    label: 'Case: AQUAINN'
     type: file
     path: content/aquainn.json
     format: json
     fields:
       - name: s01
-        label: "1. ← All clients"
+        label: 1. Topo (nome, frase e ficha)
         type: object
         fields:
           - name: t01
-            label: "Link: ← All clients"
+            label: 'Link: ← All clients'
             type: string
           - name: t02
-            label: "Texto: A system that monitors water use in hotels and…"
+            label: 'Texto: A system that monitors water use in hotels and…'
             type: text
           - name: t03
-            label: "Texto: Shower"
+            label: 'Texto: Shower'
             type: string
           - name: t04
-            label: "Texto: = 50 litres"
+            label: 'Texto: = 50 litres'
             type: string
           - name: t05
-            label: "Etiqueta: one drop at a time"
+            label: 'Etiqueta: one drop at a time'
             type: string
           - name: t06
-            label: "Rótulo: Client"
+            label: 'Rótulo: Client'
             type: string
           - name: t07
-            label: "Valor: AQUAINN"
+            label: 'Valor: AQUAINN'
             type: string
           - name: t08
-            label: "Rótulo: Sector"
+            label: 'Rótulo: Sector'
             type: string
           - name: t09
-            label: "Valor: Hospitality, water efficiency"
+            label: 'Valor: Hospitality, water efficiency'
             type: string
           - name: t10
-            label: "Rótulo: What we did"
+            label: 'Rótulo: What we did'
             type: string
           - name: t11
-            label: "Valor: Communication strategy, creative concept, copy…"
+            label: 'Valor: Communication strategy, creative concept, copy…'
             type: text
           - name: t12
-            label: "Rótulo: Format"
+            label: 'Rótulo: Format'
             type: string
           - name: t13
-            label: "Valor: Creative proposal, including Web Summit activa…"
+            label: 'Valor: Creative proposal, including Web Summit activa…'
             type: string
       - name: s02
-        label: "2. the"
+        label: 2. the question?
         type: object
         fields:
           - name: t01
-            label: "Título: the"
+            label: 'Título: the'
             type: string
           - name: t02
-            label: "Título: question?"
+            label: 'Título: question?'
             type: string
           - name: t03
-            label: "Texto: How do you get hotel guests to use less water …"
+            label: 'Texto: How do you get hotel guests to use less water …'
             type: text
           - name: t04
-            label: "Texto: Hotels have to cut water in a drought. Guests …"
+            label: 'Texto: Hotels have to cut water in a drought. Guests …'
             type: text
           - name: t05
-            label: "Etiqueta: 800 L"
+            label: 'Etiqueta: 800 L'
             type: string
           - name: t06
-            label: "Etiqueta: Estimated water use per hotel guest, per day"
+            label: 'Etiqueta: Estimated water use per hotel guest, per day'
             type: string
           - name: t07
-            label: "Etiqueta: 4 audiences"
+            label: 'Etiqueta: 4 audiences'
             type: string
           - name: t08
-            label: "Etiqueta: Guests, managers, staff and the hotel's local …"
+            label: 'Etiqueta: Guests, managers, staff and the hotel''s local …'
             type: string
           - name: t09
-            label: "Etiqueta: 7.5 L"
+            label: 'Etiqueta: 7.5 L'
             type: string
           - name: t10
-            label: "Etiqueta: Lost every minute a tap is left running"
+            label: 'Etiqueta: Lost every minute a tap is left running'
             type: string
       - name: s03
-        label: "3. obvious"
+        label: 3. the obvious answer. / the gaffe.
         type: object
         fields:
           - name: t01
-            label: "Título: obvious"
+            label: 'Título: obvious'
             type: string
           - name: t02
-            label: "Título: answer"
+            label: 'Título: answer'
             type: string
           - name: t03
-            label: "Texto: Tell people what they should or shouldn't do."
+            label: 'Texto: Tell people what they should or shouldn''t do.'
             type: string
           - name: t04
-            label: "Título: gaffe."
+            label: 'Título: gaffe.'
             type: string
           - name: t05
-            label: "Texto: The best"
+            label: 'Texto: The best'
             type: string
           - name: t06
-            label: "Texto: 5 minutes"
+            label: 'Texto: 5 minutes'
             type: string
           - name: t07
-            label: "Texto: of your life?"
+            label: 'Texto: of your life?'
             type: string
       - name: s04
-        label: "4. insight"
+        label: 4. the insight.
         type: object
         fields:
           - name: t01
-            label: "Título: insight"
+            label: 'Título: insight'
             type: string
           - name: t02
-            label: "Texto: What's the most impactful thing you could do i…"
+            label: 'Texto: What''s the most impactful thing you could do i…'
             type: string
           - name: t03
-            label: "Item: Bungee jumping."
+            label: 'Item: Bungee jumping.'
             type: string
           - name: t04
-            label: "Item: A wedding proposal."
+            label: 'Item: A wedding proposal.'
             type: string
           - name: t05
-            label: "Item: Skydiving."
+            label: 'Item: Skydiving.'
             type: string
           - name: t06
-            label: "Item: Or maybe a 5 minute shower."
+            label: 'Item: Or maybe a 5 minute shower.'
             type: string
           - name: t07
-            label: "Texto: Not all great experiences take long. So the ca…"
+            label: 'Texto: Not all great experiences take long. So the ca…'
             type: text
           - name: t08
-            label: "Rótulo: Try it: shower length"
+            label: 'Rótulo: Try it: shower length'
             type: string
           - name: t09
-            label: "Resultado: 5 min = 50 L"
+            label: 'Resultado: 5 min = 50 L'
             type: string
           - name: t10
-            label: "Texto: The best five minutes of your life."
+            label: 'Texto: The best five minutes of your life.'
             type: string
           - name: t11
-            label: "Texto: Based on the proposal's figures: 5 minutes use…"
+            label: 'Texto: Based on the proposal''s figures: 5 minutes use…'
             type: text
       - name: s05
-        label: "5. what it"
+        label: 5. what it became
         type: object
         fields:
           - name: t01
-            label: "Título: what it"
+            label: 'Título: what it'
             type: string
           - name: t02
-            label: "Título: became"
+            label: 'Título: became'
             type: string
           - name: t03
-            label: "Texto: One idea, said differently to everyone in the …"
+            label: 'Texto: One idea, said differently to everyone in the …'
             type: string
           - name: t04
-            label: "Botão: Guests"
+            label: 'Botão: Guests'
             type: string
           - name: t05
-            label: "Botão: Managers"
+            label: 'Botão: Managers'
             type: string
           - name: t06
-            label: "Botão: Staff"
+            label: 'Botão: Staff'
             type: string
           - name: t07
-            label: "Botão: Partner network"
+            label: 'Botão: Partner network'
             type: string
           - name: t08
-            label: "Botão: Web Summit"
+            label: 'Botão: Web Summit'
             type: string
       - name: s06
-        label: "6. What do we tell guests when they walk …"
+        label: 6. What do we tell guests when they walk into…
         type: object
         fields:
           - name: t01
-            label: "Texto: What do we tell guests when they walk into the…"
+            label: 'Texto: What do we tell guests when they walk into the…'
             type: string
           - name: t02
-            label: "Texto: On the toothbrush glass"
+            label: 'Texto: On the toothbrush glass'
             type: string
           - name: t03
-            label: "Subtítulo: “Time to brush off old ideas!”"
+            label: 'Subtítulo: “Time to brush off old ideas!”'
             type: string
           - name: t04
-            label: "Texto: A complimentary toothbrush with a message abou…"
+            label: 'Texto: A complimentary toothbrush with a message abou…'
             type: text
           - name: t05
-            label: "Texto: At check-in"
+            label: 'Texto: At check-in'
             type: string
           - name: t06
-            label: "Subtítulo: “Put on a different kind of thinking cap!”"
+            label: 'Subtítulo: “Put on a different kind of thinking cap!”'
             type: string
           - name: t07
-            label: "Texto: A shower cap nobody expects, carrying the numb…"
+            label: 'Texto: A shower cap nobody expects, carrying the numb…'
             type: text
           - name: t08
-            label: "Texto: On the room tablet"
+            label: 'Texto: On the room tablet'
             type: string
           - name: t09
-            label: "Subtítulo: “The best 5 minutes of your life?”"
+            label: 'Subtítulo: “The best 5 minutes of your life?”'
             type: string
           - name: t10
-            label: "Texto: A short shower is all it takes for a greener s…"
+            label: 'Texto: A short shower is all it takes for a greener s…'
             type: string
           - name: t11
-            label: "Texto: Shower playlist"
+            label: 'Texto: Shower playlist'
             type: string
           - name: t12
-            label: "Subtítulo: AquaSoundscapes"
+            label: 'Subtítulo: AquaSoundscapes'
             type: string
           - name: t13
-            label: "Texto: A Spotify playlist where every song runs under…"
+            label: 'Texto: A Spotify playlist where every song runs under…'
             type: text
       - name: s07
-        label: "7. What do we tell managers so they partn…"
+        label: 7. What do we tell managers so they partner w…
         type: object
         fields:
           - name: t01
-            label: "Texto: What do we tell managers so they partner with …"
+            label: 'Texto: What do we tell managers so they partner with …'
             type: string
           - name: t02
-            label: "Texto: Headline"
+            label: 'Texto: Headline'
             type: string
           - name: t03
-            label: "Subtítulo: “Help us, help you, help them!”"
+            label: 'Subtítulo: “Help us, help you, help them!”'
             type: string
           - name: t04
-            label: "Texto: The pitch in one breath: the hotel, the guest …"
+            label: 'Texto: The pitch in one breath: the hotel, the guest …'
             type: text
           - name: t05
-            label: "Subtítulo: “Savings beyond the water cycle!”"
+            label: 'Subtítulo: “Savings beyond the water cycle!”'
             type: string
           - name: t06
-            label: "Texto: Less hot water also means a smaller energy bill."
+            label: 'Texto: Less hot water also means a smaller energy bill.'
             type: string
           - name: t07
-            label: "Texto: The promise"
+            label: 'Texto: The promise'
             type: string
           - name: t08
-            label: "Subtítulo: Up to 30% less water. Up to 20% less heating."
+            label: 'Subtítulo: Up to 30% less water. Up to 20% less heating.'
             type: string
           - name: t09
-            label: "Texto: The potential savings AQUAINN puts in front of…"
+            label: 'Texto: The potential savings AQUAINN puts in front of…'
             type: string
       - name: s08
-        label: "8. What do we tell staff so they help us?"
+        label: 8. What do we tell staff so they help us?
         type: object
         fields:
           - name: t01
-            label: "Texto: What do we tell staff so they help us?"
+            label: 'Texto: What do we tell staff so they help us?'
             type: string
           - name: t02
-            label: "Texto: Training programme"
+            label: 'Texto: Training programme'
             type: string
           - name: t03
-            label: "Subtítulo: HydroSustain"
+            label: 'Subtítulo: HydroSustain'
             type: string
           - name: t04
-            label: "Texto: An internal education programme that shows hot…"
+            label: 'Texto: An internal education programme that shows hot…'
             type: text
           - name: t05
-            label: "Texto: Restaurant menu"
+            label: 'Texto: Restaurant menu'
             type: string
           - name: t06
-            label: "Subtítulo: AquaArtistry"
+            label: 'Subtítulo: AquaArtistry'
             type: string
           - name: t07
-            label: "Texto: A menu built with the hotel's kitchen around w…"
+            label: 'Texto: A menu built with the hotel''s kitchen around w…'
             type: text
       - name: s09
-        label: "9. What do we tell local partners so they…"
+        label: 9. What do we tell local partners so they joi…
         type: object
         fields:
           - name: t01
-            label: "Texto: What do we tell local partners so they join th…"
+            label: 'Texto: What do we tell local partners so they join th…'
             type: string
           - name: t02
-            label: "Texto: Partner network seal"
+            label: 'Texto: Partner network seal'
             type: string
           - name: t03
-            label: "Subtítulo: The AQUAINN seal of excellence in water usage"
+            label: 'Subtítulo: The AQUAINN seal of excellence in water usage'
             type: string
           - name: t04
-            label: "Texto: Awarded to the restaurants, spas, wineries, lo…"
+            label: 'Texto: Awarded to the restaurants, spas, wineries, lo…'
             type: text
           - name: t05
-            label: "Texto: Why they join"
+            label: 'Texto: Why they join'
             type: string
           - name: t06
-            label: "Subtítulo: Guests arrive. So does business."
+            label: 'Subtítulo: Guests arrive. So does business.'
             type: string
           - name: t07
-            label: "Texto: The network sends the hotel's guests to local …"
+            label: 'Texto: The network sends the hotel''s guests to local …'
             type: text
       - name: s10
-        label: "10. What do we tell Web Summit visitors so…"
+        label: 10. What do we tell Web Summit visitors so the…
         type: object
         fields:
           - name: t01
-            label: "Texto: What do we tell Web Summit visitors so they wa…"
+            label: 'Texto: What do we tell Web Summit visitors so they wa…'
             type: string
           - name: t02
-            label: "Texto: Activation"
+            label: 'Texto: Activation'
             type: string
           - name: t03
-            label: "Subtítulo: The Thinking Cap"
+            label: 'Subtítulo: The Thinking Cap'
             type: string
           - name: t04
-            label: "Texto: Promoters in bathrobes and slippers hand out s…"
+            label: 'Texto: Promoters in bathrobes and slippers hand out s…'
             type: text
           - name: t05
-            label: "Texto: Promo video, 20 seconds"
+            label: 'Texto: Promo video, 20 seconds'
             type: string
           - name: t06
-            label: "Subtítulo: “Water is life. And life is worth saving!”"
+            label: 'Subtítulo: “Water is life. And life is worth saving!”'
             type: string
           - name: t07
-            label: "Texto: The logo turns into a cap and lands on a head.…"
+            label: 'Texto: The logo turns into a cap and lands on a head.…'
             type: string
           - name: t08
-            label: "Subtítulo: Sustainable Unlock"
+            label: 'Subtítulo: Sustainable Unlock'
             type: string
           - name: t09
-            label: "Texto: A concierge walks the venue handing out keys o…"
+            label: 'Texto: A concierge walks the venue handing out keys o…'
             type: text
       - name: s11
-        label: "11. Next client"
+        label: 11. Bloco amarelo do fim
         type: object
         fields:
           - name: t01
-            label: "Texto: Next client"
+            label: 'Texto: Next client'
             type: string
           - name: t02
-            label: "Link: ARA →"
+            label: 'Link: ARA →'
             type: string
           - name: t03
-            label: "Link: All clients"
+            label: 'Link: All clients'
             type: string
   - name: ara
-    label: "Case: ARA"
+    label: 'Case: ARA'
     type: file
     path: content/ara.json
     format: json
     fields:
       - name: s01
-        label: "1. ← All clients"
+        label: 1. Topo (nome, frase e ficha)
         type: object
         fields:
           - name: t01
-            label: "Link: ← All clients"
+            label: 'Link: ← All clients'
             type: string
           - name: t02
-            label: "Título: ARA"
+            label: 'Título: ARA'
             type: string
           - name: t03
-            label: "Texto: A conceptual foundation for Comprehensive Ayur…"
+            label: 'Texto: A conceptual foundation for Comprehensive Ayur…'
             type: text
           - name: t04
-            label: "Texto: अर"
+            label: 'Texto: अर'
             type: string
           - name: t05
-            label: "Etiqueta: the spoke of a wheel"
+            label: 'Etiqueta: the spoke of a wheel'
             type: string
           - name: t06
-            label: "Rótulo: Client"
+            label: 'Rótulo: Client'
             type: string
           - name: t07
-            label: "Valor: Comprehensive Ayurveda Healthcare"
+            label: 'Valor: Comprehensive Ayurveda Healthcare'
             type: string
           - name: t08
-            label: "Rótulo: Sector"
+            label: 'Rótulo: Sector'
             type: string
           - name: t09
-            label: "Valor: Healthcare, Ayurveda"
+            label: 'Valor: Healthcare, Ayurveda'
             type: string
           - name: t10
-            label: "Rótulo: What we did"
+            label: 'Rótulo: What we did'
             type: string
           - name: t11
-            label: "Valor: Brand concept, naming, brand architecture, roa…"
+            label: 'Valor: Brand concept, naming, brand architecture, roa…'
             type: string
           - name: t12
-            label: "Rótulo: Format"
+            label: 'Rótulo: Format'
             type: string
           - name: t13
-            label: "Valor: Creative proposal."
+            label: 'Valor: Creative proposal.'
             type: string
           - name: t14
-            label: "Link: See it live ↗"
+            label: 'Link: See it live ↗'
             type: string
       - name: s02
-        label: "2. the"
+        label: 2. the question?
         type: object
         fields:
           - name: t01
-            label: "Título: the"
+            label: 'Título: the'
             type: string
           - name: t02
-            label: "Título: question?"
+            label: 'Título: question?'
             type: string
           - name: t03
-            label: "Texto: Build the conceptual foundation for an Ayurved…"
+            label: 'Texto: Build the conceptual foundation for an Ayurved…'
             type: text
           - name: t04
-            label: "Texto: In India, Ayurveda is a way of understanding l…"
+            label: 'Texto: In India, Ayurveda is a way of understanding l…'
             type: text
       - name: s03
-        label: "3. obvious"
+        label: 3. the obvious answer. / the gaffe.
         type: object
         fields:
           - name: t01
-            label: "Título: obvious"
+            label: 'Título: obvious'
             type: string
           - name: t02
-            label: "Título: answer"
+            label: 'Título: answer'
             type: string
           - name: t03
-            label: "Texto: A wellness brand. A spa concept. A collection …"
+            label: 'Texto: A wellness brand. A spa concept. A collection …'
             type: string
           - name: t04
-            label: "Título: gaffe."
+            label: 'Título: gaffe.'
             type: string
           - name: t05
-            label: "Texto: ARA. The"
+            label: 'Texto: ARA. The'
             type: string
           - name: t06
-            label: "Texto: spoke"
+            label: 'Texto: spoke'
             type: string
           - name: t07
-            label: "Texto: of a wheel."
+            label: 'Texto: of a wheel.'
             type: string
       - name: s04
-        label: "4. insight"
+        label: 4. the insight.
         type: object
         fields:
           - name: t01
-            label: "Título: insight"
+            label: 'Título: insight'
             type: string
           - name: t02
-            label: "Texto: If health is relational, the brand must be str…"
+            label: 'Texto: If health is relational, the brand must be str…'
             type: string
           - name: t03
-            label: "Texto: A name applied on top would not hold. The bran…"
+            label: 'Texto: A name applied on top would not hold. The bran…'
             type: text
           - name: t04
-            label: "Texto: The spoke of a wheel."
+            label: 'Texto: The spoke of a wheel.'
             type: string
           - name: t05
-            label: "Texto: The element that holds tension and creates con…"
+            label: 'Texto: The element that holds tension and creates con…'
             type: text
           - name: t06
-            label: "Texto: We do not scale the person. We structure the s…"
+            label: 'Texto: We do not scale the person. We structure the s…'
             type: string
           - name: t07
-            label: "Texto: Kavitha Abzeena trained from childhood in Kera…"
+            label: 'Texto: Kavitha Abzeena trained from childhood in Kera…'
             type: text
       - name: s05
-        label: "5. what it"
+        label: 5. what it became
         type: object
         fields:
           - name: t01
-            label: "Título: what it"
+            label: 'Título: what it'
             type: string
           - name: t02
-            label: "Título: became"
+            label: 'Título: became'
             type: string
           - name: t03
-            label: "Texto: The KA · VI · THA system."
+            label: 'Texto: The KA · VI · THA system.'
             type: string
           - name: t04
-            label: "Texto: From the syllables of Kavitha's name, the ARA …"
+            label: 'Texto: From the syllables of Kavitha''s name, the ARA …'
             type: text
           - name: t05
-            label: "Texto: The Center"
+            label: 'Texto: The Center'
             type: string
           - name: t06
-            label: "Texto: · KA"
+            label: 'Texto: · KA'
             type: string
           - name: t07
-            label: "Texto: The point of diagnosis"
+            label: 'Texto: The point of diagnosis'
             type: string
           - name: t08
-            label: "Texto: The Medicine"
+            label: 'Texto: The Medicine'
             type: string
           - name: t09
-            label: "Texto: · VI"
+            label: 'Texto: · VI'
             type: string
           - name: t10
-            label: "Texto: The point of formulation"
+            label: 'Texto: The point of formulation'
             type: string
           - name: t11
-            label: "Texto: The Experience"
+            label: 'Texto: The Experience'
             type: string
           - name: t12
-            label: "Texto: · THA"
+            label: 'Texto: · THA'
             type: string
           - name: t13
-            label: "Texto: The point of experience"
+            label: 'Texto: The point of experience'
             type: string
           - name: t14
-            label: "Texto: The Institute"
+            label: 'Texto: The Institute'
             type: string
           - name: t15
-            label: "Texto: · KAVITHA"
+            label: 'Texto: · KAVITHA'
             type: string
           - name: t16
-            label: "Texto: The point of transmission"
+            label: 'Texto: The point of transmission'
             type: string
           - name: t17
-            label: "Texto: Then a three-step road to opening day."
+            label: 'Texto: Then a three-step road to opening day.'
             type: string
           - name: t18
-            label: "Subtítulo: Brand foundation"
+            label: 'Subtítulo: Brand foundation'
             type: string
           - name: t19
-            label: "Texto: Identity, positioning, audiences, tone of voic…"
+            label: 'Texto: Identity, positioning, audiences, tone of voic…'
             type: text
           - name: t20
-            label: "Texto: 4 months / Brand ID document"
+            label: 'Texto: 4 months / Brand ID document'
             type: string
           - name: t21
-            label: "Subtítulo: Brand deployment"
+            label: 'Subtítulo: Brand deployment'
             type: string
           - name: t22
-            label: "Texto: Website, social, press and internal materials,…"
+            label: 'Texto: Website, social, press and internal materials,…'
             type: text
           - name: t23
-            label: "Texto: 6 months / Launch-ready presence"
+            label: 'Texto: 6 months / Launch-ready presence'
             type: string
           - name: t24
-            label: "Subtítulo: Brand activation"
+            label: 'Subtítulo: Brand activation'
             type: string
           - name: t25
-            label: "Texto: The full communication strategy, then the firs…"
+            label: 'Texto: The full communication strategy, then the firs…'
             type: text
           - name: t26
-            label: "Texto: 6 months / Plan + first campaign"
+            label: 'Texto: 6 months / Plan + first campaign'
             type: string
       - name: s06
-        label: "6. The knowledge exists. The practice exi…"
+        label: 6. The knowledge exists. The practice exists.…
         type: object
         fields:
           - name: t01
-            label: "Texto: The knowledge exists. The practice exists. The…"
+            label: 'Texto: The knowledge exists. The practice exists. The…'
             type: string
           - name: t02
-            label: "Texto: is the structure that lets them become one."
+            label: 'Texto: is the structure that lets them become one.'
             type: string
       - name: s07
-        label: "7. Next client"
+        label: 7. Bloco amarelo do fim
         type: object
         fields:
           - name: t01
-            label: "Texto: Next client"
+            label: 'Texto: Next client'
             type: string
           - name: t02
-            label: "Link: Sanjo →"
+            label: 'Link: Sanjo →'
             type: string
           - name: t03
-            label: "Link: All clients"
+            label: 'Link: All clients'
             type: string
   - name: sanjo
-    label: "Case: Sanjo"
+    label: 'Case: Sanjo'
     type: file
     path: content/sanjo.json
     format: json
     fields:
       - name: s01
-        label: "1. ← All clients"
+        label: 1. Topo (nome, frase e ficha)
         type: object
         fields:
           - name: t01
-            label: "Link: ← All clients"
+            label: 'Link: ← All clients'
             type: string
           - name: t02
-            label: "Título: Sanjo"
+            label: 'Título: Sanjo'
             type: string
           - name: t03
-            label: "Texto: É um passo da tua história."
+            label: 'Texto: É um passo da tua história.'
             type: string
           - name: t04
-            label: "Texto: A step in your story."
+            label: 'Texto: A step in your story.'
             type: string
           - name: t05
-            label: "Etiqueta: é um passo da tua história"
+            label: 'Etiqueta: é um passo da tua história'
             type: string
           - name: t06
-            label: "Rótulo: Client"
+            label: 'Rótulo: Client'
             type: string
           - name: t07
-            label: "Rótulo: Sector"
+            label: 'Rótulo: Sector'
             type: string
           - name: t08
-            label: "Valor: Footwear"
+            label: 'Valor: Footwear'
             type: string
           - name: t09
-            label: "Rótulo: What we did"
+            label: 'Rótulo: What we did'
             type: string
           - name: t10
-            label: "Valor: Campaign concept, copy, packaging, film script…"
+            label: 'Valor: Campaign concept, copy, packaging, film script…'
             type: text
           - name: t11
-            label: "Rótulo: Format"
+            label: 'Rótulo: Format'
             type: string
           - name: t12
-            label: "Valor: Campaign proposal, with [in]sight studio"
+            label: 'Valor: Campaign proposal, with [in]sight studio'
             type: string
       - name: s02
-        label: "2. the"
+        label: 2. the question?
         type: object
         fields:
           - name: t01
-            label: "Título: the"
+            label: 'Título: the'
             type: string
           - name: t02
-            label: "Título: question?"
+            label: 'Título: question?'
             type: string
           - name: t03
-            label: "Texto: How does a brand that is almost a century old …"
+            label: 'Texto: How does a brand that is almost a century old …'
             type: text
           - name: t04
-            label: "Texto: The brand of the old days reinvented itself. S…"
+            label: 'Texto: The brand of the old days reinvented itself. S…'
             type: text
           - name: t05
-            label: "Subtítulo: Boomers & Gen X"
+            label: 'Subtítulo: Boomers & Gen X'
             type: string
           - name: t06
-            label: "Texto: Know the legacy and keep it alive. They also h…"
+            label: 'Texto: Know the legacy and keep it alive. They also h…'
             type: string
           - name: t07
-            label: "Subtítulo: Millennials, Gen Z & Alpha"
+            label: 'Subtítulo: Millennials, Gen Z & Alpha'
             type: string
           - name: t08
-            label: "Texto: Nostalgic for things they never had."
+            label: 'Texto: Nostalgic for things they never had.'
             type: string
           - name: t09
-            label: "Subtítulo: The next generation"
+            label: 'Subtítulo: The next generation'
             type: string
           - name: t10
-            label: "Texto: Ready to go past tradition altogether."
+            label: 'Texto: Ready to go past tradition altogether.'
             type: string
       - name: s03
-        label: "3. obvious"
+        label: 3. the obvious answer. / the gaffe.
         type: object
         fields:
           - name: t01
-            label: "Título: obvious"
+            label: 'Título: obvious'
             type: string
           - name: t02
-            label: "Título: answer"
+            label: 'Título: answer'
             type: string
           - name: t03
-            label: "Texto: Tradition is passed from hand to hand."
+            label: 'Texto: Tradition is passed from hand to hand.'
             type: string
           - name: t04
-            label: "Título: gaffe."
+            label: 'Título: gaffe.'
             type: string
           - name: t05
-            label: "Texto: Tradition is worn"
+            label: 'Texto: Tradition is worn'
             type: string
           - name: t06
-            label: "Texto: on your feet."
+            label: 'Texto: on your feet.'
             type: string
           - name: t07
-            label: "Texto: A tradição é uma herança passada entre mãos, m…"
+            label: 'Texto: A tradição é uma herança passada entre mãos, m…'
             type: string
       - name: s04
-        label: "4. insight"
+        label: 4. the insight.
         type: object
         fields:
           - name: t01
-            label: "Título: insight"
+            label: 'Título: insight'
             type: string
           - name: t02
-            label: "Texto: Tudo pode mudar. Mas há coisas que caminham se…"
+            label: 'Texto: Tudo pode mudar. Mas há coisas que caminham se…'
             type: string
           - name: t03
-            label: "Texto: Everything can change. Some things always walk…"
+            label: 'Texto: Everything can change. Some things always walk…'
             type: string
           - name: t04
-            label: "Texto: The young reach Sanjo through parents and gran…"
+            label: 'Texto: The young reach Sanjo through parents and gran…'
             type: text
       - name: s05
-        label: "5. what it"
+        label: 5. what it became
         type: object
         fields:
           - name: t01
-            label: "Título: what it"
+            label: 'Título: what it'
             type: string
           - name: t02
-            label: "Título: became"
+            label: 'Título: became'
             type: string
           - name: t03
-            label: "Texto: Online and off"
+            label: 'Texto: Online and off'
             type: string
           - name: t04
-            label: "Subtítulo: A um passo do online"
+            label: 'Subtítulo: A um passo do online'
             type: string
           - name: t05
-            label: "Texto: One step from online"
+            label: 'Texto: One step from online'
             type: string
           - name: t06
-            label: "Legenda: The exclusive box"
+            label: 'Legenda: The exclusive box'
             type: string
           - name: t07
-            label: "Legenda: Sneakers inside"
+            label: 'Legenda: Sneakers inside'
             type: string
           - name: t08
-            label: "Texto: Packaging for online orders"
+            label: 'Texto: Packaging for online orders'
             type: string
           - name: t09
-            label: "Subtítulo: A biscuit tin, with sneakers in it"
+            label: 'Subtítulo: A biscuit tin, with sneakers in it'
             type: string
           - name: t10
-            label: "Texto: The shoebox borrows from another piece of Port…"
+            label: 'Texto: The shoebox borrows from another piece of Port…'
             type: text
           - name: t11
-            label: "Texto: Two film spots"
+            label: 'Texto: Two film spots'
             type: string
           - name: t12
-            label: "Subtítulo: Herança & O Amanhã"
+            label: 'Subtítulo: Herança & O Amanhã'
             type: string
           - name: t13
-            label: "Texto: A young woman scrolls through family photos an…"
+            label: 'Texto: A young woman scrolls through family photos an…'
             type: text
           - name: t14
-            label: "Texto: Podcast"
+            label: 'Texto: Podcast'
             type: string
           - name: t15
-            label: "Subtítulo: Um Par de Histórias"
+            label: 'Subtítulo: Um Par de Histórias'
             type: string
           - name: t16
-            label: "Texto: Real stories that began with a pair of shoes, …"
+            label: 'Texto: Real stories that began with a pair of shoes, …'
             type: text
           - name: t17
-            label: "Subtítulo: Com um pé no offline"
+            label: 'Subtítulo: Com um pé no offline'
             type: string
           - name: t18
-            label: "Texto: One foot in offline"
+            label: 'Texto: One foot in offline'
             type: string
           - name: t19
-            label: "Legenda: Outdoor, one step at a time"
+            label: 'Legenda: Outdoor, one step at a time'
             type: string
           - name: t20
-            label: "Legenda: Retail displays"
+            label: 'Legenda: Retail displays'
             type: string
           - name: t21
-            label: "Legenda: Digital outdoor"
+            label: 'Legenda: Digital outdoor'
             type: string
           - name: t22
-            label: "Legenda: Stores"
+            label: 'Legenda: Stores'
             type: string
           - name: t23
-            label: "Legenda: Fashion events"
+            label: 'Legenda: Fashion events'
             type: string
           - name: t24
-            label: "Subtítulo: A photo studio shaped like a shoebox"
+            label: 'Subtítulo: A photo studio shaped like a shoebox'
             type: string
           - name: t25
-            label: "Texto: Visitors pick an outfit outside, step into the…"
+            label: 'Texto: Visitors pick an outfit outside, step into the…'
             type: text
           - name: t26
-            label: "Texto: Outdoor, radio, stores, retail"
+            label: 'Texto: Outdoor, radio, stores, retail'
             type: string
           - name: t27
-            label: "Subtítulo: The same step, everywhere you walk"
+            label: 'Subtítulo: The same step, everywhere you walk'
             type: string
           - name: t28
-            label: "Texto: Online sales keep growing. The street still gi…"
+            label: 'Texto: Online sales keep growing. The street still gi…'
             type: text
       - name: s06
-        label: "6. Não é um passo em falso. Não é um pass…"
+        label: 6. Não é um passo em falso. Não é um passo ma…
         type: object
         fields:
           - name: t01
-            label: "Texto: Não é um passo em falso. Não é um passo maior …"
+            label: 'Texto: Não é um passo em falso. Não é um passo maior …'
             type: string
           - name: t02
-            label: "Texto: É o próximo passo."
+            label: 'Texto: É o próximo passo.'
             type: string
           - name: t03
-            label: "Texto: Not a false step. Not a step too far. The next…"
+            label: 'Texto: Not a false step. Not a step too far. The next…'
             type: string
       - name: s07
-        label: "7. Next client"
+        label: 7. Bloco amarelo do fim
         type: object
         fields:
           - name: t01
-            label: "Texto: Next client"
+            label: 'Texto: Next client'
             type: string
           - name: t02
-            label: "Link: AQUAINN →"
+            label: 'Link: AQUAINN →'
             type: string
           - name: t03
-            label: "Link: All clients"
+            label: 'Link: All clients'
             type: string
