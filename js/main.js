@@ -345,11 +345,15 @@
     var data = new FormData(form);
     form.classList.add('is-sending');
     fstate.className = 'lbl form__state';
-    fstate.textContent = 'Sending…';
+    fstate.textContent = form.getAttribute('data-msg-sending');
     function fallback() {
       var body = data.get('message') + '\n\n' + data.get('name') + ' <' + data.get('email') + '>';
       fstate.className = 'lbl form__state is-err';
-      fstate.innerHTML = 'That didn’t go through. <a href="mailto:info@gaffe.pt?subject=' + encodeURIComponent('New brief') + '&body=' + encodeURIComponent(body) + '">Send it by email instead</a>.';
+      var link = document.createElement('a');
+      link.href = 'mailto:' + document.getElementById('mail').textContent + '?subject=' + encodeURIComponent('New brief') + '&body=' + encodeURIComponent(body);
+      link.textContent = form.getAttribute('data-msg-fail-link');
+      fstate.textContent = form.getAttribute('data-msg-fail') + ' ';
+      fstate.appendChild(link);
     }
     fetch(form.getAttribute('data-endpoint'), { method: 'POST', headers: { Accept: 'application/json' }, body: data })
       .then(function (r) { return r.ok ? r.json() : Promise.reject(r); })
@@ -357,7 +361,7 @@
         if (res && (res.success === true || res.success === 'true')) {
           form.reset();
           fstate.className = 'lbl form__state is-ok';
-          fstate.textContent = 'Got it. Talk soon!';
+          fstate.textContent = form.getAttribute('data-msg-ok');
         } else { fallback(); }
       }, fallback)
       .then(function () { form.classList.remove('is-sending'); });
